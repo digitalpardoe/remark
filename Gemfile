@@ -8,6 +8,7 @@ gem 'mongrel', '1.1.5'
 
 # Database engine.
 gem 'sqlite3-ruby', '1.2.5', :require => 'sqlite3'
+gem 'mysql', '2.8.1'
 
 # Required libraries.
 gem 'bluecloth', '2.0.7'
