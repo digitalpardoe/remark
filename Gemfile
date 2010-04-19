@@ -7,8 +7,16 @@ gem 'rails', '3.0.0.beta3'
 gem 'mongrel', '1.1.5'
 
 # Database engine.
-gem 'sqlite3-ruby', '1.2.5', :require => 'sqlite3'
-gem 'mysql', '2.8.1'
+begin
+  case File.open(File.join(File.dirname(__FILE__), "config", "database.yml")).read.scan(/adapter:\ .*/).first.gsub("adapter: ", "").strip
+    when "sqlite3"
+      gem 'sqlite3-ruby', '1.2.5', :require => 'sqlite3'
+    when "mysql"
+      gem 'mysql', '2.8.1'
+  end
+rescue
+  puts "\nPlease ensure you run 'rake remark:setup:db[adapter]' first\nthen try running your 'bundle' task again.\n\n" if File.basename( $0 ) == "bundle"
+end
 
 # Required libraries.
 gem 'bluecloth', '2.0.7'

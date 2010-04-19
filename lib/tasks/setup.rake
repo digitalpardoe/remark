@@ -21,8 +21,6 @@ namespace :remark do
           << "  <<: *sqlite\n" \
           << "  database: db/production.sqlite3\n"
           write_config_file(config)
-          system("rake db:migrate")
-          system("rake db:seed")
         when "mysql"
           db_host = request_input("\nDatabase host: ")
           db_username = request_input("\nUsername: ")
@@ -49,8 +47,6 @@ namespace :remark do
           << "  <<: *mysql\n" \
           << "  database: #{db_production}\n"
           write_config_file(config)
-          system("rake db:migrate")
-          system("rake db:seed")
         else
           puts "\n" \
           << "I'm afraid I don't know anything about the '#{args[:adapter]}'\n" \
