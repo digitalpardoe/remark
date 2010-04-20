@@ -50,8 +50,8 @@ namespace :remark do
         else
           puts "\n" \
           << "I'm afraid I don't know anything about the '#{args[:adapter]}'\n" \
-          << "adapter, you'll have to set up 'config/database.yml'\n" \
-          << "and run the migrations manually.\n\n"
+          << "adapter, you'll have to set up 'config/database.yml'\n and" \
+          << "run the migrations manually.\n\n"
       end
     end
   end
