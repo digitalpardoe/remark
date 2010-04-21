@@ -48,10 +48,13 @@ namespace :remark do
           << "  database: #{db_production}\n"
           write_config_file(config)
         else
-          puts "\n" \
-          << "I'm afraid I don't know anything about the '#{args[:adapter]}'\n" \
-          << "adapter, you'll have to set up 'config/database.yml'\n and" \
-          << "run the migrations manually.\n\n"
+          puts <<-MSG
+          
+I'm afraid I don't know anything about the '#{args[:adapter]}'
+adapter, you'll have to set up 'config/database.yml' and
+run the migrations manually.
+          
+          MSG
       end
     end
   end

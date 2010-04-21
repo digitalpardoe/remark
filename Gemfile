@@ -15,7 +15,14 @@ begin
       gem 'mysql', '2.8.1'
   end
 rescue
-  puts "\nPlease ensure you run 'rake remark:setup:db[adapter]' first\nthen try running your 'bundle' task again.\n\n" if File.basename( $0 ) == "bundle"
+  if File.basename( $0 ) == "bundle"
+    puts <<-MSG
+
+Please ensure you run 'rake remark:setup:db[adapter]' first
+then try running your 'bundle' task again.
+
+    MSG
+  end
 end
 
 # Required libraries.
