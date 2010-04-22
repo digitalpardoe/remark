@@ -1,5 +1,5 @@
 class Setting < ActiveRecord::Base
-  validates_presence_of :resource, :key, :value, :hidden, :human_readable
+  validates_presence_of :resource, :key, :value, :human_readable
   validates_uniqueness_of :key, :scope => [:resource]
   
   default_scope where(:hidden => false)

@@ -1,8 +1,4 @@
 Remark::Application.routes.draw do |map|
-  get "settings/show"
-
-  get "settings/update"
-
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
