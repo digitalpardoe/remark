@@ -28,6 +28,7 @@ end
 # Required libraries.
 gem 'bluecloth', '2.0.7'
 gem 'RedCloth', '4.2.3'
+gem 'cancan', '1.1.1'
 
 # Environment specific libraries.
 group :test do
