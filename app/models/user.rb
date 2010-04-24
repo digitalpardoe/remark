@@ -2,7 +2,7 @@ require 'active_support/secure_random'
 require 'digest/sha1'
 
 class User < ActiveRecord::Base
-  validates_presence_of :username, :password, :password_salt, :email, :name
+  validates_presence_of :username, :password, :password_confirmation, :email, :name
   validates_confirmation_of :password
   validates_uniqueness_of :username, :email
   validates_length_of :password, :minimum => 6
