@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   after_validation :encode_password, :on => :create
   
   attr_protected :crypted_password, :password_salt
-  attr_accessor :password, :password_confirmation  
+  attr_accessor :password, :password_confirmation
   
   private
   def generate_salt
@@ -20,7 +20,18 @@ class User < ActiveRecord::Base
   end
   
   def encode_password
-    self.crypted_password = Digest::SHA1.hexdigest("--#{self.password_salt}--#{self.password}--")
+    self.crypted_password = User.digest(self.password, self.password_salt)
     self.password, self.password_confirmation = nil
+  end
+  
+  class << self
+    def digest(password, salt)
+      Digest::SHA1.hexdigest("--#{salt}--#{password}--")
+    end
+    
+    def authenticate(username, password)
+      user = where(:username => username).first
+      where(:username => username, :crypted_password => digest(password || '', user ? user.password_salt : '')).limit(1).first
+    end
   end
 end

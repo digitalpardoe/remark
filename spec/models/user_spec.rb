@@ -40,6 +40,41 @@ describe User do
     @user.password_confirmation.should be nil
   end
   
+  describe "authentication:" do
+    it "should return a single user record with valid details" do
+      @user.save!
+      authenticated_user = User.authenticate(@user.username, PASSWORD)
+      %w{username email name}.each do |property|
+        eval "authenticated_user.#{property}.should == @user.#{property}"
+      end
+    end
+    
+    it "should not return any user due to invalid password" do
+      @user.save!
+      User.authenticate(@user.username, PASSWORD[0..4]).should be nil
+    end
+    
+    it "should not return any user due to invalid username" do
+      @user.save!
+      User.authenticate(@user.username[0..2], PASSWORD).should be nil
+    end
+    
+    it "shouldn't fail because username is missing" do
+      @user.save!
+      lambda { User.authenticate(nil, PASSWORD) }.should_not raise_error 
+    end
+    
+    it "shouldn't fail because password is missing" do
+      @user.save!
+      lambda { User.authenticate(@user.username, nil) }.should_not raise_error 
+    end
+    
+    it "shouldn't fail because everything is missing" do
+      @user.save!
+      lambda { User.authenticate(nil, nil) }.should_not raise_error 
+    end
+  end
+  
   describe "validations:" do
     it "shouldn't validate due to missing username" do
       @user.username = nil
