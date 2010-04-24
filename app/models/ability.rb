@@ -2,6 +2,10 @@ class Ability
   include CanCan::Ability
   
   def initialize(user)
-    false
+    user ||= User.new
+    
+    if user.username
+      can :manage, :all
+    end
   end
 end

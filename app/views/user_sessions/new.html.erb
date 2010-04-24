@@ -1,0 +1,15 @@
+<%= form_for :user, :url => user_session_path do |f| %>
+
+  <table>
+    <tr>
+      <td><%= f.label :username %></td>
+      <td><%= f.text_field :username %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :password %></td>
+      <td><%= f.password_field :password %></td>
+    </tr>
+  </table>
+
+  <%= f.submit "Login" %>
+<% end %>

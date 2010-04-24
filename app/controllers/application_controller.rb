@@ -8,6 +8,6 @@ class ApplicationController < ActionController::Base
   end
   
   def current_user
-    false
+    User.find(session[:user_id]) unless !session[:user_id]
   end
 end
