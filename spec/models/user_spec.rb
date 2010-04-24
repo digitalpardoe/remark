@@ -95,12 +95,7 @@ describe User do
       @user.email = nil
       lambda { @user.save! }.should raise_error(ActiveRecord::RecordInvalid)
     end
-  
-    it "shouldn't validate due to missing name" do
-      @user.username = nil
-      lambda { @user.save! }.should raise_error(ActiveRecord::RecordInvalid)
-    end
-    
+
     it "shouldn't validate due to incorrect password confirmation" do
       @user.password_confirmation = "#{PASSWORD}-#{PASSWORD}"
       lambda { @user.save! }.should raise_error(ActiveRecord::RecordInvalid)

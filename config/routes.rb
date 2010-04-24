@@ -48,7 +48,7 @@ Remark::Application.routes.draw do |map|
   #   end
   namespace :admin do
     resource :settings, :only => [:show,:update]
-    resources :users
+    resources :users, :except => :show
   end
 
   # You can have the root of your site routed with "root"

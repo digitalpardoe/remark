@@ -6,6 +6,11 @@ class Ability
     
     if user.username
       can :manage, :all
+    else
+      can :create, User
+      can :update, User do |record|
+        record == user
+      end
     end
   end
 end
