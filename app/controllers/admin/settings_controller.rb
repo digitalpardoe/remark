@@ -9,7 +9,7 @@ class Admin::SettingsController < AdminController
   end
 
   def update
-    authorize! :update, @settings
+    authorize! :update, Setting
     
     Setting.update(params[:setting].keys, params[:setting].values.map { |item| item = { :value => item } })
     
