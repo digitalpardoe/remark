@@ -9,14 +9,12 @@ describe User do
     @user.password = PASSWORD
     @user.password_confirmation = PASSWORD
     @user.email = 'test@example.com'
-    @user.name = 'Test User'
     
     @other_user = User.new
     @other_user.username = @user.username
     @other_user.password = @user.password
     @other_user.password_confirmation = @user.password_confirmation
     @other_user.email = @user.email
-    @other_user.name = @user.name
   end
   
   it "stores a valid user" do
@@ -40,11 +38,34 @@ describe User do
     @user.password_confirmation.should be nil
   end
   
+  describe "updating:" do
+    it "shouldn't update the password when it is blank" do
+      NEW_USERNAME = 'testing'
+      
+      @user.save!
+      crypted_password = @user.crypted_password
+      @user.update_attributes!(:username => NEW_USERNAME, :password => '', :password_confirmation => '', :email => 'test@test.com')
+      
+      @user.crypted_password.should == crypted_password
+      @user.username.should == NEW_USERNAME
+    end
+    
+    it "should still validate password length when something is present" do
+      @user.save!
+      lambda { @user.update_attributes!(:username => @user.username, :password => 'test', :password_confirmation => 'test', :email => @user.email) }.should raise_error(ActiveRecord::RecordInvalid)
+    end
+    
+    it "should still check confirmation when something is present" do
+      @user.save!
+      lambda { @user.update_attributes!(:username => @user.username, :password => 'testing', :password_confirmation => '', :email => @user.email) }.should raise_error(ActiveRecord::RecordInvalid)
+    end
+  end
+  
   describe "authentication:" do
     it "should return a single user record with valid details" do
       @user.save!
       authenticated_user = User.authenticate(@user.username, PASSWORD)
-      %w{username email name}.each do |property|
+      %w{username email}.each do |property|
         eval "authenticated_user.#{property}.should == @user.#{property}"
       end
     end
