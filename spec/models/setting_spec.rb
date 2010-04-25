@@ -14,7 +14,7 @@ describe Setting do
     @other_setting.key = @setting.key
     @other_setting.value = @setting.value
     @other_setting.hidden = @setting.hidden
-    @other_setting.human_readable = @setting.human_readable
+    @other_setting.human_readable = 'Other Test Key'
   end
   
   it "stores a valid setting" do
@@ -59,23 +59,29 @@ describe Setting do
       lambda { @setting.save! }.should raise_error(ActiveRecord::RecordInvalid)
     end
     
-    it "shouldn't validate due to missing resource" do
+    it "shouldn't validate due to missing key" do
       @setting.key = nil
       lambda { @setting.save! }.should raise_error(ActiveRecord::RecordInvalid)
     end
     
-    it "shouldn't validate due to missing resource" do
+    it "shouldn't validate due to missing value" do
       @setting.value = nil
       lambda { @setting.save! }.should raise_error(ActiveRecord::RecordInvalid)
     end
     
-    it "shouldn't validate due to missing resource" do
+    it "shouldn't validate due to missing human readable name" do
       @setting.human_readable = nil
       lambda { @setting.save! }.should raise_error(ActiveRecord::RecordInvalid)
     end
     
     it "shouldn't validate due to duplicate key in resource" do
       @setting.save!
+      lambda { @other_setting.save! }.should raise_error(ActiveRecord::RecordInvalid)
+    end
+    
+    it "shouldn't validate due to duplicate human readable name" do
+      @setting.save!
+      @other_setting.human_readable = @setting.human_readable
       lambda { @other_setting.save! }.should raise_error(ActiveRecord::RecordInvalid)
     end
     

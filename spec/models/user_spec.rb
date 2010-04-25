@@ -1,8 +1,6 @@
 require 'spec_helper'
 
-describe User do
-  PASSWORD = 'testing'
-  
+describe User do  
   before(:each) do
     @admin_role = Role.new
     @admin_role.name = 'admin'
@@ -48,8 +46,8 @@ describe User do
     @user.password_confirmation.should be nil
   end
   
-  describe "relationship" do
-    describe "role" do
+  describe "relationship with" do
+    describe "role:" do
       it "sets the default role to be a user" do
         @user.save!
         @user.role.should == @user_role

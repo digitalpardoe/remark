@@ -1,6 +1,6 @@
 class Role < ActiveRecord::Base
-  validates_presence_of :name
-  validates_uniqueness_of :name
+  validates_presence_of :name, :human_readable
+  validates_uniqueness_of :name, :human_readable
   
   has_many :users
   
