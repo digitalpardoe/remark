@@ -2,6 +2,10 @@ class Admin::SettingsController < AdminController
   def show
     @settings = Setting.application.all
     authorize! :read, @settings
+    
+    respond_to do |format|
+      format.html
+    end
   end
 
   def update

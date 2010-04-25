@@ -1,14 +1,14 @@
 <h2>Settings</h2>
 
 <%= form_for :setting, :url => { :action => "update" }, :html => { :method => :put } do |f| %>
-<table>
-  <% for setting in @settings %>
-    <tr>
-      <td><%= f.label setting.id, setting.human_readable %></td>
-      <td><%= f.text_field setting.id, :value => setting.value, :size => 50 %></td>
-    </tr>
-  <% end %>
-</table>
+  <table>
+    <% for setting in @settings %>
+      <tr>
+        <td><%= f.label setting.id, setting.human_readable %></td>
+        <td><%= f.text_field setting.id, :value => setting.value, :size => 50 %></td>
+      </tr>
+    <% end %>
+  </table>
 
   <%= f.submit "Save Settings" %>
 <% end %>

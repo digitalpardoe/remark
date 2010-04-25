@@ -1,5 +1,8 @@
 class UserSessionsController < ApplicationController
   def new
+    respond_to do |format|
+      format.html
+    end
   end
 
   def create
