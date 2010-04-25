@@ -4,6 +4,16 @@ describe User do
   PASSWORD = 'testing'
   
   before(:each) do
+    @admin_role = Role.new
+    @admin_role.name = 'admin'
+    @admin_role.human_readable = 'Administrator'
+    @admin_role.save!
+    
+    @user_role = Role.new
+    @user_role.name = 'user'
+    @user_role.human_readable = 'Website User'
+    @user_role.save!
+    
     @user = User.new
     @user.username = 'test'
     @user.password = PASSWORD
@@ -36,6 +46,32 @@ describe User do
     @user.save!
     @user.password.should be nil
     @user.password_confirmation.should be nil
+  end
+  
+  describe "relationship" do
+    describe "role" do
+      it "sets the default role to be a user" do
+        @user.save!
+        @user.role.should == @user_role
+      end
+      
+      it "lets me change the user role" do
+        @user.save!
+        @user.role = @admin_role
+        @user.save!
+        @user.role.should == @admin_role
+      end
+      
+      it "returns true if the user as a role" do
+        @user.save!
+        @user.role?(:user).should be true
+      end
+      
+      it "returns false if the user doesn't have a role" do
+        @user.save!
+        @user.role?(:admin).should be false
+      end
+    end
   end
   
   describe "updating:" do
@@ -143,6 +179,12 @@ describe User do
       @user.save!
       @other_user.username = 'something_different'
       lambda { @other_user.save! }.should raise_error(ActiveRecord::RecordInvalid)
+    end
+    
+    it "shouldn't validate due to missing role" do
+      @user.save!
+      @user.role = nil
+      lambda { @user.save! }.should raise_error(ActiveRecord::RecordInvalid)
     end
   end
 end

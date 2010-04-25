@@ -2,7 +2,7 @@ require 'active_support/secure_random'
 require 'digest/sha1'
 
 class User < ActiveRecord::Base
-  validates_presence_of :username, :email
+  validates_presence_of :username, :email, :role
   validates_presence_of :password, :password_confirmation, :unless => :password_exists?
   validates_confirmation_of :password
   validates_uniqueness_of :username, :email
@@ -10,10 +10,17 @@ class User < ActiveRecord::Base
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
   
   before_validation :generate_salt, :unless => :password_blank?
+  before_validation :assign_default_role, :on => :create
   after_validation :encode_password, :unless => :password_blank?
   
   attr_protected :crypted_password, :password_salt
   attr_accessor :password, :password_confirmation
+  
+  belongs_to :role
+  
+  def role?(role)
+    self.role.name == role.to_s
+  end
   
   private
   def password_exists?
@@ -31,6 +38,10 @@ class User < ActiveRecord::Base
   def encode_password
     self.crypted_password = User.digest(self.password, self.password_salt)
     self.password, self.password_confirmation = nil
+  end
+  
+  def assign_default_role
+    self.role = Role.retrieve(:user)
   end
   
   class << self

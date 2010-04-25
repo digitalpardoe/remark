@@ -8,3 +8,6 @@
 
 Setting.create!(:resource => IDENTIFIER, :key => 'name', :value => 'Remark', :hidden => false, :human_readable => "Blog Name")
 Setting.create!(:resource => IDENTIFIER, :key => 'subtitle', :value => 'A Rails Blogging Engine', :hidden => false, :human_readable => "Blog Subtitle")
+
+Role.create!(:name => 'admin', :human_readable => 'Administrator')
+Role.create!(:name => 'user', :human_readable => 'Website User')
