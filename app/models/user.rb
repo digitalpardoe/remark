@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
   belongs_to :role
   
   def role?(role)
-    self.role.name == role.to_s
+    self.role && self.role.name == role.to_s
   end
   
   private
@@ -50,7 +50,7 @@ class User < ActiveRecord::Base
     end
     
     def authenticate(username, password)
-      user = where(:username => username).first
+      user = where(:username => username).limit(1).first
       where(:username => username, :crypted_password => digest(password || '', user ? user.password_salt : '')).limit(1).first
     end
   end
