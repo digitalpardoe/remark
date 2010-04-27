@@ -18,8 +18,9 @@ rescue
   if File.basename( $0 ) == "bundle"
     puts <<-MSG
 
-Please ensure you run 'rake remark:setup:db[adapter]' first
-then try running your 'bundle' task again.
+Please ensure you run 'rake remark:setup:db[adapter]' then
+run 'bundle install' again to make sure you have correct
+database driver installed.
 
     MSG
   end
@@ -29,6 +30,7 @@ end
 gem 'bluecloth', '2.0.7'
 gem 'RedCloth', '4.2.3'
 gem 'cancan', '1.1.1'
+gem 'uuidtools', '2.1.1'
 
 # Environment specific libraries.
 group :test do
