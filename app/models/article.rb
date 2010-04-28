@@ -3,16 +3,20 @@ class Article < ActiveRecord::Base
   validates_presence_of :published, :if => Proc.new { |article| !article.draft }
   validates_uniqueness_of :title, :permalink, :uuid
   
+  attr_protected :uuid
+  attr_readonly :uuid
+  
   belongs_to :user
   
   scope :draft, where(:draft => true)
   scope :published, where(:draft => false)
   
-  before_validation :generate_permalink, :set_published, :generate_uuid
+  before_validation :generate_permalink, :set_published
+  before_validation :generate_uuid, :on => :create
   
   private
   def generate_permalink
-    if !self.permalink
+    if !self.permalink && self.title
       self.permalink = self.title.gsub(" ", "-").gsub(/[^a-zA-Z\-]/,"")
       while self.permalink.include?("--") do
         self.permalink = self.permalink.gsub("--", "-")
@@ -28,6 +32,6 @@ class Article < ActiveRecord::Base
   end
   
   def generate_uuid
-    self.uuid = UUIDTools::UUID.sha1_create(UUIDTools::UUID_DNS_NAMESPACE, Setting.application.setting('url').value)
+    self.uuid = UUIDTools::UUID.timestamp_create.to_s
   end
 end

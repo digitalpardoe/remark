@@ -31,4 +31,43 @@ describe Article do
   it "stores a valid article" do
     lambda { @article.save! }.should_not raise_error
   end
+  
+  it "generates a permalink" do
+    @article.save!
+    @article.permalink.should == 'this-is-a-test-title'
+  end
+  
+  it "doesn't allow resetting of uuid" do
+    @article.save!
+    uuid = @article.uuid
+    article = Article.find(@article.id)
+    article.uuid = 'random-string'
+    article.save!
+    Article.find(@article.id).uuid.should == uuid
+  end
+  
+  it "set the published date when the article is no longer a draft" do
+    @article.save!
+    @article.published.should be nil
+    @article.draft = false
+    @article.save!
+    @article.published.should_not be nil
+  end
+  
+  describe "validation:" do
+    it "shouldn't validate due to missing title" do
+      @article.title = nil
+      lambda { @article.save! }.should raise_error(ActiveRecord::RecordInvalid)
+    end
+    
+    it "shouldn't validate due to missing body" do
+      @article.body = nil
+      lambda { @article.save! }.should raise_error(ActiveRecord::RecordInvalid)
+    end
+    
+    it "shouldn't validate due to missing user" do
+      @article.user = nil
+      lambda { @article.save! }.should raise_error(ActiveRecord::RecordInvalid)
+    end
+  end
 end
