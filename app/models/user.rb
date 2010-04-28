@@ -15,7 +15,8 @@ class User < ActiveRecord::Base
   
   attr_protected :crypted_password, :password_salt
   attr_accessor :password, :password_confirmation
-  
+
+  has_many :articles
   belongs_to :role
   
   def role?(role)
