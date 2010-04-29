@@ -1,7 +1,7 @@
 # This file is copied to ~/spec when you run 'ruby script/generate rspec'
 # from the project root directory.
 ENV["RAILS_ENV"] ||= 'test'
-require File.dirname(__FILE__) + "/../config/environment" unless defined?(RAILS_ROOT)
+require File.dirname(__FILE__) + "/../config/environment" unless defined?(Rails)
 require 'rspec/rails'
 
 # Requires supporting files with custom matchers and macros, etc,
@@ -20,7 +20,7 @@ Rspec.configure do |config|
 
   # If you'd prefer not to run each of your examples within a transaction,
   # uncomment the following line.
-  # config.use_transactional_examples false
+  # config.use_transactional_examples = false
 end
 
 PASSWORD = 'testing'

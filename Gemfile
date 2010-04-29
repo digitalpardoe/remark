@@ -34,7 +34,7 @@ gem 'uuidtools', '2.1.1'
 
 # Environment specific libraries.
 group :test do
-  gem 'rspec', '2.0.0.beta.7'
-  gem 'rspec-rails', '2.0.0.beta.7'
+  gem 'rspec', '2.0.0.beta.8'
+  gem 'rspec-rails', '2.0.0.beta.8'
   gem 'rcov', '0.9.8'
 end
