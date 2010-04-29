@@ -36,7 +36,10 @@ task :default => :spec
 task :stats => "spec:statsetup"
 
 desc "Run all specs in spec directory (excluding plugin specs)"
-Rspec::Core::RakeTask.new(:spec => spec_prereq)
+Rspec::Core::RakeTask.new(:spec => spec_prereq) do |t|
+  t.rcov = true
+  t.rcov_opts = ['--exclude', 'spec/*,.bundle/*,.gem/*']
+end
 
 namespace :spec do
   [:requests, :models, :controllers, :views, :helpers, :mailers, :lib].each do |sub|

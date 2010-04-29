@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   validates_confirmation_of :password
   validates_uniqueness_of :username, :email
   validates_length_of :password, :minimum => 6, :unless => :password_blank?
-  validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
+  validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
   
   before_validation :generate_salt, :unless => :password_blank?
   before_validation :assign_default_role, :on => :create
