@@ -17,11 +17,7 @@ class Article < ActiveRecord::Base
   private
   def generate_permalink
     if !self.permalink && self.title
-      self.permalink = self.title.gsub(" ", "-").gsub(/[^a-zA-Z\-]/,"")
-      while self.permalink.include?("--") do
-        self.permalink = self.permalink.gsub("--", "-")
-      end
-      self.permalink = self.permalink.downcase
+      self.permalink = self.title.gsub(" ", "-").gsub(/[^a-zA-Z\-]/,"").squeeze("-").downcase
     end
   end
   

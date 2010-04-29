@@ -54,6 +54,12 @@ describe Article do
     @article.published.should_not be nil
   end
   
+  it "can generate a permalink from a complex title" do
+    @article.title = 'This! Is  A@@@ Test Title__-- With-Some Punctuation.'
+    @article.save
+    @article.permalink.should == 'this-is-a-test-title-with-some-punctuation'
+  end
+  
   describe "validation:" do
     it "shouldn't validate due to missing title" do
       @article.title = nil
