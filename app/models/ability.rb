@@ -10,8 +10,14 @@ class Ability
       can :update, User do |record|
         record == user
       end
+      can [:read,:update,:destroy], Article do |record|
+        record.user == user
+      end
     else
       can :create, User
+      can :read, Article do |record|
+        !record.draft
+      end
     end
   end
 end
