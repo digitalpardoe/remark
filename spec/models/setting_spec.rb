@@ -35,6 +35,11 @@ describe Setting do
     Setting.application.count.should == 1
   end
   
+  it "retrieves an instance of a setting" do
+    @setting.save!
+    Setting.resource(@setting.resource).setting(@setting.key).value.should == @setting.value
+  end
+  
   describe "hidden records" do
     it "defaults to not being show" do
       @setting.save!

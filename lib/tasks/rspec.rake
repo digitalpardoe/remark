@@ -43,6 +43,8 @@ namespace :spec do
     desc "Run the code examples in spec/#{sub}"
     Rspec::Core::RakeTask.new(sub => spec_prereq) do |t|
       t.pattern = "./spec/#{sub}/**/*_spec.rb"
+      t.rcov = true
+      t.rcov_opts = ['--exclude', 'spec/*,.bundle/*,.gem/*']
     end
   end
 
