@@ -56,8 +56,34 @@ describe Article do
   
   it "can generate a permalink from a complex title" do
     @article.title = 'This! Is  A@@@ Test Title__-- With-Some Punctuation.'
-    @article.save
+    @article.save!
     @article.permalink.should == 'this-is-a-test-title-with-some-punctuation'
+  end
+  
+  describe "relationship with" do
+    describe "tag:" do
+      it "should parse the tags correctly" do
+        @article.composite_tags = "These, Are, Some Tags"
+        @article.save!
+        @article.tags.size.should == 3
+        Tag.all.count.should == 3
+      end
+      
+      it "shouldn't create more tags when they already exist" do
+        @article.composite_tags = "These, Are, Some Tags"
+        @article.save!
+        @article.composite_tags = "These, Are, Some Tags, With, Some, Extra"
+        @article.save!
+        Tag.all.count.should == 6
+      end
+    end
+    
+    describe "user:" do
+      it "should store the user" do
+        @article.save!
+        @article.user.should_not be nil
+      end
+    end
   end
   
   describe "validation:" do
