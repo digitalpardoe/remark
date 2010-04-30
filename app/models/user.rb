@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
   attr_accessor :password, :password_confirmation
 
   has_many :articles
+  has_many :pages
   belongs_to :role
   
   def role?(role)
