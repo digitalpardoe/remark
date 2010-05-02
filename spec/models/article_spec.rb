@@ -101,5 +101,25 @@ describe Article do
       @article.user = nil
       lambda { @article.save! }.should raise_error(ActiveRecord::RecordInvalid)
     end
+    
+    it "shouldn't validate due to an incorrectly formatted permalink (spaces)" do
+      @article.permalink = "This Format Is Incorrect"
+      lambda { @article.save! }.should raise_error(ActiveRecord::RecordInvalid)
+    end
+    
+    it "shouldn't validate due to an incorrectly formatted permalink (trailing dash)" do
+      @article.permalink = "this-format-is-incorrect-"
+      lambda { @article.save! }.should raise_error(ActiveRecord::RecordInvalid)
+    end
+    
+    it "shouldn't validate due to an incorrectly formatted permalink (punctuation)" do
+      @article.permalink = "this!-may-initially-look-correct"
+      lambda { @article.save! }.should raise_error(ActiveRecord::RecordInvalid)
+    end
+    
+    it "should validate with a different valid permalink" do
+      @article.permalink = "thisshouldwork"
+      lambda { @article.save! }.should_not raise_error
+    end
   end
 end

@@ -2,6 +2,7 @@ class Article < ActiveRecord::Base
   validates_presence_of :title, :body, :user, :permalink, :uuid
   validates_presence_of :published, :if => Proc.new { |article| !article.draft }
   validates_uniqueness_of :title, :permalink, :uuid
+  validates_format_of :permalink, :with => /\A([a-z]+-{0,1})*([a-z]+)\Z/i
   
   attr_protected :uuid, :tags
   attr_readonly :uuid
@@ -20,7 +21,7 @@ class Article < ActiveRecord::Base
   private
   def generate_permalink
     if !self.permalink && self.title
-      self.permalink = self.title.gsub(" ", "-").gsub(/[^a-zA-Z\-]/, "").squeeze("-").downcase
+      self.permalink = self.title.gsub(" ", "-").gsub(/[^a-z\-]/i, "").squeeze("-").downcase
     end
   end
   
