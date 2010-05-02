@@ -4,55 +4,52 @@ namespace :remark do
     task :db, :adapter do |t, args|
       case args[:adapter]
         when "sqlite3" 
-          config = "sqlite: &sqlite\n" \
-          << "  adapter: sqlite3\n" \
-          << "  pool: 5\n" \
-          << "  timeout: 5000\n" \
-          << "\n" \
-          << "development:\n" \
-          << "  <<: *sqlite\n" \
-          << "  database: db/development.sqlite3\n" \
-          << "\n" \
-          << "test:\n" \
-          << "  <<: *sqlite\n" \
-          << "  database: db/test.sqlite3\n" \
-          << "\n" \
-          << "production:\n" \
-          << "  <<: *sqlite\n" \
-          << "  database: db/production.sqlite3\n"
+          config = <<-CONF
+sqlite: &sqlite
+  adapter: sqlite3
+  pool: 5
+  timeout: 5000
+  
+development:
+  <<: *sqlite
+  database: db/development.sqlite3
+  
+test:
+  <<: *sqlite
+  database: db/test.sqlite3
+  
+production:
+  <<: *sqlite
+  database: db/production.sqlite3
+          CONF
           write_config_file(config)
         when "mysql"
-          db_host = request_input("\nDatabase host: ")
-          db_username = request_input("\nUsername: ")
-          db_password = request_input("\nPassword: ")
-          db_development = request_input("\nDevelopment database name: ")
-          db_test = request_input("\nTest database name: ")
-          db_production = request_input("\nProduction database name: ")
-          
-          config = "mysql: &mysql\n" \
-          << "  adapter: mysql\n" \
-          << "  host: #{db_host}\n" \
-          << "  username: #{db_username}\n" \
-          << "  password: #{db_password}\n" \
-          << "\n" \
-          << "development:\n" \
-          << "  <<: *mysql\n" \
-          << "  database: #{db_development}\n" \
-          << "\n" \
-          << "test:\n" \
-          << "  <<: *mysql\n" \
-          << "  database: #{db_test}\n" \
-          << "\n" \
-          << "production:\n" \
-          << "  <<: *mysql\n" \
-          << "  database: #{db_production}\n"
+          config = <<-CONF
+mysql: &mysql
+  adapter: mysql
+  host: #{request_input("Database host: ")}
+  username: #{request_input("Username: ")}
+  password: #{request_input("Password: ")}
+  
+development:
+  <<: *mysql
+  database: #{request_input("Development database name: ")}
+
+test:
+  <<: *mysql
+  database: #{request_input("Test database name: ")}
+  
+production:
+  <<: *mysql
+  database: #{request_input("Production database name: ")}
+          CONF
           write_config_file(config)
         else
           puts <<-MSG
           
 I'm afraid I don't know anything about the '#{args[:adapter]}'
-adapter, you'll have to set up 'config/database.yml' and
-run the migrations manually.
+adapter, you'll have to set up 'config/database.yml'
+manually.
           
           MSG
       end
@@ -62,7 +59,7 @@ end
 
 private
 def request_input(message)
-  puts message
+  puts "\n#{message}"
   STDIN.gets.chomp
 end
 
