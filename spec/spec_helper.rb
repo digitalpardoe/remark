@@ -22,5 +22,3 @@ Rspec.configure do |config|
   # uncomment the following line.
   # config.use_transactional_examples = false
 end
-
-PASSWORD = 'testing'
