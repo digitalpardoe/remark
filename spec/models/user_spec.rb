@@ -184,5 +184,15 @@ describe User do
       @user.role = nil
       lambda { @user.save! }.should raise_error(ActiveRecord::RecordInvalid)
     end
+    
+    it "shouldn't validate due to badly formatted website" do
+      @user.website = 'some random text'
+      lambda { @user.save! }.should raise_error(ActiveRecord::RecordInvalid)
+    end
+    
+    it "should validate with correctly formatted website" do
+      @user.website = 'http://example.com/'
+      lambda { @user.save! }.should_not raise_error
+    end
   end
 end

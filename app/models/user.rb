@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :username, :email
   validates_length_of :password, :minimum => 6, :unless => :password_blank?
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
+  validates_format_of :website, :with => /^$|^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$/i
   
   before_validation :generate_salt, :unless => :password_blank?
   before_validation :assign_default_role, :on => :create
@@ -17,6 +18,7 @@ class User < ActiveRecord::Base
   attr_accessor :password, :password_confirmation
 
   has_many :articles
+  has_many :comments
   has_many :pages
   belongs_to :role
   
