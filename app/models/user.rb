@@ -20,6 +20,8 @@ class User < ActiveRecord::Base
   has_many :pages
   belongs_to :role
   
+  is_gravtastic!
+  
   def role?(role)
     self.role && self.role.name == role.to_s
   end
