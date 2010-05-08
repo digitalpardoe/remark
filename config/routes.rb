@@ -49,6 +49,7 @@ Remark::Application.routes.draw do |map|
   namespace :admin do
     root :to => "admin#index"
     
+    resources :articles
     resource :settings, :only => [:show,:update]
     resources :users, :except => :show
   end

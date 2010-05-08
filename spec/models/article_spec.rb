@@ -76,6 +76,27 @@ describe Article do
         @article.save!
         Tag.all.count.should == 6
       end
+      
+      it "should return the tags as a comma separated list" do
+        @article.composite_tags = "These, Are, Some Tags"
+        @article.save!
+        @article.composite_tags.should == "These, Are, Some Tags"
+      end
+      
+      it "shouldn't fail with empty tags string" do
+        @article.composite_tags = ""
+        lambda { @article.save! }.should_not raise_error
+      end
+      
+      it "should work with trailing commas" do
+        @article.composite_tags = "These, Are, Tags,,, , ,"
+        @article.save!
+        Tag.all.count.should == 3
+      end
+      
+      it "should work with leading commas" do
+        @article.composite_tags = ", , ,,, These, Are, Tags"
+      end
     end
     
     describe "user:" do

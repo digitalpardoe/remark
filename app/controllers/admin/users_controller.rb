@@ -1,9 +1,15 @@
-class Admin::UsersController < ApplicationController
+class Admin::UsersController < AdminController
   load_and_authorize_resource
   
   def index
     @users = User.all
     
+    respond_to do |format|
+      format.html
+    end
+  end
+  
+  def show
     respond_to do |format|
       format.html
     end

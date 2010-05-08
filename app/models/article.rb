@@ -16,8 +16,16 @@ class Article < ActiveRecord::Base
   
   before_validation :generate_permalink, :set_published, :process_tags
   before_validation :generate_uuid, :on => :create
+    
+  attr_accessor :tags_to_process
   
-  attr_accessor :composite_tags
+  def composite_tags=(args)
+    self.tags_to_process = args
+  end
+  
+  def composite_tags
+    self.tags.map { |tag| tag = tag.name }.join(', ')
+  end
   
   private
   def generate_permalink
@@ -33,9 +41,9 @@ class Article < ActiveRecord::Base
   end
   
   def process_tags
-    self.composite_tags.split(",").each do |tag|
+    self.tags_to_process.gsub(/\ *,\ */, ",").split(",").each do |tag|
       self.tags << Tag.find_or_create_by_name(tag)
-    end unless !composite_tags
+    end unless !self.tags_to_process
   end
   
   def generate_uuid

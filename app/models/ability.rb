@@ -18,6 +18,9 @@ class Ability
       can :read, Article do |record|
         !record.draft
       end
+      can :read, Page do |record|
+        !record.draft
+      end
     end
   end
 end
