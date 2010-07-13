@@ -10,7 +10,7 @@ gem 'mongrel', '1.1.5'
 begin
   case File.open(File.join(File.dirname(__FILE__), "config", "database.yml")).read.scan(/adapter:\ .*/).first.gsub("adapter: ", "").strip
     when "sqlite3"
-      gem 'sqlite3-ruby', '1.2.5', :require => 'sqlite3'
+      gem 'sqlite3-ruby', '1.3.1', :require => 'sqlite3'
     when "mysql"
       gem 'mysql', '2.8.1'
   end
@@ -31,12 +31,12 @@ gem 'bluecloth', '2.0.7'
 gem 'RedCloth', '4.2.3'
 gem 'cancan', '1.1.1'
 gem 'uuidtools', '2.1.1'
-gem 'rakismet', '0.4.0'
+gem 'rakismet', '0.4.2'
 gem 'gravtastic', '2.2.0'
 
 # Environment specific libraries.
 group :test do
-  gem 'rspec', '2.0.0.beta.8'
-  gem 'rspec-rails', '2.0.0.beta.8'
+  gem 'rspec', '2.0.0.beta.17'
+  gem 'rspec-rails', '2.0.0.beta.17'
   gem 'rcov', '0.9.8'
 end
