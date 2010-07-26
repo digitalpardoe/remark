@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 # Rails version.
-gem 'rails', '3.0.0.beta4'
+gem 'rails', '3.0.0.rc'
 
 # Application server.
 gem 'mongrel', '1.1.5'
@@ -29,14 +29,14 @@ end
 # Required libraries.
 gem 'bluecloth', '2.0.7'
 gem 'RedCloth', '4.2.3'
-gem 'cancan', '1.1.1'
+gem 'cancan', '1.2.0'
 gem 'uuidtools', '2.1.1'
 gem 'rakismet', '0.4.2'
 gem 'gravtastic', '2.2.0'
 
 # Environment specific libraries.
 group :test do
-  gem 'rspec', '2.0.0.beta.17'
-  gem 'rspec-rails', '2.0.0.beta.17'
+  gem 'rspec', '2.0.0.beta.19'
+  gem 'rspec-rails', '2.0.0.beta.19'
   gem 'rcov', '0.9.8'
 end
