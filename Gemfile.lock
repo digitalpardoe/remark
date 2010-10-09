@@ -31,9 +31,9 @@ GEM
     activesupport (3.0.0)
     arel (1.0.1)
       activesupport (~> 3.0.0)
-    bluecloth (2.0.7)
+    bluecloth (2.0.9)
     builder (2.1.2)
-    cancan (1.2.0)
+    cancan (1.4.0)
     cgi_multipart_eof_fix (2.5.0)
     daemons (1.1.0)
     diff-lcs (1.1.2)
@@ -98,8 +98,8 @@ PLATFORMS
 
 DEPENDENCIES
   RedCloth (= 4.2.3)
-  bluecloth (= 2.0.7)
-  cancan (= 1.2.0)
+  bluecloth (= 2.0.9)
+  cancan (= 1.4.0)
   gravtastic (= 2.2.0)
   mongrel (= 1.1.5)
   rails (= 3.0.0)
