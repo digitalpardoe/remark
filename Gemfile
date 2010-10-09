@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 # Rails version.
-gem 'rails', '3.0.0.rc'
+gem 'rails', '3.0.0'
 
 # Application server.
 gem 'mongrel', '1.1.5'
@@ -35,8 +35,6 @@ gem 'rakismet', '0.4.2'
 gem 'gravtastic', '2.2.0'
 
 # Environment specific libraries.
-group :test do
-  gem 'rspec', '2.0.0.beta.19'
-  gem 'rspec-rails', '2.0.0.beta.19'
-  gem 'rcov', '0.9.8'
+group :test, :development do
+  gem 'rspec-rails', '2.0.0.rc'
 end
