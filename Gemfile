@@ -32,9 +32,9 @@ gem 'RedCloth', '4.2.3'
 gem 'cancan', '1.4.0'
 gem 'uuidtools', '2.1.1'
 gem 'rakismet', '0.4.2'
-gem 'gravtastic', '2.2.0'
+gem 'gravtastic', '3.0.0'
 
 # Environment specific libraries.
 group :test, :development do
-  gem 'rspec-rails', '2.0.0.rc'
+  gem 'rspec-rails', '2.0.0'
 end
