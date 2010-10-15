@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 # Rails version.
-gem 'rails', '3.0.0'
+gem 'rails', '3.0.1'
 
 # Application server.
 gem 'mongrel', '1.1.5'
