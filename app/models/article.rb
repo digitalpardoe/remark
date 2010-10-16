@@ -42,7 +42,7 @@ class Article < ActiveRecord::Base
   
   def process_tags
     self.tags_to_process.gsub(/\ *,\ */, ",").split(",").each do |tag|
-      self.tags << Tag.find_or_create_by_name(tag)
+      self.tags << Tag.find_or_create_by_name(tag) unless tag == nil || tag == ''
     end unless !self.tags_to_process
   end
   

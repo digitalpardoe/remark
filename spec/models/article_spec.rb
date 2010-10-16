@@ -96,6 +96,14 @@ describe Article do
       
       it "should work with leading commas" do
         @article.composite_tags = ", , ,,, These, Are, Tags"
+        @article.save!
+        Tag.all.count.should == 3
+      end
+      
+      it "should work with odd comma spacing" do
+        @article.composite_tags = "These,Are,Tags"
+        @article.save!
+        Tag.all.count.should == 3
       end
     end
     
