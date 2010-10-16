@@ -38,8 +38,8 @@ describe Ability do
   
   it "allows operating on any model if an administrator" do
     ability = Ability.new(@admin_user)
-    (ActiveRecord::Base.send(:subclasses)).each do |model|
-      ability.can?(:manage, model.new).should be true
+    Dir['app/models/*.rb'].map { |f| File.basename(f, '.*').camelize.constantize }.each do |model|
+      ability.can?(:manage, model).should be true
     end
   end
   
