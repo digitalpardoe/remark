@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
   end
   
   def password_blank?
-    !(self.password && self.password_confirmation && self.password != '' && self.password_confirmation != '')
+    self.password.blank? && self.password_confirmation.blank?
   end
   
   def generate_salt

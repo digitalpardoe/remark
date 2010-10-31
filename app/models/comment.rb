@@ -1,6 +1,6 @@
 class Comment < ActiveRecord::Base
   validates_presence_of :name, :email, :unless => :assigned_user?
-  validates_presence_of :user, :if => Proc.new { |comment| !comment.name && !comment.email }
+  validates_presence_of :user, :if => Proc.new { |comment| comment.name.blank? && comment.email.blank? }
   validates_presence_of :body, :article, :uuid
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :unless => :assigned_user?
   validates_format_of :website, :with => /^$|^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$/i

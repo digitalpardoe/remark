@@ -15,7 +15,7 @@ class Page < ActiveRecord::Base
 
   private
   def generate_permalink
-    if !self.permalink && self.title
+    if self.permalink.blank? && self.title
       self.permalink = self.title.gsub(" ", "-").gsub(/[^a-z\-]/i, "").squeeze("-").downcase
     end
   end
