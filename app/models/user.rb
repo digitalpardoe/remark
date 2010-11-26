@@ -2,6 +2,8 @@ require 'active_support/secure_random'
 require 'digest/sha1'
 
 class User < ActiveRecord::Base
+  include Gravtastic
+
   validates_presence_of :username, :email, :role
   validates_presence_of :password, :password_confirmation, :unless => :password_exists?
   validates_confirmation_of :password
