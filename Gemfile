@@ -37,4 +37,5 @@ gem 'gravtastic', '3.1.0'
 # Environment specific libraries.
 group :test, :development do
   gem 'rspec-rails', '2.1.0'
+  gem 'factory_girl_rails', '1.1.beta1'
 end
