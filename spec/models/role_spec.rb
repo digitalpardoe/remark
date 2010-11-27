@@ -2,25 +2,10 @@ require 'spec_helper'
 
 describe Role do
   before(:each) do
-    @role = Role.new
-    @role.name = 'user'
-    @role.human_readable = 'Website User'
-    
-    @other_role = Role.new
-    @other_role.name = 'admin'
-    @other_role.human_readable = 'Administrator'
-    
-    @user = User.new
-    @user.username = 'test'
-    @user.password = PASSWORD
-    @user.password_confirmation = PASSWORD
-    @user.email = 'test@example.com'
-    
-    @other_user = User.new
-    @other_user.username = @user.username[0..2]
-    @other_user.password = @user.password
-    @other_user.password_confirmation = @user.password_confirmation
-    @other_user.email = @user.email.gsub('test', 'testing')
+    @role = Factory.stub(:user_role)
+    @other_role = Factory.stub(:admin_role)
+    @user = Factory.stub(:user)
+    @other_user = Factory.stub(:user, :username => @user.username[0..2], :password => @user.password, :password_confirmation => @user.password_confirmation)
   end
   
   it "stores a valid user" do

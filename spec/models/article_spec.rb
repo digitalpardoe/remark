@@ -2,25 +2,8 @@ require 'spec_helper'
 
 describe Article do
   before(:each) do
-    @setting = Setting.new
-    @setting.resource = IDENTIFIER
-    @setting.key = 'url'
-    @setting.value = 'example.com'
-    @setting.hidden = false
-    @setting.human_readable = 'Blog URL'
-    @setting.save!
-        
-    @role = Role.new
-    @role.name = 'user'
-    @role.human_readable = 'Website User'
-    @role.save!
-    
-    @user = User.new
-    @user.username = 'test'
-    @user.password = PASSWORD
-    @user.password_confirmation = PASSWORD
-    @user.email = 'test@example.com'
-    @user.save!
+    @setting = Factory.create(:setting)
+    @user = Factory.create(:user)
     
     @article = Article.new
     @article.title = 'This Is A Test Title'

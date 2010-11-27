@@ -2,18 +2,7 @@ require 'spec_helper'
 
 describe Comment do
   before(:each) do
-    @role = Role.new
-    @role.name = 'user'
-    @role.human_readable = 'Website User'
-    @role.save!
-    
-    @user = User.new
-    @user.username = 'test'
-    @user.password = PASSWORD
-    @user.password_confirmation = PASSWORD
-    @user.email = 'test@example.com'
-    @user.website = 'http://example.com/'
-    @user.save!
+    @user = Factory.create(:user)
     
     @article = Article.new
     @article.title = 'This Is A Test Title'

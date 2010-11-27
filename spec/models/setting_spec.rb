@@ -2,19 +2,8 @@ require 'spec_helper'
 
 describe Setting do
   before(:each) do
-    @setting = Setting.new
-    @setting.resource = 'com.test'
-    @setting.key = 'key'
-    @setting.value = 'value'
-    @setting.hidden = false
-    @setting.human_readable = 'Test Key'
-    
-    @other_setting = Setting.new
-    @other_setting.resource = @setting.resource
-    @other_setting.key = @setting.key
-    @other_setting.value = @setting.value
-    @other_setting.hidden = @setting.hidden
-    @other_setting.human_readable = 'Other Test Key'
+    @setting = Factory.stub(:setting, :resource => 'com.test')
+    @other_setting = Factory.stub(:setting, :resource => 'com.test', :human_readable => 'Other Test Key')
   end
   
   it "stores a valid setting" do

@@ -2,17 +2,7 @@ require 'spec_helper'
 
 describe UserSessionsController do
   before(:each) do
-    @normal_role = Role.new
-    @normal_role.name = 'user'
-    @normal_role.human_readable = 'Website User'
-    @normal_role.save!
-    
-    @user = User.new
-    @user.username = 'test'
-    @user.password = PASSWORD
-    @user.password_confirmation = PASSWORD
-    @user.email = 'test@example.com'
-    @user.save!
+    @user = Factory.create(:user)
   end
 
   describe "GET 'new'" do

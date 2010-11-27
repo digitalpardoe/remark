@@ -2,17 +2,7 @@ require 'spec_helper'
 
 describe Page do
   before(:each) do
-    @normal_role = Role.new
-    @normal_role.name = 'user'
-    @normal_role.human_readable = 'Website User'
-    @normal_role.save!
-    
-    @normal_user = User.new
-    @normal_user.username = 'test'
-    @normal_user.password = PASSWORD
-    @normal_user.password_confirmation = PASSWORD
-    @normal_user.email = 'test@example.com'
-    @normal_user.save!
+    @normal_user = Factory.create(:user)
     
     @page = Page.new
     @page.title = 'Title'

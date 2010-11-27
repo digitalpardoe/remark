@@ -2,34 +2,8 @@ require 'spec_helper'
 
 describe Admin::SettingsController do
   before(:each) do
-    @setting = Setting.new
-    @setting.resource = IDENTIFIER
-    @setting.key = 'key'
-    @setting.value = 'value'
-    @setting.hidden = false
-    @setting.human_readable = 'Test Key'
-    @setting.save!
-    
-    @normal_role = Role.new
-    @normal_role.name = 'user'
-    @normal_role.human_readable = 'Website User'
-    @normal_role.save!
-    
-    @admin_role = Role.new
-    @admin_role.name = 'admin'
-    @admin_role.human_readable = 'Administrator'
-    @admin_role.save!
-    
-    @user = User.new
-    @user.username = 'test'
-    @user.password = PASSWORD
-    @user.password_confirmation = PASSWORD
-    @user.email = 'test@example.com'
-    @user.save!
-    
-    @user.role = @admin_role
-    @user.save!
-    
+    @setting = Factory.create(:setting)
+    @user = Factory.create(:admin)
     session[:user_id] = @user.id
   end
   
