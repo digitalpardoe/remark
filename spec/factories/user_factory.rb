@@ -1,4 +1,4 @@
-require 'support/constants'
+require File.expand_path("../../support/constants", __FILE__)
 
 FactoryGirl.define do
   factory :password, :class => User do
