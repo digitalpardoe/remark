@@ -26,7 +26,7 @@ describe Setting do
   
   it "retrieves an instance of a setting" do
     @setting.save!
-    Setting.resource(@setting.resource).setting(@setting.key).value.should == @setting.value
+    Setting.resource(@setting.resource).value(@setting.key.to_sym).should == @setting.value
   end
   
   describe "hidden records" do
@@ -55,11 +55,6 @@ describe Setting do
     
     it "shouldn't validate due to missing key" do
       @setting.key = nil
-      lambda { @setting.save! }.should raise_error(ActiveRecord::RecordInvalid)
-    end
-    
-    it "shouldn't validate due to missing value" do
-      @setting.value = nil
       lambda { @setting.save! }.should raise_error(ActiveRecord::RecordInvalid)
     end
     

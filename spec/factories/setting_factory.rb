@@ -5,5 +5,6 @@ FactoryGirl.define do
     value 'value'
     hidden false
     human_readable 'Test Key'
+    required true
   end
 end

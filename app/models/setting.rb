@@ -1,13 +1,15 @@
 class Setting < ActiveRecord::Base
-  validates_presence_of :resource, :key, :value, :human_readable
+  validates_presence_of :resource, :key, :human_readable
+  validates_presence_of :value, :if => Proc.new { |setting| setting.required }
   validates_uniqueness_of :key, :scope => [:resource]
   validates_uniqueness_of :human_readable
   
-  default_scope where(:hidden => false)
+  default_scope where(:hidden => false).order('human_readable ASC')
   
   scope :resource, lambda { |resource| where(:resource => resource) } do
-    def setting(key)
-      where(:key => key).first
+    def value(key)
+      result = where(:key => key.to_s).first
+      result.value unless !result
     end
   end
   
