@@ -1,4 +1,6 @@
 class Article < ActiveRecord::Base
+  include Permalink
+  
   validates_presence_of :title, :body, :user, :permalink, :uuid
   validates_presence_of :published, :if => Proc.new { |article| !article.draft }
   validates_uniqueness_of :title, :permalink, :uuid
@@ -28,12 +30,6 @@ class Article < ActiveRecord::Base
   end
   
   private
-  def generate_permalink
-    if self.permalink.blank? && self.title
-      self.permalink = self.title.gsub(" ", "-").gsub(/[^a-z\-]/i, "").squeeze("-").downcase
-    end
-  end
-  
   def set_published
     unless self.draft
       self.published = Time.now
@@ -41,8 +37,8 @@ class Article < ActiveRecord::Base
   end
   
   def process_tags
-    self.tags_to_process.gsub(/\ *,\ */, ",").split(",").each do |tag|
-      self.tags << Tag.find_or_create_by_name(tag) unless tag == nil || tag == ''
+    self.tags = self.tags_to_process.gsub(/\ *,\ */, ",").split(",").delete_if { |tag| tag == '' }.collect do |tag|
+      Tag.find_or_create_by_name(tag)
     end unless !self.tags_to_process
   end
   

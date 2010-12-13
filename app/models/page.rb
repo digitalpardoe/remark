@@ -1,4 +1,6 @@
 class Page < ActiveRecord::Base
+  include Permalink
+  
   validates_presence_of :title, :body, :user, :permalink
   validates_presence_of :published, :if => Proc.new { |article| !article.draft }
   validates_uniqueness_of :title, :permalink
@@ -14,12 +16,6 @@ class Page < ActiveRecord::Base
   before_validation :generate_permalink, :set_published
 
   private
-  def generate_permalink
-    if self.permalink.blank? && self.title
-      self.permalink = self.title.gsub(" ", "-").gsub(/[^a-z\-]/i, "").squeeze("-").downcase
-    end
-  end
-  
   def set_published
     unless self.draft
       self.published = Time.now

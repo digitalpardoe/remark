@@ -88,6 +88,14 @@ describe Article do
         @article.save!
         Tag.all.count.should == 3
       end
+      
+      it "shouldn't keep adding tags on every save" do
+        @article.composite_tags = "These,Are,Tags"
+        (1..5).each do |i|
+          @article.save!
+        end
+        Tag.all.count.should == 3
+      end
     end
     
     describe "user:" do
