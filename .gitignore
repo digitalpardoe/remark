@@ -1,3 +1,4 @@
+.DS_Store
 .bundle
 db/*.sqlite3
 log/*.log
@@ -8,3 +9,4 @@ coverage/*
 nbproject/*
 .idea/*
 test/*
+public/files/*

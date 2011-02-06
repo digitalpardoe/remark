@@ -52,6 +52,7 @@ Remark::Application.routes.draw do
     resources :articles
     resource :settings, :only => [:show,:update]
     resources :users, :except => :show
+    resources :documents, :except => [:show,:edit,:update]
   end
 
   # You can have the root of your site routed with "root"

@@ -1,0 +1,12 @@
+<%= form_for(@document, :url => admin_documents_path, :html => { :multipart => true }) do |f| %>
+  <%= error_messages_for(@document) %>
+
+  <table>
+    <tr>
+      <td><%= f.label :document %></td>
+      <td><%= f.file_field :document %></td>
+    </tr>
+  </table>
+
+  <%= f.submit %>
+<% end %>

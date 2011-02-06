@@ -39,5 +39,9 @@ module Remark
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
+    
+    config.after_initialize do
+      require 'file'
+    end
   end
 end
