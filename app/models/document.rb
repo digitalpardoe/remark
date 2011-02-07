@@ -4,7 +4,7 @@ class Document < ActiveRecord::Base
   validates_presence_of :document
   validates_presence_of :name, :size, :content_type, :if => Proc.new { |document| document.document }
 
-  before_validation :persist_document, :on => :create
+  before_validation :persist_document, :on => :create, :if => Proc.new { |document| document.document }
   before_destroy :cleanup_document
   
   attr_accessor :document
@@ -17,8 +17,6 @@ class Document < ActiveRecord::Base
   
   private
   def persist_document
-    return if !document
-    
     FileUtils.mkdir_p(FILE_STORE) unless File.exists?(FILE_STORE)
     
     file = File.name_and_ext(File.basename(document.original_filename))
