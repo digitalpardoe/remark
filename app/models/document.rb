@@ -1,3 +1,5 @@
+require 'file'
+
 class Document < ActiveRecord::Base
   validates_presence_of :document
   validates_presence_of :name, :size, :content_type, :if => Proc.new { |document| document.document }

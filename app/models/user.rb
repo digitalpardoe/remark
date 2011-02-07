@@ -30,6 +30,10 @@ class User < ActiveRecord::Base
     self.role && self.role.name == role.to_s
   end
   
+  def destroy
+    super unless self.role?(:admin) && Role.retrieve(:admin).users.count(:id) <= 1      
+  end
+  
   private
   def password_exists?
     self.crypted_password && self.password_salt

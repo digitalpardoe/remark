@@ -1,7 +1,8 @@
 class Admin::SettingsController < AdminController
+  authorize_resource
+  
   def show
     @settings = Setting.application.all
-    authorize! :read, @settings
     
     respond_to do |format|
       format.html
@@ -9,8 +10,6 @@ class Admin::SettingsController < AdminController
   end
 
   def update
-    authorize! :update, Setting
-    
     Setting.update(params[:setting].keys, params[:setting].values.map { |item| item = { :value => item } })
     
     respond_to do |format|
