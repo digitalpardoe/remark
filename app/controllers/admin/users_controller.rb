@@ -48,7 +48,6 @@ class Admin::UsersController < AdminController
   end
 
   def destroy
-    # TODO: Handle if the user isn't deleted because it's the last admin user.
     @user.destroy
     
     respond_to do |format|
