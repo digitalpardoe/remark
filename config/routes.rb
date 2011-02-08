@@ -1,4 +1,10 @@
 Remark::Application.routes.draw do
+  get "pages/index"
+
+  get "pages/new"
+
+  get "pages/edit"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -53,6 +59,7 @@ Remark::Application.routes.draw do
     resource :settings, :only => [:show,:update]
     resources :users, :except => :show
     resources :documents, :except => [:show,:edit,:update]
+    resources :pages
   end
 
   # You can have the root of your site routed with "root"
