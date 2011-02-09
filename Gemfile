@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 # Rails version.
-gem 'rails', '3.0.3'
+gem 'rails', '3.0.4'
 
 # Application server.
 gem 'mongrel', '1.1.5'
@@ -36,6 +36,9 @@ gem 'cancan', '1.4.1'
 gem 'uuidtools', '2.1.1'
 gem 'rakismet', '1.0.1'
 gem 'gravtastic', '3.1.0'
+
+# Other libraries.
+gem 'jquery-rails', '0.2.7'
 
 # Environment specific libraries.
 group :test, :development do
