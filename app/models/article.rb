@@ -16,7 +16,8 @@ class Article < ActiveRecord::Base
   scope :draft, where(:draft => true)
   scope :published, where(:draft => false)
   
-  before_validation :generate_permalink, :set_published, :process_tags
+  before_validation :generate_permalink, :process_tags
+  before_validation :set_published, :if => Proc.new { |article| !article.draft && (!article.published || article.draft_changed?) }
   before_validation :generate_uuid, :on => :create
     
   attr_accessor :tags_to_process
@@ -31,9 +32,7 @@ class Article < ActiveRecord::Base
   
   private
   def set_published
-    unless self.draft
-      self.published = Time.now
-    end
+    self.published = Time.now
   end
   
   def process_tags

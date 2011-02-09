@@ -13,12 +13,11 @@ class Page < ActiveRecord::Base
   scope :draft, where(:draft => true)
   scope :published, where(:draft => false)
   
-  before_validation :generate_permalink, :set_published
+  before_validation :generate_permalink
+  before_validation :set_published, :if => Proc.new { |page| !page.draft && (!page.published || page.draft_changed?) }
 
   private
   def set_published
-    unless self.draft
-      self.published = Time.now
-    end
+    self.published = Time.now
   end
 end
