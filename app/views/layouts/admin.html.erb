@@ -10,13 +10,15 @@
   
   <%= link_to 'Logout', user_session_path, :method => :delete %>
 
-  <ul>
-    <li><%= link_to 'Articles', admin_articles_path %></li>
-    <li><%= link_to 'Settings', admin_settings_path %></li>
-    <li><%= link_to 'Users', admin_users_path %></li>
-    <li><%= link_to 'Documents', admin_documents_path %></li>
-    <li><%= link_to 'Pages', admin_pages_path %></li>
-  </ul>
+  <nav>
+    <ul>
+      <li><%= link_to 'Articles', admin_articles_path %></li>
+      <li><%= link_to 'Settings', admin_settings_path %></li>
+      <li><%= link_to 'Users', admin_users_path %></li>
+      <li><%= link_to 'Documents', admin_documents_path %></li>
+      <li><%= link_to 'Pages', admin_pages_path %></li>
+    </ul>
+  </nav>
 
   <% flash.each do |key, msg| %>
 		<%= content_tag :div, content_tag(:p, msg), :id => key %>
