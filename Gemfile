@@ -38,7 +38,8 @@ gem 'rakismet', '1.0.1'
 gem 'gravtastic', '3.1.0'
 
 # Other libraries.
-gem 'jquery-rails', '0.2.7'
+gem 'jquery-rails', :git => 'git://github.com/digitalpardoe/jquery-rails.git'
+gem 'lessr', '1.0.0'
 
 # Environment specific libraries.
 group :test, :development do
