@@ -1,12 +1,4 @@
 GIT
-  remote: git://github.com/brynary/rack-bug
-  revision: 6652bbbc350e5654816fc4a24efce2e6f5cd02ab
-  branch: rails3
-  specs:
-    rack-bug (0.3.0)
-      rack (>= 1.0)
-
-GIT
   remote: git://github.com/digitalpardoe/jquery-rails.git
   revision: 313336db644dc56bfa62ca1bbbe513cbf4441506
   specs:
@@ -135,7 +127,6 @@ DEPENDENCIES
   jquery-rails!
   lessr (= 1.0.0)
   mongrel (= 1.1.5)
-  rack-bug!
   rails (= 3.0.3)
   rakismet (= 1.0.1)
   rcov (= 0.9.9)

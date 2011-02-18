@@ -22,8 +22,5 @@ Remark::Application.configure do
 
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
-  
-  # Load some Rack middleware
-  config.middleware.use "Rack::Bug", :secret_key => "e448a59921934646eb92207d716092e81689521b0bdf0d0b5748aabd5fe1295f"
 end
 

@@ -42,10 +42,6 @@ gem 'jquery-rails', :git => 'git://github.com/digitalpardoe/jquery-rails.git'
 gem 'lessr', '1.0.0'
 
 # Environment specific libraries.
-group :development do
-  gem 'rack-bug', :require => 'rack/bug', :git => 'git://github.com/brynary/rack-bug', :branch => 'rails3'
-end
-
 group :test, :development do
   gem 'rspec-rails', '2.5.0'
   gem 'factory_girl_rails', '1.1.beta1'
