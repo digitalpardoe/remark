@@ -1,4 +1,6 @@
 class Comment < ActiveRecord::Base
+  include Unique
+  
   validates_presence_of :name, :email, :unless => :assigned_user?
   validates_presence_of :user, :if => Proc.new { |comment| comment.name.blank? && comment.email.blank? }
   validates_presence_of :body, :article, :uuid
@@ -19,9 +21,5 @@ class Comment < ActiveRecord::Base
   private
   def assigned_user?
     self.user != nil
-  end
-  
-  def generate_uuid
-    self.uuid = UUIDTools::UUID.timestamp_create.to_s
   end
 end

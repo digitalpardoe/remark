@@ -6,12 +6,16 @@ class Admin::PagesController < AdminController
   end
 
   def new
+    @pages = Page.where(:page_id => nil).select([:id, :title])
+    
     respond_to do |format|
       format.html
     end
   end
 
   def edit
+    @pages = Page.where(:page_id => nil).select([:id, :title])
+    
     respond_to do |format|
       format.html
     end

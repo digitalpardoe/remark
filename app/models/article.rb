@@ -1,5 +1,5 @@
 class Article < ActiveRecord::Base
-  include Permalink
+  include Permalink, Unique
   
   validates_presence_of :title, :body, :user, :permalink, :uuid
   validates_presence_of :published, :if => Proc.new { |article| !article.draft }
@@ -39,9 +39,5 @@ class Article < ActiveRecord::Base
     self.tags = self.tags_to_process.gsub(/\ *,\ */, ",").split(",").delete_if { |tag| tag == '' }.collect do |tag|
       Tag.find_or_create_by_name(tag)
     end unless !self.tags_to_process
-  end
-  
-  def generate_uuid
-    self.uuid = UUIDTools::UUID.timestamp_create.to_s
   end
 end
