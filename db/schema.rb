@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110206175844) do
+ActiveRecord::Schema.define(:version => 20110218123718) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(:version => 20110206175844) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "required",       :default => false
+    t.string   "field_type"
   end
 
   add_index "settings", ["resource", "key"], :name => "index_settings_on_resource_and_key", :unique => true

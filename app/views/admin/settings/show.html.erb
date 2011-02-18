@@ -5,7 +5,7 @@
     <% for setting in @settings %>
       <tr>
         <td><%= f.label setting.id, setting.human_readable %></td>
-        <td><%= f.text_field setting.id, :value => setting.value, :size => 50 %></td>
+        <td><%= field_for(setting, f) %></td>
       </tr>
     <% end %>
   </table>
