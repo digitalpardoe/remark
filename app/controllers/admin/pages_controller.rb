@@ -6,7 +6,7 @@ class Admin::PagesController < AdminController
   end
 
   def new
-    @pages = Page.where(:page_id => nil).select([:id, :title])
+    @pages = Page.where(:page_id => nil).select([:id, :title]).all
     
     respond_to do |format|
       format.html
@@ -14,7 +14,7 @@ class Admin::PagesController < AdminController
   end
 
   def edit
-    @pages = Page.where(:page_id => nil).select([:id, :title])
+    @pages = Page.where(:page_id => nil).where("id != ?", params[:id]).select([:id, :title]).all
     
     respond_to do |format|
       format.html

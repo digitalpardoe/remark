@@ -23,7 +23,7 @@
   </tr>
   <tr>
     <td><%= f.label :page_id, "Parent Page" %></td>
-    <td><%= f.select(:page_id, @pages.all.collect { |page| [ page.title, page.id ] }, { :include_blank => true } ) %></td>
+    <td><%= f.select(:page_id, @pages.collect { |page| [ page.title, page.id ] }, { :include_blank => true } ) %></td>
   </tr>
 </table>
 
