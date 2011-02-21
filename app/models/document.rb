@@ -25,16 +25,9 @@ class Document < ActiveRecord::Base
     self.extension = file[:extension]
     self.content_type = document.content_type
     
-    count = 1
-    while (true)
-      if Document.where(:name => self.name, :extension => self.extension).count(:id) != 0
-        self.name = "#{file[:name]}-#{count}"
-        count += 1
-      else
-        break
-      end
-    end
-    
+    count = Document.where(:name => self.name, :extension => self.extension).count(:id)
+    self.name = "#{file[:name]}-#{count}"
+          
     File.open(File.join(FILE_STORE, "#{self.name}.#{self.extension}"), "wb") { |f| f.write(document.read) }
     
     self.size = File.size(File.join(FILE_STORE, "#{self.name}.#{self.extension}"))
