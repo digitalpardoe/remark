@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110218123718) do
+ActiveRecord::Schema.define(:version => 20110221204930) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -63,9 +63,9 @@ ActiveRecord::Schema.define(:version => 20110218123718) do
     t.string   "permalink"
     t.boolean  "draft",      :default => false
     t.datetime "published"
-    t.integer  "page_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "hidden",     :default => false
   end
 
   create_table "roles", :force => true do |t|

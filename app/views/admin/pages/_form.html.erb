@@ -22,8 +22,8 @@
     <td><%= f.datetime_select :published %></td>
   </tr>
   <tr>
-    <td><%= f.label :page_id, "Parent Page" %></td>
-    <td><%= f.select(:page_id, @pages.collect { |page| [ page.title, page.id ] }, { :include_blank => true } ) %></td>
+    <td><%= f.label :hidden %></td>
+    <td><%= f.check_box :hidden %></td>
   </tr>
 </table>
 
