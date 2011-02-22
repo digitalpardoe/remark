@@ -7,10 +7,12 @@ class File
       { :name => file_name, :extension => file_ext }
     end
     
+    # From the attachment_fu plugin: https://github.com/technoweenie/attachment_fu
     def sanitize_filename(filename)
-      filename.strip.tap do |name|
-        name.sub!(/\A.*(\\|\/)/, '')
-        name.gsub!(/[^\w\.\-]/, '_')
+      return unless filename
+      returning filename.strip do |name|
+        name.gsub!(/^.*(\\|\/)/, '')
+        name.gsub!(/[^A-Za-z0-9\.\-]/, '_')
       end
     end
   end
