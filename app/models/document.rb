@@ -19,20 +19,24 @@ class Document < ActiveRecord::Base
   def persist_document
     FileUtils.mkdir_p(FILE_STORE) unless File.exists?(FILE_STORE)
     
-    file = File.name_and_ext(File.basename(document.original_filename))
+    file = File.name_and_ext(File.sanitize_filename(document.original_filename || document['filename']))
     
     self.name = file[:name]
     self.extension = file[:extension]
-    self.content_type = document.content_type
+    self.content_type = document.content_type || document['content_type']
     
-    count = Document.where(:name => self.name, :extension => self.extension).count(:id)
-    self.name = "#{file[:name]}-#{count}"
+    count = 1
+    name = self.name
+    while (Document.where(:name => self.name, :extension => self.extension).count(:id) == 1)
+      self.name = "#{name}-#{count}"
+      count += 1
+    end
           
     File.open(File.join(FILE_STORE, "#{self.name}.#{self.extension}"), "wb") { |f| f.write(document.read) }
     
     self.size = File.size(File.join(FILE_STORE, "#{self.name}.#{self.extension}"))
     
-    if !Mime::Type.lookup_by_extension(self.extension)
+    if !Mime::Type.lookup_by_extension(self.extension) && !self.extension.empty?
       Mime::Type.register self.content_type, self.extension
     end
   end

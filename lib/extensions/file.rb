@@ -6,5 +6,12 @@ class File
       
       { :name => file_name, :extension => file_ext }
     end
+    
+    def sanitize_filename(filename)
+      filename.strip.tap do |name|
+        name.sub!(/\A.*(\\|\/)/, '')
+        name.gsub!(/[^\w\.\-]/, '_')
+      end
+    end
   end
 end
