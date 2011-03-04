@@ -1,0 +1,20 @@
+<table>
+  <tr>
+    <th>Comment</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Website</th>
+    <th>Spam</th>
+    <th></th>
+  </tr>
+  <% for comment in @comments %>
+    <tr>
+      <td><%= comment.body %></td>
+      <td><%= comment.name %></td>
+      <td><%= comment.email %></td>
+      <td><%= comment.website %></td>
+      <td><%= comment.spam %></td>
+      <td><%= link_to 'Delete', admin_comment_path(comment), :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>

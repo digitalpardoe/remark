@@ -25,12 +25,22 @@ describe "tracking code" do
       Rails.env = 'test'
     end
     
-    it "gets the code from the 'tracking' setting" do
+    it "should be retrieved from the settings" do
       helper.tracking.should == @setting.value
     end
   end
 
   it "checkes the environment isn't still production" do
     Rails.env.should_not == 'production'
+  end
+end
+
+describe "application name" do
+  before(:each) do
+    @setting = Factory.create(:application_name)
+  end
+  
+  it "should be retrieved from the settings" do
+    helper.name.should == @setting.value
   end
 end

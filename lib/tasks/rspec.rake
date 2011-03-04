@@ -7,7 +7,7 @@ spec_prereq = Rails.configuration.generators.options[:rails][:orm] == :active_re
 namespace :spec do
   namespace :rcov do
     desc "Run all specs with rcov, excluding the spec directory"
-    RSpec::Core::RakeTask.new(:better => spec_prereq) do |t|
+    RSpec::Core::RakeTask.new(:improved => spec_prereq) do |t|
       t.rcov = true
       t.pattern = "./spec/**/*_spec.rb"
       t.rcov_opts = '--exclude spec,/gems/,/Library/,/usr/,lib/tasks,.bundle,config,/lib/rspec/,/lib/rspec-'

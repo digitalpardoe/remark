@@ -13,6 +13,7 @@ Remark::Application.routes.draw do
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
   resource :user_session, :only => [:new,:create,:destroy]
+  resources :admin, :only => [:index]
 
   # Sample resource route with options:
   #   resources :products do
@@ -47,13 +48,12 @@ Remark::Application.routes.draw do
   #     resources :products
   #   end
   namespace :admin do
-    root :to => "admin#index"
-    
     resources :articles
     resource :settings, :only => [:show,:update]
     resources :users, :except => :show
     resources :documents, :except => [:show,:edit,:update]
     resources :pages
+    resources :comments, :only => [:index,:show,:destroy]
   end
 
   # You can have the root of your site routed with "root"

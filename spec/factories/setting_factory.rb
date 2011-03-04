@@ -16,4 +16,13 @@ FactoryGirl.define do
     human_readable 'Tracking Code'
     required false
   end
+  
+  factory :application_name, :class => Setting do
+    resource IDENTIFIER
+    key 'name'
+    value 'Application Name'
+    hidden = false
+    human_readable 'Application Name'
+    required true
+  end
 end
