@@ -1,7 +1,7 @@
 class Article < ActiveRecord::Base
   include Permalink, Unique
   
-  validates_presence_of :title, :body, :user, :permalink, :uuid
+  validates_presence_of :title, :body, :user, :permalink, :uuid, :text_filter
   validates_presence_of :published, :if => Proc.new { |article| !article.draft }
   validates_uniqueness_of :title, :permalink, :uuid
   validates_format_of :permalink, :with => /\A([a-z]+-{0,1})*([a-z]+)\Z/i
@@ -10,7 +10,8 @@ class Article < ActiveRecord::Base
   attr_readonly :uuid
   
   belongs_to :user
-  has_many :comment
+  belongs_to :text_filter
+  has_many :comments
   has_and_belongs_to_many :tags
   
   scope :draft, where(:draft => true)
@@ -19,7 +20,15 @@ class Article < ActiveRecord::Base
   before_validation :generate_permalink, :process_tags
   before_validation :set_published, :if => Proc.new { |article| !article.draft && (!article.published || article.draft_changed?) }
   before_validation :generate_uuid, :on => :create
-    
+  
+  def text_filter_id
+    if self.text_filter == nil
+      TextFilter.where(:id => Setting.application.value(:text_filter)).limit(1).first.id
+    else
+      self.text_filter.id
+    end
+  end
+  
   attr_accessor :tags_to_process
   
   def composite_tags=(args)

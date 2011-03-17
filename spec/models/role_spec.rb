@@ -8,7 +8,7 @@ describe Role do
     @other_user = Factory.stub(:user, :username => @user.username[0..2], :password => @user.password, :password_confirmation => @user.password_confirmation)
   end
   
-  it "stores a valid user" do
+  it "stores a valid role" do
     lambda { @role.save! }.should_not raise_error
   end
   
