@@ -3,7 +3,10 @@
 
 var Remark = {
   switchMarkItUp: function(textArea, setting) {
-    switch(setting.toLowerCase()) {
+		chosenSetting = setting.toLowerCase();
+		$(textArea).parent().removeClass();
+		$(textArea).parent().addClass(chosenSetting);
+    switch(chosenSetting) {
       case 'html':
         $(textArea).markItUp(myHtmlSettings);
         break;
