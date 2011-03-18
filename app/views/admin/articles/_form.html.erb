@@ -1,6 +1,7 @@
 <%= error_messages_for(@article) %>
 
 <%= markitup(f, [:body, :excerpt], :toggle => 'text_filter') %>
+<%= anytime(f, :published) %>
 
 <table>
   <tr>
@@ -25,7 +26,7 @@
   </tr>
   <tr>
     <td><%= f.label :published %></td>
-    <td><%= f.datetime_select :published %></td>
+    <td><%= f.text_field :published , :value => @article.published.to_s(:anytime)%></td>
   </tr>
   <tr>
     <td><%= f.label :composite_tags %></td>

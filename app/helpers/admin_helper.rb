@@ -7,4 +7,21 @@ module AdminHelper
       end
     end
   end
+  
+  def anytime(form, text_fields)
+    text_fields = [text_fields].flatten
+    
+    javascript_tag do 
+      "".tap do |js|
+        js << "$(document).ready(function() {"
+        text_fields.each do |text_field|
+          js << "AnyTime.picker(\"#{form.object_name}_#{text_field}\","
+          js << "{ format: \"%a %d %b %Y at %H:%i\", firstDOW: 1 }"
+          # js << "{ format: \"%d/%m/%Y at %H:%i\", firstDOW: 1 }"
+          js << ");"
+        end
+        js << "});"
+      end.html_safe
+    end
+  end
 end

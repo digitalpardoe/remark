@@ -1,6 +1,7 @@
 <%= error_messages_for(@page) %>
 
 <%= markitup(f, :body, :toggle => 'text_filter') %>
+<%= anytime(f, :published) %>
 
 <table>
   <tr>
@@ -21,7 +22,7 @@
   </tr>
   <tr>
     <td><%= f.label :published %></td>
-    <td><%= f.datetime_select :published %></td>
+    <td><%= f.text_field :published, :value => @page.published.to_s(:anytime) %></td>
   </tr>
   <tr>
     <td><%= f.label :hidden %></td>
