@@ -7,19 +7,4 @@ module AdminHelper
       end
     end
   end
-  
-  def markitup(form, text_areas, toggle)
-    javascript_tag do 
-      "".tap do |js|
-        js << "$(document).ready(function() {"
-        text_areas.each { |text_area| js << "Remark.switchMarkItUp(\"##{form.object_name}_#{text_area}\", $(\"##{form.object_name}_#{toggle} option:selected\").text());" }
-        js << "$(\"##{form.object_name}_#{toggle}\").change(function() {"
-        text_areas.each do |text_area|
-          js << "$(\"##{form.object_name}_#{text_area}\").markItUpRemove();"
-          js << "Remark.switchMarkItUp(\"##{form.object_name}_#{text_area}\", $(\"##{form.object_name}_#{toggle} option:selected\").text());"
-        end
-        js << "})});"
-      end.html_safe
-    end
-  end
 end
