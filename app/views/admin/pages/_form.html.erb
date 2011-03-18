@@ -1,6 +1,6 @@
 <%= error_messages_for(@page) %>
 
-<%= markitup(f, :body, :toggle => 'text_filter_id') %>
+<%= markitup(f, :body, :toggle => 'text_filter') %>
 
 <table>
   <tr>
@@ -28,8 +28,8 @@
     <td><%= f.check_box :hidden %></td>
   </tr>
   <tr>
-    <td><%= f.label :text_filter_id, "Text filter" %></td>
-    <td><%= f.collection_select :text_filter_id, TextFilter.all, :id, :human_readable %></td>
+    <td><%= f.label :text_filter %></td>
+    <td><%= f.select :text_filter, TEXT_FILTERS.collect { |tf| [tf[:human_readable], tf[:name]]}, { :selected => f.object.text_filter ? f.object.text_filter : Setting.application.value(:text_filter) } %></td>
   </tr>
 </table>
 

@@ -11,7 +11,7 @@
   {:resource => IDENTIFIER, :key => 'subtitle', :value => 'A Rails Blogging Engine', :hidden => false, :human_readable => "Blog Subtitle", :required => true},
   {:resource => IDENTIFIER, :key => 'url', :value => 'example.com', :hidden => false, :human_readable => "Blog URL", :required => true},
   {:resource => IDENTIFIER, :key => 'tracking', :hidden => false, :human_readable => "Tracking Code", :required => false, :field_type => "text_area"},
-  {:resource => IDENTIFIER, :key => 'text_filter', :value => 2, :hidden => false, :human_readable => "Default Text Filter", :required => true, :field_type => "collection_select"}
+  {:resource => IDENTIFIER, :key => 'text_filter', :value => DEFAULT_TEXT_FILTER, :hidden => false, :human_readable => "Default Text Filter", :required => true, :field_type => "collection_select#constant"}
 ].each do |setting|
   Setting.create!(setting)
 end
@@ -21,12 +21,4 @@ end
   {:name => 'user', :human_readable => 'Website User'}
 ].each do |user|
   Role.create!(user)
-end
-
-[
-  {:name => 'html', :human_readable => 'HTML'},
-  {:name => 'markdown', :human_readable => 'Markdown'},
-  {:name => 'textile', :human_readable => 'Textile'}
-].each do |text_filter|
-  TextFilter.create!(text_filter)
 end

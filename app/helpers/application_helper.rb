@@ -11,7 +11,7 @@ module ApplicationHelper
     text_areas = [text_areas].flatten
     options = options.extract_options!.stringify_keys
     toggle = options.delete("toggle")
-    toggle_text = toggle ? "$(\"##{form.object_name}_#{toggle} option:selected\").text()" : "\"markdown\""
+    toggle_text = toggle ? "$(\"##{form.object_name}_#{toggle} option:selected\").text()" : "\"#{DEFAULT_TEXT_FILTER}\""
     
     javascript_tag do 
       "".tap do |js|

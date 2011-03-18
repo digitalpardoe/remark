@@ -10,7 +10,6 @@ class Article < ActiveRecord::Base
   attr_readonly :uuid
   
   belongs_to :user
-  belongs_to :text_filter
   has_many :comments
   has_and_belongs_to_many :tags
   
@@ -20,14 +19,6 @@ class Article < ActiveRecord::Base
   before_validation :generate_permalink, :process_tags
   before_validation :set_published, :if => Proc.new { |article| !article.draft && (!article.published || article.draft_changed?) }
   before_validation :generate_uuid, :on => :create
-  
-  def text_filter_id
-    if self.text_filter == nil
-      TextFilter.where(:id => Setting.application.value(:text_filter)).limit(1).first.id
-    else
-      self.text_filter.id
-    end
-  end
   
   attr_accessor :tags_to_process
   
