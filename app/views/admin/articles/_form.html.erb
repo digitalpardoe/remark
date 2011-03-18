@@ -1,5 +1,7 @@
 <%= error_messages_for(@article) %>
 
+<%= markitup(f, [:body, :excerpt], :text_filter_id) %>
+
 <table>
   <tr>
     <td><%= f.label :title %></td>

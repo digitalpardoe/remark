@@ -1,5 +1,7 @@
 <%= error_messages_for(@page) %>
 
+<%= markitup(f, [:body], :text_filter_id) %>
+
 <table>
   <tr>
     <td><%= f.label :title %></td>
