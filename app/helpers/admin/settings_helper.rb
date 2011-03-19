@@ -7,7 +7,7 @@ module Admin::SettingsHelper
     
     case field_type
       when "text_area"
-        form.text_area(setting.id, :value => setting.value, :cols => 40, :rows => 5)
+        form.text_area(setting.id, :value => setting.value, :class => 'normal')
       when "url_field"
         form.url_field(setting.id, :value => setting.value, :size => 50)
       when "collection_select"

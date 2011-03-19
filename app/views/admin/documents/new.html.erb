@@ -7,7 +7,9 @@
       <td><%= f.file_field :document %></td>
     </tr>
   </table>
-
-  <%= f.submit %>
-  <%= link_to "Cancel", admin_documents_path %>
+  
+  <fieldset>
+    <%= f.submit "Upload" %>
+    <%= link_to "Cancel", admin_documents_path, :class => 'cancel' %>
+  </fieldset>
 <% end %>
