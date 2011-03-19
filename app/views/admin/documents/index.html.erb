@@ -1,15 +1,13 @@
 <table>
   <tr>
-    <th>Name</th>
-    <th>Extension</th>
+    <th>Filename</th>
     <th>Size</th>
     <th>Content Type</th>
     <th></th>
   </tr>
   <% for document in @documents %>
     <tr>
-      <td><%= document.name %></td>
-      <td><%= document.extension %></td>
+      <td><%= document.name + '.' + document.extension %></td>
       <td><%= document.size %></td>
       <td><%= document.content_type %></td>
       <td><%= link_to 'Delete', admin_document_path(document), :confirm => 'Are you sure?', :method => :delete %></td>

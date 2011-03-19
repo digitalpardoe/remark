@@ -32,7 +32,7 @@ header {
 	a {
 		color: #000;
 	}
-	
+
 	a:hover, a:active {
 		color: #999;
 	}
@@ -156,7 +156,7 @@ nav {
 			font-size: 1.1em;
 		}
 	
-		input[type="text"] {
+		input[type="text"], input[type="password"], input[type="email"] {
 			margin: 0px 10px 0px 10px;
 			padding: 3px;
 			font-size: 1.1em;
@@ -298,7 +298,7 @@ nav {
 				td:last-child {
 					padding: 10px 0px 10px 0px;
 					
-					input[type="text"] {
+					input[type="text"], input[type="password"], input[type="email"] {
 						width: 610px;
 					}
 				}
@@ -320,6 +320,22 @@ nav {
 					filter: e("progid:DXImageTransform.Microsoft.gradient( startColorstr='#0e0e0e', endColorstr='#7d7e7d',GradientType=1 )");
 				}
 			}
+		}
+	}
+	
+	@border-radius: 10px;
+	
+	#notice {
+		margin: 5px 10px 10px 10px;
+		background-color: #CCFFCC;
+		border: 2px #72D072 solid;
+		color: #000000;
+		-moz-border-radius: @border-radius;
+		border-radius: @border-radius;
+		
+		p {
+			margin: 0px;
+			padding: 5px 10px 5px 10px;
 		}
 	}
 }
