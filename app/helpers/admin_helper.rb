@@ -24,4 +24,12 @@ module AdminHelper
       end.html_safe
     end
   end
+  
+  def nav_link(text, controller_name)
+    if controller.controller_name == controller_name
+      eval "link_to \"#{text}\", admin_#{controller_name}_path, :class => \"active\""
+    else
+      eval "link_to \"#{text}\", admin_#{controller_name}_path"
+    end
+  end
 end

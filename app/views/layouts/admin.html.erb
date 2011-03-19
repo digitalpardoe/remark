@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+	<meta charset="utf-8" />
   <title><%= name %> Administration</title>
-  <%= less_link_tag 'admin/style' %>
+  <%= less_link_tag 'admin/screen' %>
 	<%= stylesheet_link_tag	'../markitup/skins/markitup/style',
 													'../markitup/sets/html/style',
 													'../markitup/sets/markdown/style',
@@ -17,25 +18,30 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-  
-  <%= link_to 'Logout', user_session_path, :method => :delete %>
+	<header>
+		<h1><%= name %></h1>
+  	<%= link_to 'Logout', user_session_path, :method => :delete, :class => 'session' %>
 
-  <nav>
-    <ul>
-      <li><%= link_to 'Articles', admin_articles_path %></li>
-      <li><%= link_to 'Settings', admin_settings_path %></li>
-      <li><%= link_to 'Users', admin_users_path %></li>
-      <li><%= link_to 'Documents', admin_documents_path %></li>
-      <li><%= link_to 'Pages', admin_pages_path %></li>
-      <li><%= link_to 'Comments', admin_comments_path %></li>
-    </ul>
-  </nav>
+  	<nav>
+  	  <ul>
+				<li><%= nav_link 'Comments', 'comments' %></li>
+  	    <li><%= nav_link 'Articles', 'articles' %></li>
+				<li><%= nav_link 'Pages', 'pages' %></li>
+				<li><%= nav_link 'Files', 'documents' %></li>
+  	    <li><%= nav_link 'Settings', 'settings' %></li>
+  	    <li><%= nav_link 'Users', 'users' %></li>
+  	  </ul>
+  	</nav>
 
-  <% flash.each do |key, msg| %>
-		<%= content_tag :div, content_tag(:p, msg), :id => key %>
-	<% end %>
+		<div id="shadow"> </div>
+	</header>
+	
+	<div id="content">
+  	<% flash.each do |key, msg| %>
+			<%= content_tag :div, content_tag(:p, msg), :id => key %>
+		<% end %>
 
-  <%= yield %>
-
+  	<%= yield %>
+	</div>
 </body>
 </html>

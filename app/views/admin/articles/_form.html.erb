@@ -3,40 +3,43 @@
 <%= markitup(f, [:body, :excerpt], :toggle => 'text_filter') %>
 <%= anytime(f, :published) %>
 
+<fieldset>
+  <%= f.label :title, :class => 'block' %>
+  <%= f.text_field :title, :placeholder => "Example Title" %>
+</fieldset>
+
+<fieldset>
+  <%= f.label :composite_tags, "Tags", :class => 'block' %>
+  <%= f.text_field :composite_tags, :placeholder => "Add, Some, Tags, Here" %>
+</fieldset>
+
 <table>
   <tr>
-    <td><%= f.label :title %></td>
-    <td><%= f.text_field :title %></td>
-  </tr>
-  <tr>
-    <td><%= f.label :body %></td>
-    <td><%= f.text_area :body %></td>
-  </tr>
-  <tr>
-    <td><%= f.label :excerpt %></td>
-    <td><%= f.text_area :excerpt %></td>
-  </tr>
-  <tr>
-    <td><%= f.label :permalink %></td>
-    <td><%= f.text_field :permalink %></td>
-  </tr>
-  <tr>
-    <td><%= f.label :draft %></td>
-    <td><%= f.check_box :draft %></td>
-  </tr>
-  <tr>
-    <td><%= f.label :published %></td>
-    <td><%= f.text_field :published , :value => (@article.published || Time.now).to_s(:anytime)%></td>
-  </tr>
-  <tr>
-    <td><%= f.label :composite_tags %></td>
-    <td><%= f.text_field :composite_tags %></td>
-  </tr>
-  <tr>
     <td><%= f.label :text_filter %></td>
-    <td><%= f.select :text_filter, TEXT_FILTERS.collect { |tf| [tf[:human_readable], tf[:name]]}, { :selected => f.object.text_filter ? f.object.text_filter : Setting.application.value(:text_filter) } %></td>
+    <td><%= f.select :text_filter, TEXT_FILTERS.collect { |tf| [tf[:human_readable], tf[:name]]}, { :selected => f.object.text_filter ? f.object.text_filter : Setting.application.value(:text_filter) } %> <span class="note">Changing this will change the editing mode of the fields below.</span></td>
   </tr>
 </table>
 
-<%= f.submit %>
-<%= link_to "Cancel", admin_articles_path %>
+<fieldset>
+  <%= f.label :body, "Content", :class => 'block' %>
+  <%= f.text_area :body %>
+
+  <%= f.label :excerpt, :class => 'block mid' %>
+  <%= f.text_area :excerpt %>
+</fieldset>
+
+<table>
+  <tr>
+    <td><%= f.label :permalink %></td>
+    <td><%= f.text_field :permalink, :placeholder => 'generated-or-fill-me-in' %></td>
+  </tr>
+    <td><%= f.label :draft %></td>
+    <td><%= f.check_box :draft %></td>
+  <tr>
+  </tr>
+</table>
+
+<fieldset>
+  <%= f.submit "Save" %>
+  <%= link_to "Cancel", admin_articles_path, :class => 'cancel' %>
+</fieldset>
