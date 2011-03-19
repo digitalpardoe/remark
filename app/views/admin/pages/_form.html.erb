@@ -22,7 +22,7 @@
   </tr>
   <tr>
     <td><%= f.label :published %></td>
-    <td><%= f.text_field :published, :value => @page.published.to_s(:anytime) %></td>
+    <td><%= f.text_field :published, :value => (@page.published || Time.now).to_s(:anytime) %></td>
   </tr>
   <tr>
     <td><%= f.label :hidden %></td>
