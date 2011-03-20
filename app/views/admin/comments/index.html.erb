@@ -8,7 +8,7 @@
     <th></th>
   </tr>
   <% for comment in @comments %>
-    <tr>
+    <tr class="<%= cycle("", "alternate") %>">
       <td><%= comment.body %></td>
       <td><%= comment.name %></td>
       <td><%= comment.email %></td>

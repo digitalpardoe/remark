@@ -2,7 +2,6 @@
   <tr>
     <th>Title</th>
     <th>Author</th>
-    <th>Permalink</th>
     <th>Tags</th>
     <th>Published</th>
     <th>Comments</th>
@@ -10,10 +9,9 @@
     <th></th>
   </tr>
   <% for article in @articles %>
-    <tr>
+    <tr class="<%= cycle("", "alternate") %>">
       <td><%= article.title %></td>
       <td><%= article.user.username %></td>
-      <td><%= article.permalink %></td>
       <td><%= article.composite_tags %></td>
       <td><%= !article.draft ? article.published_at.to_s(:admin) : "Not Published" %></td>
       <td><%= article.comments.count %></td>

@@ -8,7 +8,7 @@
     <th></th>
   </tr>
   <% for page in @pages %>
-    <tr>
+    <tr class="<%= cycle("", "alternate") %>">
       <td><%= page.title %></td>
       <td><%= page.user.username %></td>
       <td><%= page.permalink %></td>
