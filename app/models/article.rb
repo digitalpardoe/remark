@@ -2,7 +2,7 @@ class Article < ActiveRecord::Base
   include Permalink, Unique
   
   validates_presence_of :title, :body, :user, :permalink, :uuid, :text_filter
-  validates_presence_of :published, :if => Proc.new { |article| !article.draft }
+  validates_presence_of :published_at, :if => Proc.new { |article| !article.draft }
   validates_uniqueness_of :title, :permalink, :uuid
   validates_format_of :permalink, :with => /\A([a-z]+-{0,1})*([a-z]+)\Z/i
   
@@ -17,7 +17,7 @@ class Article < ActiveRecord::Base
   scope :published, where(:draft => false)
   
   before_validation :generate_permalink, :process_tags
-  before_validation :set_published, :if => Proc.new { |article| !article.draft && (!article.published || article.draft_changed?) }
+  before_validation :set_published_at, :if => Proc.new { |article| !article.draft && (!article.published_at || article.draft_changed?) }
   before_validation :generate_uuid, :on => :create
   
   attr_accessor :tags_to_process
@@ -31,8 +31,12 @@ class Article < ActiveRecord::Base
   end
   
   private
-  def set_published
-    self.published = Time.now
+  def set_published_at
+    if self.published_at && self.published_at > Time.now
+      self.draft = true
+    else
+      self.published_at = Time.now
+    end
   end
   
   def process_tags

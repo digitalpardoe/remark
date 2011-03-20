@@ -2,7 +2,7 @@ class Page < ActiveRecord::Base
   include Permalink
   
   validates_presence_of :title, :body, :user, :permalink, :text_filter
-  validates_presence_of :published, :if => Proc.new { |article| !article.draft }
+  validates_presence_of :published_at, :if => Proc.new { |article| !article.draft }
   validates_uniqueness_of :title, :permalink
   validates_format_of :permalink, :with => /\A([a-z]+-{0,1})*([a-z]+)\Z/i
   
@@ -14,10 +14,14 @@ class Page < ActiveRecord::Base
   scope :visible, where(:hidden => false)
   
   before_validation :generate_permalink
-  before_validation :set_published, :if => Proc.new { |page| !page.draft && (!page.published || page.draft_changed?) }
+  before_validation :set_published_at, :if => Proc.new { |page| !page.draft && (!page.published_at || page.draft_changed?) }
   
   private
-  def set_published
-    self.published = Time.now
+  def set_published_at
+    if self.published_at && self.published_at > Time.now
+      self.draft = true
+    else
+      self.published_at = Time.now
+    end
   end
 end

@@ -35,7 +35,7 @@ describe Article do
     @article.save!
     @article.draft = false
     @article.save!
-    @article.published.should_not be nil
+    @article.published_at.should_not be nil
   end
   
   it "doesn't changed the published date on update" do
@@ -43,7 +43,7 @@ describe Article do
     @article.save!
     @article.title = 'A Different Title'
     @article.valid?
-    @article.published_changed?.should be false
+    @article.published_at_changed?.should be false
   end
   
   it "can generate a permalink from a complex title" do

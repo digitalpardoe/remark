@@ -4,6 +4,8 @@ class Document < ActiveRecord::Base
   validates_presence_of :document
   validates_presence_of :name, :size, :content_type, :if => Proc.new { |document| document.document }
 
+  scope :image, where('content_type LIKE %image%')
+
   before_validation :persist_document, :on => :create, :if => Proc.new { |document| document.document }
   before_destroy :cleanup_document
   

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110318124701) do
+ActiveRecord::Schema.define(:version => 20110320092408) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -19,8 +19,8 @@ ActiveRecord::Schema.define(:version => 20110318124701) do
     t.text     "excerpt"
     t.string   "permalink"
     t.string   "uuid"
-    t.boolean  "draft",       :default => true
-    t.datetime "published"
+    t.boolean  "draft",        :default => true
+    t.datetime "published_at"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "text_filter"
@@ -62,11 +62,11 @@ ActiveRecord::Schema.define(:version => 20110318124701) do
     t.text     "body"
     t.integer  "user_id"
     t.string   "permalink"
-    t.boolean  "draft",       :default => false
-    t.datetime "published"
+    t.boolean  "draft",        :default => false
+    t.datetime "published_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "hidden",      :default => false
+    t.boolean  "hidden",       :default => false
     t.string   "text_filter"
   end
 
