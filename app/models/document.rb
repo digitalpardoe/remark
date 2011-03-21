@@ -9,12 +9,8 @@ class Document < ActiveRecord::Base
   before_validation :persist_document, :on => :create, :if => Proc.new { |document| document.document }
   before_destroy :cleanup_document
   
-  HUMANIZED_ATTRIBUTES = {
-      :document => "File"
-  }
-  
   def self.human_attribute_name(attr, options = {})
-    HUMANIZED_ATTRIBUTES[attr.to_sym] || super
+    { :document => "File" }[attr.to_sym] || super
   end
   
   attr_accessor :document

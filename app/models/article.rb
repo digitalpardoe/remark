@@ -20,12 +20,8 @@ class Article < ActiveRecord::Base
   before_validation :set_published_at, :if => Proc.new { |article| !article.draft && (!article.published_at || article.draft_changed?) }
   before_validation :generate_uuid, :on => :create
   
-  HUMANIZED_ATTRIBUTES = {
-      :body => "Content"
-  }
-  
   def self.human_attribute_name(attr, options = {})
-    HUMANIZED_ATTRIBUTES[attr.to_sym] || super
+    { :body => "Content" }[attr.to_sym] || super
   end
   
   attr_accessor :tags_to_process

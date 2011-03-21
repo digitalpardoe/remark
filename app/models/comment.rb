@@ -1,5 +1,5 @@
 class Comment < ActiveRecord::Base
-  include Unique
+  include Unique, Gravtastic
   
   validates_presence_of :name, :email, :unless => :assigned_user?
   validates_presence_of :user, :if => Proc.new { |comment| comment.name.blank? && comment.email.blank? }
@@ -14,12 +14,24 @@ class Comment < ActiveRecord::Base
   belongs_to :user
   
   before_validation :generate_uuid, :on => :create
+  before_create :set_spam
   
   scope :spam, where(:spam => true)
   scope :ham, where(:spam => false)
   
+  is_gravtastic!
+  
   private
   def assigned_user?
     self.user != nil
+  end
+  
+  def set_spam
+    if self.user != nil
+      self.spam = false
+    else
+      self.spam = true
+    end
+    true
   end
 end

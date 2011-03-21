@@ -31,6 +31,11 @@ describe Comment do
     Comment.find(@comment.id).uuid.should == uuid
   end
   
+  it "should always create a spam comment" do
+    @comment.save!
+    @comment.spam.should be true
+  end
+  
   describe "validation:" do
     it "shouldn't validate due to missing body" do
       @comment.body = nil
