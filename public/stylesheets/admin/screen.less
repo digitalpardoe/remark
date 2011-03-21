@@ -1,7 +1,8 @@
 // Start Vars
 
 @background-color: #FFFFFF;
-@border-style: 1px #333 solid;
+@dark-border-style: 1px #333 solid;
+@light-border-style: 1px #999 solid;
 @border-radius: 10px;
 @compensate-border-radius: @border-radius - 2;
 @smaller-border: @border-radius / 2;
@@ -58,6 +59,16 @@ body {
 	padding: 0px;
 }
 
+a {
+	&:link, &:visited {
+		color: #000;
+	}
+	
+	&:hover, &:active {
+		color: #999;
+	}
+}
+
 header {
 	@heading-margins: 20px 10px 20px 10px;
 	@heading-height: 35px;
@@ -79,14 +90,6 @@ header {
 		line-height: @heading-height;
 		margin: @heading-margins;
 	}
-	
-	a {
-		color: #000;
-		
-		&:hover, &:active {
-			color: #999;
-		}
-	}
 }
 
 nav {
@@ -100,29 +103,31 @@ nav {
 		}
 		
 		a {
-			color: #FFF;
-			text-decoration:none;
-			
-			padding: 8px 12px 8px 12px;
-			margin: 0px -3px 0px 0px;
-			
-			height: 14px;
-
-			border-top: @border-style;
-			border-left: @border-style;
-			border-right: @border-style;
-			
-			-moz-border-radius-topleft: @border-radius;
-			-moz-border-radius-topright: @border-radius;
-			border-top-left-radius: @border-radius;
-			border-top-right-radius: @border-radius;
-
-			.backgrounds > .dark-to-light > .virt;
-		
-			&.active {
+			&:link, &:visited {
+				color: #FFF;
+				text-decoration:none;
+				
 				padding: 8px 12px 8px 12px;
+				margin: 0px -3px 0px 0px;
+				
+				height: 14px;
+      	
+				border-top: @dark-border-style;
+				border-left: @dark-border-style;
+				border-right: @dark-border-style;
+				
+				-moz-border-radius-topleft: @border-radius;
+				-moz-border-radius-topright: @border-radius;
+				border-top-left-radius: @border-radius;
+				border-top-right-radius: @border-radius;
+      	
+				.backgrounds > .dark-to-light > .virt;
+				
+				&.active {
+					padding: 8px 12px 8px 12px;
 
-				.backgrounds > .light-to-dark;
+					.backgrounds > .light-to-dark;
+				}
 			}
 			
 			&:hover, &:active {
@@ -143,14 +148,24 @@ nav {
 #content {
 	padding: 0px 10px 0px 10px;
 	width: 750px;
-	float: left;	
+	float: left;
+	
+	p {
+		&.bordered {
+			margin: 10px 10px 10px 10px;
+			padding: 3px 10px 3px 10px;
+			border: @dark-border-style;
+			-moz-border-radius: @border-radius;
+			border-radius: @border-radius;
+		}
+	}
 	
 	table {
 		margin: 10px;
 		border-spacing: 0px;
 		width: 730px;
 		
-		border: @border-style;
+		border: @dark-border-style;
 		
 		-moz-border-radius: @border-radius;
 		border-radius: @border-radius;
@@ -189,7 +204,7 @@ nav {
 			td {
 				padding: 3px 10px 3px 10px;
 				
-				border-right: 1px #999 solid;
+				border-right: @light-border-style;
 				
 				&:first-child {
 					-moz-border-radius-bottomleft: @border-radius;
@@ -226,7 +241,7 @@ nav {
 			-moz-border-radius: @smaller-border;
 			border-radius: @smaller-border;
 			
-			border: 1px #999 solid;
+			border: @light-border-style;
 		}
 		
 		textarea {
@@ -243,7 +258,7 @@ nav {
 				-moz-border-radius: @smaller-border;
 				border-radius: @smaller-border;
 
-				border: 1px #999 solid;
+				border: @light-border-style;
 			}
 		}
 		
@@ -263,7 +278,7 @@ nav {
 			-moz-border-radius: @smaller-border;
 			border-radius: @smaller-border;
 			
-			border: 1px #999 solid;
+			border: @light-border-style;
 		}
 		
 		input[type="checkbox"] {
@@ -276,7 +291,7 @@ nav {
 			color: #FFF;
 			font-size: 1.1em;
 			
-			border: @border-style;
+			border: @dark-border-style;
 			-moz-border-radius: @smaller-border;
 			border-radius: @smaller-border;
 			
@@ -299,7 +314,7 @@ nav {
 			margin: 10px;
 			padding: 0px 0px 10px 0px;
 			
-			border: @border-style;
+			border: @dark-border-style;
 			
 			-moz-border-radius: @border-radius;
 			border-radius: @border-radius;
@@ -316,7 +331,7 @@ nav {
 					font-size: 1.1em;
 					text-decoration: none;
 
-					border: @border-style;
+					border: @dark-border-style;
 					-moz-border-radius: @smaller-border;
 					border-radius: @smaller-border;
 
@@ -369,9 +384,10 @@ nav {
 
 			display: block;
 
-			border-top: @border-style;
-			border-right: @border-style;
-			border-bottom: @border-style;
+			border-top: @dark-border-style;
+			border-right: @dark-border-style;
+			border-bottom: @dark-border-style;
+			border-left: none;
 
 			-moz-border-radius: @border-radius;
 			border-radius: @border-radius;
@@ -408,6 +424,26 @@ nav {
 				}
 			}
 		}
+		
+		#error_explanation {
+			margin: 10px 10px 10px 10px;
+			padding: 3px 10px 3px 10px;
+			background-color: #FFCCCC;
+			border: 2px #D57878 solid;
+			-moz-border-radius: @border-radius;
+			border-radius: @border-radius;
+
+			h2 {
+				margin: 0px;
+				padding: 0px;
+				font-size: 1em;
+			}
+
+			ul {
+				padding: 0px;
+				margin: 10px 0px 10px 40px;
+			}
+		}
 	}
 		
 	label:after {
@@ -433,7 +469,7 @@ nav {
 	margin: 10px 20px 0px 760px;
 	padding: 0px 0px 10px 0px;
 	
-	border: @border-style;
+	border: @dark-border-style;
 	
 	-moz-border-radius: @border-radius;
 	border-radius: @border-radius;

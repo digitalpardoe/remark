@@ -16,6 +16,14 @@ class Page < ActiveRecord::Base
   before_validation :generate_permalink
   before_validation :set_published_at, :if => Proc.new { |page| !page.draft && (!page.published_at || page.draft_changed?) }
   
+  HUMANIZED_ATTRIBUTES = {
+      :body => "Content"
+  }
+  
+  def self.human_attribute_name(attr, options = {})
+    HUMANIZED_ATTRIBUTES[attr.to_sym] || super
+  end
+  
   private
   def set_published_at
     if self.published_at && self.published_at > Time.now
