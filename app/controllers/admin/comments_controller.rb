@@ -17,11 +17,19 @@ class Admin::CommentsController < AdminController
       @comment = Comment.find(params[:id])
       @comment.destroy
     else
-      Comment.where(:spam => true).destroy_all
+      destroyed_records = Comment.where(:spam => true).destroy_all
     end
     
     respond_to do |format|
-      format.html { redirect_to(admin_comments_path, :notice => "Comment#{params[:id] == "all" ? "s" : ""} removed.") }
+      if params[:id] != "all"
+        flash[:notice] = "Comment removed."
+      elsif destroyed_records.length > 0
+        flash[:notice] = "Comments removed."
+      else
+        flash[:notice] = "No comments to remove."
+      end
+      
+      format.html { redirect_to(admin_comments_path) }
     end
   end
   
