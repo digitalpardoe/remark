@@ -24,4 +24,10 @@ class Admin::CommentsController < AdminController
       format.html { redirect_to(admin_comments_path, :notice => "Comment#{params[:id] == "all" ? "s" : ""} removed.") }
     end
   end
+  
+  def toggle
+    @comment.spam = !@comment.spam
+    @comment.save
+    redirect_to(admin_comments_path, :notice => "Comment #{@comment.spam ? "rejected" : "approved"}.")
+  end
 end
