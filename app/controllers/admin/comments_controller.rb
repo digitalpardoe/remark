@@ -26,7 +26,7 @@ class Admin::CommentsController < AdminController
   end
   
   def toggle
-    @comment.spam = !@comment.spam
+    @comment.toggle
     @comment.save
     redirect_to(admin_comments_path, :notice => "Comment #{@comment.spam ? "rejected" : "approved"}.")
   end

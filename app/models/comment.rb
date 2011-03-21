@@ -21,6 +21,10 @@ class Comment < ActiveRecord::Base
   
   is_gravtastic!
   
+  def toggle
+    self.spam = !self.spam
+  end
+  
   private
   def assigned_user?
     self.user != nil
