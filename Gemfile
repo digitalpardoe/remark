@@ -32,7 +32,7 @@ end
 # Required libraries.
 gem 'bluecloth', '2.0.9'
 gem 'RedCloth', '4.2.3'
-gem 'cancan', '1.4.1'
+gem 'cancan', '1.5.1'
 gem 'uuidtools', '2.1.1'
 gem 'rakismet', '1.0.1'
 gem 'gravtastic', '3.1.0'

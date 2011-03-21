@@ -1,3 +1,5 @@
+<p class="bordered"><%= link_to 'Delete All Spam', admin_comment_path("all"), :confirm => 'Are you sure?', :method => :delete %></p>
+
 <table>
   <tr>
     <th>Comment</th>
@@ -13,7 +15,7 @@
       <td><%= comment.name %></td>
       <td><%= comment.email %></td>
       <td><%= comment.website %></td>
-      <td><%= comment.spam %></td>
+      <td><%= comment.spam ? "Yes" : "No" %></td>
       <td><%= link_to 'Delete', admin_comment_path(comment), :confirm => 'Are you sure?', :method => :delete %></td>
     </tr>
   <% end %>

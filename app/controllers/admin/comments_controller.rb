@@ -1,5 +1,6 @@
 class Admin::CommentsController < AdminController
   load_and_authorize_resource
+  skip_load_resource :only => :destroy
   
   def index
     @comments = Comment.all
@@ -12,10 +13,15 @@ class Admin::CommentsController < AdminController
   end
   
   def destroy
-    @comment.destroy
+    unless params[:id] == "all"
+      @comment = Comment.find(params[:id])
+      @comment.destroy
+    else
+      Comment.where(:spam => true).destroy_all
+    end
     
     respond_to do |format|
-      format.html { redirect_to(admin_comments_path, :notice => "Comment removed.") }
+      format.html { redirect_to(admin_comments_path, :notice => "Comment#{params[:id] == "all" ? "s" : ""} removed.") }
     end
   end
 end

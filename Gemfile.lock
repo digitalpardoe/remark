@@ -43,7 +43,7 @@ GEM
       ZenTest (>= 4.4.1)
     bluecloth (2.0.9)
     builder (2.1.2)
-    cancan (1.4.1)
+    cancan (1.5.1)
     cgi_multipart_eof_fix (2.5.0)
     daemons (1.1.0)
     diff-lcs (1.1.2)
@@ -121,7 +121,7 @@ DEPENDENCIES
   RedCloth (= 4.2.3)
   autotest (= 4.4.6)
   bluecloth (= 2.0.9)
-  cancan (= 1.4.1)
+  cancan (= 1.5.1)
   factory_girl_rails (= 1.1.beta1)
   gravtastic (= 3.1.0)
   jquery-rails!
