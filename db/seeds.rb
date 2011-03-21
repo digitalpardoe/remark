@@ -19,6 +19,11 @@ end
 [
   {:name => 'admin', :human_readable => 'Administrator'},
   {:name => 'user', :human_readable => 'Website User'}
-].each do |user|
-  Role.create!(user)
+].each do |role|
+  Role.create!(role)
 end
+
+User.create!({:username => 'admin', :password => 'password', :password_confirmation => 'password', :email => 'admin@example.com'})
+@user = User.all.first
+@user.role = Role.where(:name => 'admin').first
+@user.save!
