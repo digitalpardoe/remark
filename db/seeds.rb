@@ -23,7 +23,6 @@ end
   Role.create!(role)
 end
 
-User.create!({:username => 'admin', :password => 'password', :password_confirmation => 'password', :email => 'admin@example.com'})
-@user = User.all.first
+@user = User.create!({:username => 'admin', :password => 'password', :password_confirmation => 'password', :email => 'admin@example.com'})
 @user.role = Role.where(:name => 'admin').first
 @user.save!

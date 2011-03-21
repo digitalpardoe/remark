@@ -1,4 +1,6 @@
 class UserSessionsController < ApplicationController
+  layout 'session'
+  
   def new
     respond_to do |format|
       format.html
@@ -11,7 +13,13 @@ class UserSessionsController < ApplicationController
     respond_to do |format|
       if @user
         session[:user_id] = @user.id
-        format.html { redirect_to(new_user_session_path, :notice => "Logged in successfully.") }
+        format.html {
+          if (@user.role?(:admin))
+            redirect_to(admin_index_path, :notice => "Logged in successfully.")
+          else
+            redirect_to(root_path, :notice => "Logged in successfully.")
+          end
+        }
       else
         format.html { redirect_to(new_user_session_path, :notice => "Login unsuccessful.") }
       end
