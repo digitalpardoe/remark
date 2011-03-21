@@ -17,7 +17,7 @@
       <td><%= comment.email %></td>
       <td><%= comment.website %></td>
       <td><%= comment.spam ? "Yes" : "No" %></td>
-      <td><%= link_to comment.spam ? "Approve" : "Reject", toggle_admin_comment_path(comment), :confirm => 'Are you sure?', :method => :post %>
+      <td><%= link_to comment.spam ? "Approve" : "Reject", toggle_admin_comment_path(comment), :method => :post %>
       <td><%= link_to 'Delete', admin_comment_path(comment), :confirm => 'Are you sure?', :method => :delete %></td>
     </tr>
   <% end %>
