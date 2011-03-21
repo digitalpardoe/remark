@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe UserSessionsController do
   before(:each) do
-    @user = Factory.create(:user)
+    @user = Factory.create(:admin)
   end
 
   describe "GET 'new'" do
@@ -15,14 +15,14 @@ describe UserSessionsController do
   describe "PUT 'create'" do
     it "should be successful" do
       put 'create', :user => { :username => @user.username, :password => PASSWORD }
-      response.should redirect_to(:action => 'new')
+      response.should redirect_to('/admin')
       flash[:notice].should == "Logged in successfully."
     end
     
     it "shouldn't be successful" do
       put 'create', :user => { :username => @user.username, :password => PASSWORD[0..4] }
       response.should redirect_to(:action => 'new')
-      flash[:notice].should == "Login unsuccessful."
+      flash[:error].should == "Login unsuccessful."
     end
   end
 

@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe AdminController do
   before(:each) do
-    @admin = Factory.stub(:admin)
+    @admin = Factory.create(:admin)
   end
   
   describe "GET index" do

@@ -11,7 +11,7 @@ describe Admin::SettingsController do
     it "should error and redirect" do
       session[:user_id] = nil
       get 'show'
-      response.should redirect_to(root_path)
+      response.should redirect_to(new_user_session_path)
     end
   end
 

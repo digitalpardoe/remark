@@ -1,0 +1,113 @@
+// Start Vars
+
+@background-color: #FFFFFF;
+@dark-border-style: 1px #333 solid;
+@light-border-style: 1px #999 solid;
+@border-radius: 10px;
+@smaller-border: @border-radius / 2;
+
+// Start Mixins
+
+.core-flash(@background-color, @border-color) {
+	margin: 0px auto 20px auto;
+	background-color: @background-color;
+	border: 2px @border-color solid;
+	color: #000000;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	
+	font-size: 0.9em;
+	width: 370px;
+	
+	p {
+		margin: 0px;
+		padding: 5px 10px 5px 10px;
+	}
+}
+
+.no-whitespace { padding: 0px; margin: 0px; }
+
+// Start Styling
+
+
+body {
+	font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+	line-height: 1.8em;
+	margin: 20px;
+}
+
+#error {
+	.core-flash(#FFCCCC, #D57878);
+}
+
+#notice {
+	.core-flash(#CCFFCC, #72D072);
+}
+
+form {
+	margin: 0px auto 0px auto;
+	padding: 10px;
+	width: 350px;
+	
+	border: @dark-border-style;
+	-moz-border-radius: @border-radius;
+	border-radius: @border-radius;
+	
+	h2 {
+		margin: 0px 0px 0px 0px;
+		padding: 0px 0px 10px 0px;
+		
+		text-shadow: 1px 1px 1px #CCC;
+	}
+	
+	input[type="text"], input[type="password"] {
+		margin: 10px 0px 10px 0px;
+		padding: 3px;
+		font-size: 1.1em;
+		
+		width: 342px;
+		
+		-moz-border-radius: @smaller-border;
+		border-radius: @smaller-border;
+		
+		border: @light-border-style;
+	}
+	
+	input[type="submit"] {
+		margin: 10px 0px 5px 0px;
+		padding: 5px 20px 5px 20px;
+		
+		color: #FFF;
+		font-size: 1.1em;
+		
+		border: @dark-border-style;
+		-moz-border-radius: @smaller-border;
+		border-radius: @smaller-border;
+
+		background: #7D7E7D;
+		background: -moz-linear-gradient(top, #7D7E7D 0%, #0E0E0E 100%);
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#7D7E7D), color-stop(100%,#0E0E0E));
+		
+		&:hover {
+			color: #EEE;
+
+			background: #0E0E0E;
+			background: -moz-linear-gradient(top, #DDD 0%, #7D7E7D 50%, #0E0E0E 100%);
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#DDD), color-stop(50%,#7D7E7D), color-stop(100%,#0E0E0E));
+
+			cursor: pointer;
+		}
+	}
+	
+	label {
+		.no-whitespace;
+		
+		&:after {
+			content: ": ";
+		}
+	}
+	
+	p {
+		.no-whitespace;
+	}
+}

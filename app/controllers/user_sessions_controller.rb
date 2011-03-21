@@ -21,7 +21,8 @@ class UserSessionsController < ApplicationController
           end
         }
       else
-        format.html { redirect_to(new_user_session_path, :notice => "Login unsuccessful.") }
+        flash[:error] = "Login unsuccessful."
+        format.html { redirect_to(new_user_session_path) }
       end
     end
   end
