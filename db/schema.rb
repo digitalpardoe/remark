@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110320092408) do
+ActiveRecord::Schema.define(:version => 20110409141321) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -32,19 +32,6 @@ ActiveRecord::Schema.define(:version => 20110320092408) do
   end
 
   add_index "articles_tags", ["article_id", "tag_id"], :name => "index_articles_tags_on_article_id_and_tag_id"
-
-  create_table "comments", :force => true do |t|
-    t.string   "name"
-    t.string   "email"
-    t.text     "body"
-    t.string   "website"
-    t.string   "uuid"
-    t.boolean  "spam",       :default => true
-    t.integer  "article_id"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "documents", :force => true do |t|
     t.string   "name"

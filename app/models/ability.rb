@@ -15,12 +15,12 @@ class Ability
 #      end
     else
 #      can :create, User
-#      can :read, Article do |record|
-#        !record.draft
-#      end
-#      can :read, Page do |record|
-#        !record.draft
-#      end
+      can :read, Article do |record|
+        !record.draft
+      end
+      can :read, Page do |record|
+        !record.draft
+      end
     end
   end
 end
