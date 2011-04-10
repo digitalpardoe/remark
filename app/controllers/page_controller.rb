@@ -1,5 +1,6 @@
 class PageController < ApplicationController
   def show
-    @page = Page.published.where(:permalink => params[:permalink]).first
+    @page = Page.where(:permalink => params[:permalink]).first
+    authorize! :read, @page
   end
 end

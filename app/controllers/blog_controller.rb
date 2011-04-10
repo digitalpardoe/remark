@@ -4,6 +4,7 @@ class BlogController < ApplicationController
   end
 
   def show
-    @article = Article.published.where(:permalink => params[:permalink]).first
+    @article = Article.where(:permalink => params[:permalink]).first
+    authorize! :read, @article
   end
 end
