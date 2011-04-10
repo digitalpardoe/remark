@@ -2,7 +2,7 @@ class Admin::ArticlesController < AdminController
   load_and_authorize_resource
   
   def index
-    @articles = Article.all
+    @articles = Article.includes(:tags, :user).all
   end
   
   def new
