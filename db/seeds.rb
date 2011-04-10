@@ -12,7 +12,8 @@
   {:resource => IDENTIFIER, :key => 'url', :value => 'example.com', :hidden => false, :human_readable => "Blog URL", :required => true},
   {:resource => IDENTIFIER, :key => 'tracking', :hidden => false, :human_readable => "Tracking Code", :required => false, :field_type => "text_area"},
   {:resource => IDENTIFIER, :key => 'text_filter', :value => DEFAULT_TEXT_FILTER, :hidden => false, :human_readable => "Default Text Filter", :required => true, :field_type => "collection_select#constant"},
-  {:resource => IDENTIFIER, :key => 'disqus_shortname', :hidden => false, :human_readable => "DISQUS Shortname", :required => false}
+  {:resource => IDENTIFIER, :key => 'disqus_shortname', :hidden => false, :human_readable => "DISQUS Shortname", :required => false},
+  {:resource => IDENTIFIER, :key => 'feedburner_url', :hidden => false, :human_readable => "FeedBurner URL", :required => false}
 ].each do |setting|
   Setting.create!(setting)
 end
