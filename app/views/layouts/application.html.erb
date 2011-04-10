@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
-  <title><%= name %></title>
+  <title><%= (yield :title).nil? ? name : (yield :title) %></title>
   <%= stylesheet_link_tag :all %>
   <%= javascript_include_tag :defaults %>
 	<!--[if lt IE 9]>
@@ -11,12 +11,22 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-
-  <% flash.each do |key, msg| %>
-		<%= content_tag :div, content_tag(:p, msg), :id => key %>
-	<% end %>
-
-  <%= yield %>
+	<header>
+		<h1><%= link_to name, root_path %></h1>
+		<p><%= subtitle %></p>
+		
+		<nav>
+			<%= navigation %>
+		</nav>
+	</header>
+	
+	<div id="content">
+  	<% flash.each do |key, msg| %>
+			<%= content_tag :div, content_tag(:p, msg), :id => key %>
+		<% end %>
+  	
+  	<%= yield %>
+	</div>
 
   <%= tracking %>
   

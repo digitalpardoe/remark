@@ -1,3 +1,6 @@
 <% for article in @articles %>
-	<%= link_to article.title, article_path(article) %>
+	<article>
+		<h2><%= link_to article.title, article_path(article) %></h2>
+		<%= article.excerpt.blank? ? text_filter(article, :body) : article.excerpt %>
+	</article>
 <% end %>

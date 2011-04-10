@@ -1,5 +1,8 @@
-<h2><%= @article.title %></h2>
+<% title @article.title %>
 
-<%= @article.body %>
+<article>
+	<h2><%= link_to @article.title, article_path(@article) %></h2>
+	<%= @article.body %>
+</article>
 
 <%= disqus(@article) %>
