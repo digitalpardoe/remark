@@ -34,7 +34,7 @@
 <table>
   <tr>
     <td><%= f.label :published_at, "Published" %></td>
-    <td><%= f.text_field :published_at, :value => (@article.published_at || Time.zone.now).to_s(:anytime), :class => 'noted' %> <span class="note">Set to the future to publish later &amp; keep as a draft.</span></td>
+    <td><%= f.text_field :published_at, :value => (@article.published_at || Time.zone.now).to_s(:anytime), :class => 'noted' %> <span class="note">Set a future date to delay publishing.</span></td>
   </tr>
   <tr>
     <td><%= f.label :draft %></td>
