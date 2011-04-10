@@ -11,13 +11,6 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-  
-  <% if current_user %>
-    <%= link_to 'Logout', user_session_path, :method => :delete %>
-    <% if current_user.role?(:admin) %>
-      <%= link_to 'Admin', admin_index_path %>
-    <% end %>
-  <% end %>
 
   <% flash.each do |key, msg| %>
 		<%= content_tag :div, content_tag(:p, msg), :id => key %>

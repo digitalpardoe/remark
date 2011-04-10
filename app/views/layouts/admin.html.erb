@@ -22,7 +22,7 @@
 </head>
 <body>
 	<header>
-		<h1><%= name %></h1>
+		<h1><%= link_to name, root_path %></h1>
   	<%= link_to 'Logout', user_session_path, :method => :delete, :class => 'session' %>
 
   	<nav>
@@ -48,7 +48,11 @@
 	
 	<div id="sidebar">
 		<h2>Tools</h2>
-		<p>Useful tools coming soon…</p>
+		<% if !Setting.application.value(:disqus_shortname).blank? %>
+			<p><%= link_to "DISQUS Control Panel", "http://#{Setting.application.value(:disqus_shortname)}.disqus.com/" %></p>
+		<% else %>
+			<p>Useful tools coming soon…</p>
+		<% end %>
 	</div>
 </body>
 </html>
