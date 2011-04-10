@@ -10,15 +10,20 @@ module AdminHelper
   
   def anytime(form, text_fields)
     text_fields = [text_fields].flatten
-    
+    date_format = "format: \"%a %d %b %Y at %H:%i %@\""
+
     javascript_tag do 
       "".tap do |js|
         js << "$(document).ready(function() {"
         text_fields.each do |text_field|
-          js << "AnyTime.picker(\"#{form.object_name}_#{text_field}\","
-          js << "{ format: \"%a %d %b %Y at %H:%i\", firstDOW: 1 }"
-          # js << "{ format: \"%d/%m/%Y at %H:%i\", firstDOW: 1 }"
+          object_name = "#{form.object_name}_#{text_field}"
+          js << "AnyTime.picker(\"#{object_name}\","
+          js << "{ #{date_format}, firstDOW: 1 }"
           js << ");"
+          js << "$(\"input##{object_name}\").each(function() {"
+          js << "var converter = new AnyTime.Converter({#{date_format}});"
+          js << "$(this).val( converter.format(converter.parse($(this).val() + \" UTC+00:00\")) );"
+          js << "});"
         end
         js << "});"
       end.html_safe
@@ -30,6 +35,29 @@ module AdminHelper
       eval "link_to \"#{text}\", admin_#{controller_name}_path, :class => \"active\""
     else
       eval "link_to \"#{text}\", admin_#{controller_name}_path"
+    end
+  end
+  
+  def markitup(form, text_areas, *options)
+    text_areas = [text_areas].flatten
+    options = options.extract_options!.stringify_keys
+    toggle = options.delete("toggle")
+    toggle_text = toggle ? "$(\"##{form.object_name}_#{toggle} option:selected\").text()" : "\"#{DEFAULT_TEXT_FILTER}\""
+    
+    javascript_tag do 
+      "".tap do |js|
+        js << "$(document).ready(function() {"
+        text_areas.each { |text_area| js << "Remark.switchMarkItUp(\"##{form.object_name}_#{text_area}\", #{toggle_text});" }
+        if toggle
+          js << "$(\"##{form.object_name}_#{toggle}\").change(function() {"
+          text_areas.each do |text_area|
+            js << "$(\"##{form.object_name}_#{text_area}\").markItUpRemove();"
+            js << "Remark.switchMarkItUp(\"##{form.object_name}_#{text_area}\", $(\"##{form.object_name}_#{toggle} option:selected\").text());"
+          end
+          js << "})"
+        end
+        js << "});"
+      end.html_safe
     end
   end
 end
