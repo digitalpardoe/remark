@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8" />
   <title><%= (yield :title).nil? ? name : (yield :title) %></title>
-  <%= stylesheet_link_tag :all %>
+  <%= less_link_tag :all %>
   <%= javascript_include_tag :defaults %>
 	<!--[if lt IE 9]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -14,11 +14,11 @@
 	<header>
 		<h1><%= link_to name, root_path %></h1>
 		<p><%= subtitle %></p>
-		
-		<nav>
-			<%= navigation %>
-		</nav>
 	</header>
+	
+	<nav>
+		<%= navigation %>
+	</nav>
 	
 	<div id="content">
   	<% flash.each do |key, msg| %>
