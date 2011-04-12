@@ -6,6 +6,25 @@ body {
 	padding: 0px;
 }
 
+a {
+	&:link, &:visited {
+		color: #000;
+		text-decoration: underline;
+	}
+	
+	&:hover, &:active {
+		color: #999;
+	}
+}
+
+h1, h2, h3 {
+	text-shadow: 1px 1px 1px #CCC;
+}
+
+p {
+	margin-bottom: 20px;
+}
+
 header {
 	margin: 20px;
 	
@@ -15,7 +34,6 @@ header {
 	
 	h1 {
 		margin: 0px;
-		text-shadow: 1px 1px 1px #CCC;
 		
 		a {
 			&:link, &:visited {
@@ -24,7 +42,29 @@ header {
 			}
 			
 			&:hover, &:active {
-				text-decoration: underline;
+				color: #999;
+			}
+		}
+	}
+}
+
+nav {
+	margin: 0px 20px 20px 20px;
+	
+	ul {
+		padding: 5px 10px 5px 10px;
+		margin: 0px;
+		
+		border-top: 1px solid #CCC;
+		border-bottom: 1px solid #CCC;
+		
+		li {
+			display: inline;
+			
+			a {
+				&:link, &:visited {
+					margin-right: 10px;
+				}
 			}
 		}
 	}
@@ -32,4 +72,11 @@ header {
 
 #content {
 	width: 750px;
+	margin: 0px auto 0px auto;
+	
+	article {
+		margin-bottom: 20px;
+		
+		border-bottom: 1px solid #CCC;
+	}
 }
