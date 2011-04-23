@@ -3,6 +3,7 @@ class Admin::PagesController < AdminController
   
   def index
     @pages = Page.includes(:user).all
+    authorize! :manage, Page
   end
 
   def new

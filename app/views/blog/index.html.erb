@@ -7,3 +7,5 @@
 		<details>Published by <%= article.user.username %> on <%= article.published_at.to_s(:blog) %></details>
 	</article>
 <% end %>
+
+<%= pagination @articles %>

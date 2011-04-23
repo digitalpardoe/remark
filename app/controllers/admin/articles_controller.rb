@@ -3,6 +3,7 @@ class Admin::ArticlesController < AdminController
   
   def index
     @articles = Article.includes(:tags, :user).all
+    authorize! :manage, Article
   end
   
   def new

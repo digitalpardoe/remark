@@ -1,6 +1,6 @@
 class BlogController < ApplicationController
   def index
-    @articles = Article.published.includes(:tags, :user).all
+    @articles = Article.published.includes(:tags, :user).paginate(:page => params[:page], :per_page => Setting.application.value(:per_page))
   end
 
   def show
