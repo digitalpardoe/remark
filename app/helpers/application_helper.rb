@@ -31,10 +31,14 @@ module ApplicationHelper
   end
   
   def article_url(article)
-    "http://" + Setting.application.value(:url) + article_path(article)
+    Setting.application.value(:url) + article_path(article)[1..-1]
   end
   
   def text_filter(entity, text_method)
     (TEXT_FILTERS.select { |filter| filter[:name] == entity.text_filter }).first[:method].call(entity.send(text_method)).html_safe
+  end
+  
+  def auto_discovery_link_tag
+    super :rss, Setting.application.value(:feedburner_stub).empty? ? { :controller => "blog", :format => "rss" } : feedburner_url
   end
 end

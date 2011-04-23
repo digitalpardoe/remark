@@ -9,7 +9,7 @@
 [
   {:resource => IDENTIFIER, :key => 'name', :value => 'Remark', :hidden => false, :human_readable => "Blog Name", :required => true},
   {:resource => IDENTIFIER, :key => 'subtitle', :value => 'A Rails Blogging Engine', :hidden => false, :human_readable => "Blog Subtitle", :required => true},
-  {:resource => IDENTIFIER, :key => 'url', :value => 'example.com', :hidden => false, :human_readable => "Blog URL", :required => true},
+  {:resource => IDENTIFIER, :key => 'url', :value => 'http://example.com/', :hidden => false, :human_readable => "Blog URL", :required => true},
   {:resource => IDENTIFIER, :key => 'tracking', :hidden => false, :human_readable => "Tracking Code", :required => false, :field_type => "text_area"},
   {:resource => IDENTIFIER, :key => 'text_filter', :value => DEFAULT_TEXT_FILTER, :hidden => false, :human_readable => "Default Text Filter", :required => true, :field_type => "collection_select#constant"},
   {:resource => IDENTIFIER, :key => 'disqus_shortname', :hidden => false, :human_readable => "DISQUS Shortname", :required => false},
