@@ -9,7 +9,7 @@
   </tr>
   <% for document in @documents %>
     <tr class="<%= cycle("", "alternate") %>">
-      <td><%= document.name + '.' + document.extension %></td>
+      <td><%= link_to "#{document.name}.#{document.extension}", "/files/#{document.name}.#{document.extension}" %></td>
       <td><%= document.size %></td>
       <td><%= document.content_type %></td>
       <td><%= link_to 'Delete', admin_document_path(document), :confirm => 'Are you sure?', :method => :delete %></td>
