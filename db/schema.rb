@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110424150235) do
+ActiveRecord::Schema.define(:version => 20110424164749) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -27,8 +27,8 @@ ActiveRecord::Schema.define(:version => 20110424150235) do
   end
 
   create_table "articles_tags", :id => false, :force => true do |t|
-    t.string  "article_id"
-    t.boolean "tag_id"
+    t.integer "article_id"
+    t.integer "tag_id"
   end
 
   add_index "articles_tags", ["article_id", "tag_id"], :name => "index_articles_tags_on_article_id_and_tag_id"
