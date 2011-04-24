@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110409141321) do
+ActiveRecord::Schema.define(:version => 20110424150235) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -87,15 +87,6 @@ ActiveRecord::Schema.define(:version => 20110409141321) do
   end
 
   add_index "tags", ["name"], :name => "index_tags_on_name", :unique => true
-
-  create_table "text_filters", :force => true do |t|
-    t.string   "name"
-    t.string   "human_readable"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "text_filters", ["name"], :name => "index_text_filters_on_name", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "username"
