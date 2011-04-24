@@ -1,6 +1,6 @@
 module ApplicationHelper
   def tracking
-    Setting.application.value(:tracking) unless Rails.env != 'production'
+    Setting.application.value(:tracking).html_safe unless Rails.env != 'production'
   end
   
   def name
