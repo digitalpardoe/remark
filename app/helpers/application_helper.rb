@@ -39,6 +39,6 @@ module ApplicationHelper
   end
   
   def auto_discovery_link_tag
-    super :rss, Setting.application.value(:feedburner_stub).empty? ? { :controller => "blog", :format => "rss" } : feedburner_url
+    super :rss, Setting.application.value(:feedburner_stub).nil? || Setting.application.value(:feedburner_stub).empty? ? { :controller => "blog", :format => "rss" } : feedburner_url
   end
 end
