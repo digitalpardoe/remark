@@ -4,6 +4,10 @@
 # Mime::Type.register "text/richtext", :rtf
 # Mime::Type.register_alias "text/html", :iphone
 
+Mime::Type.register 'image/gif', :gif
+Mime::Type.register 'application/x-shockwave-flash', :swf
+Mime::Type.register 'image/png', :png
+
 begin
   registered_types = []
   Document.all.each do |document|
@@ -14,7 +18,3 @@ begin
   end
 rescue
 end
-
-Mime::Type.register 'image/gif', :gif
-Mime::Type.register 'application/x-shockwave-flash', :swf
-Mime::Type.register 'image/png', :png
