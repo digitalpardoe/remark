@@ -12,6 +12,8 @@ class Article < ActiveRecord::Base
   belongs_to :user
   has_and_belongs_to_many :tags
   
+  default_scope order('published_at DESC')
+  
   scope :draft, where(:draft => true)
   scope :published, where(:draft => false)
   

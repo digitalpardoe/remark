@@ -19,6 +19,8 @@ class User < ActiveRecord::Base
   attr_protected :crypted_password, :password_salt
   attr_accessor :password, :password_confirmation
 
+  default_scope order('username ASC')
+
   has_many :articles
   has_many :pages
   belongs_to :role

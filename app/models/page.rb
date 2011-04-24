@@ -8,6 +8,8 @@ class Page < ActiveRecord::Base
   
   belongs_to :user
   
+  default_scope order('title ASC')
+  
   scope :draft, where(:draft => true)
   scope :published, where(:draft => false)
   scope :hidden, where(:hidden => true)
