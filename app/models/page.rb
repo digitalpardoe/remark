@@ -8,7 +8,7 @@ class Page < ActiveRecord::Base
   
   belongs_to :user
   
-  default_scope order('title ASC')
+  default_scope order('sort_order DESC, title ASC')
   
   scope :draft, where(:draft => true)
   scope :published, where(:draft => false)
@@ -17,7 +17,15 @@ class Page < ActiveRecord::Base
   
   before_validation :generate_permalink
   before_validation :set_published_at, :if => Proc.new { |page| !page.draft && (!page.published_at || page.draft_changed?) }
-    
+  
+  def up
+    self.sort_order = self.sort_order + 1
+  end
+  
+  def down
+    self.sort_order = self.sort_order - 1
+  end
+  
   def self.human_attribute_name(attr, options = {})
     { :body => "Content" }[attr.to_sym] || super
   end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110424164749) do
+ActiveRecord::Schema.define(:version => 20110424223602) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(:version => 20110424164749) do
     t.datetime "updated_at"
     t.boolean  "hidden",       :default => false
     t.string   "text_filter"
+    t.integer  "sort_order",   :default => 0
   end
 
   create_table "roles", :force => true do |t|

@@ -47,4 +47,22 @@ class Admin::PagesController < AdminController
       format.html { redirect_to(admin_pages_path, :notice => "Page removed.") }
     end
   end
+  
+  def up
+    @page.up
+    @page.save
+    
+    respond_to do |format|
+        format.html { redirect_to(admin_pages_path, :notice => "Page order changed.") }
+    end
+  end
+    
+  def down
+    @page.down
+    @page.save
+
+    respond_to do |format|
+      format.html { redirect_to(admin_pages_path, :notice => "Page order changed.") }
+    end
+  end
 end
