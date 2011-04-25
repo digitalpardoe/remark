@@ -1,6 +1,7 @@
 class BlogController < ApplicationController
   def index
     @articles = Article.published.includes(:tags, :user)
+    @articles = @articles.where('body LIKE ? or title LIKE ?', "%#{params[:query]}%", "%#{params[:query]}%") unless !params[:query]
     
     respond_to do |format|
       format.html {
