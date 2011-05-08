@@ -17,7 +17,7 @@ Still To Come
 Setup
 -----
 
-Download, clone and run the following commands:
+Download or clone and run the following commands:
 
 	rake remark:setup:db[ _sqlite3 / mysql_ ]
 	bundle install
