@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110424223602) do
+ActiveRecord::Schema.define(:version => 20110509202603) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -70,12 +70,12 @@ ActiveRecord::Schema.define(:version => 20110424223602) do
   create_table "settings", :force => true do |t|
     t.string   "resource"
     t.string   "key"
-    t.string   "value"
-    t.boolean  "hidden",         :default => false
+    t.text     "value",          :limit => 255
+    t.boolean  "hidden",                        :default => false
     t.string   "human_readable"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "required",       :default => false
+    t.boolean  "required",                      :default => false
     t.string   "field_type"
   end
 
