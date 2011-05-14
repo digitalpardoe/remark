@@ -38,7 +38,7 @@ gem 'gravtastic', '3.1.0'
 gem 'will_paginate', '3.0.pre2'
 
 # Other libraries.
-gem 'jquery-rails', :git => 'git://github.com/digitalpardoe/jquery-rails.git'
+gem 'jquery-rails', '1.0.2'
 gem 'lessr', '1.0.0'
 
 # Environment specific libraries.
