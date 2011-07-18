@@ -41,7 +41,7 @@ gem 'lessr', '1.0.0'
 # Environment specific libraries.
 group :test, :development do
   gem 'rspec-rails', '2.5.0'
-  gem 'factory_girl_rails', '1.1.beta1'
+  gem 'factory_girl_rails', '1.1.rc1'
   gem 'rcov', '0.9.9'
   gem 'autotest', '4.4.6'
 end
