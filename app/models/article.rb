@@ -4,7 +4,7 @@ class Article < ActiveRecord::Base
   validates_presence_of :title, :body, :user, :permalink, :uuid, :text_filter
   validates_presence_of :published_at, :if => Proc.new { |article| !article.draft }
   validates_uniqueness_of :title, :permalink, :uuid
-  validates_format_of :permalink, :with => /\A([a-z]+-{0,1})*([a-z]+)\Z/i
+  validates_format_of :permalink, :with => /\A([a-z0-9]+-{0,1})*([a-z0-9]+)\Z/
   
   attr_protected :uuid, :tags
   attr_readonly :uuid
