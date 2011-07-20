@@ -24,7 +24,7 @@ gem 'mongrel', '1.2.0.pre2'
 #    when "mysql"
 #      gem 'mysql', '2.8.1'
 #    when "postgresql"
-      gem 'pg', '0.11.0'
+#      gem 'pg', '0.11.0'
 #  end
 #end
 
@@ -46,4 +46,9 @@ group :test, :development do
   gem 'factory_girl_rails', '1.1.rc1'
   gem 'rcov', '0.9.9'
   gem 'autotest', '4.4.6'
+  gem 'sqlite3', '1.3.3'
+end
+
+group :production do
+  gem 'pg'
 end
