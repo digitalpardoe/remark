@@ -23,6 +23,8 @@ else
       gem 'sqlite3', '1.3.3'
     when "mysql"
       gem 'mysql', '2.8.1'
+    when "postgresql"
+      gem 'pg', '0.11.0'
   end
 end
 
