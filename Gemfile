@@ -24,7 +24,7 @@ gem 'mongrel', '1.2.0.pre2'
 #    when "mysql"
 #      gem 'mysql', '2.8.1'
 #    when "postgresql"
-#      gem 'pg', '0.11.0'
+      gem 'pg', '0.11.0'
 #  end
 #end
 
