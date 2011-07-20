@@ -3,9 +3,6 @@ source 'http://rubygems.org'
 # Rails version.
 gem 'rails', '3.0.9'
 
-# Application server.
-gem 'mongrel', '1.2.0.pre2'
-
 # Database engine.
 #dbconfig = File.join(File.dirname(__FILE__), "config", "database.yml")
 #unless File.exists?(dbconfig)
@@ -47,8 +44,10 @@ group :test, :development do
   gem 'rcov', '0.9.9'
   gem 'autotest', '4.4.6'
   gem 'sqlite3', '1.3.3'
+  gem 'mongrel', '1.2.0.pre2'
 end
 
 group :production do
   gem 'pg'
+  gem 'thin'
 end
