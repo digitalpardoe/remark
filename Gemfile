@@ -7,26 +7,26 @@ gem 'rails', '3.0.9'
 gem 'mongrel', '1.2.0.pre2'
 
 # Database engine.
-dbconfig = File.join(File.dirname(__FILE__), "config", "database.yml")
-unless File.exists?(dbconfig)
-  if File.basename( $0 ) == 'bundle'
-    puts <<-MSG
-
-Please setup config/database.yml first.
-
-    MSG
-  end
-else
-  conf = YAML.load(File.read(dbconfig))
-  case conf[ENV["RAILS_ENV"] || 'development']['adapter']
-    when "sqlite3"
-      gem 'sqlite3', '1.3.3'
-    when "mysql"
-      gem 'mysql', '2.8.1'
-    when "postgresql"
-      gem 'pg', '0.11.0'
-  end
-end
+#dbconfig = File.join(File.dirname(__FILE__), "config", "database.yml")
+#unless File.exists?(dbconfig)
+#  if File.basename( $0 ) == 'bundle'
+#    puts <<-MSG
+#
+#Please setup config/database.yml first.
+#
+#    MSG
+#  end
+#else
+#  conf = YAML.load(File.read(dbconfig))
+#  case conf[ENV["RAILS_ENV"] || 'development']['adapter']
+#    when "sqlite3"
+#      gem 'sqlite3', '1.3.3'
+#    when "mysql"
+#      gem 'mysql', '2.8.1'
+#    when "postgresql"
+#      gem 'pg', '0.11.0'
+#  end
+#end
 
 # Required libraries.
 gem 'bluecloth', '2.0.9'
