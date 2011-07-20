@@ -17,7 +17,13 @@ Still To Come
 Setup
 -----
 
-Download or clone, setup _config/database.yml_ and run the following commands:
+Now works on Heroku at the expense of some install simplicity. I intend on bringing the simplicity back but for now, for a production install, follow the instructions below.
+
+- Download or clone.
+- Setup _config/database.yml_.
+- If you're not using PostgreSQL modify the Gemfile to include _mysql2_ rather than _pg_ for production.
+
+Run the following commands:
 
 	bundle install
 	rake db:migrate RAILS_ENV=production
