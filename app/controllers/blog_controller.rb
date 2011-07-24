@@ -11,7 +11,7 @@ class BlogController < ApplicationController
       }
       
       format.rss {
-        if Setting.application.value(:feedburner_stub).empty? or request.env['HTTP_USER_AGENT'] =~ /FeedBurner/i
+        if (Setting.application.value(:feedburner_stub) || "").empty? or request.env['HTTP_USER_AGENT'] =~ /FeedBurner/i
           @articles = @articles.limit(10)
           render :layout => false
         else
