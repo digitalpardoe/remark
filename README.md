@@ -4,7 +4,7 @@ Remark
 Introduction
 ------------
 
-Remark is a simple blogging engine & a work in progress.
+Remark is a simple blogging tool & a work in progress.
 
 Still To Come
 -------------
@@ -17,14 +17,9 @@ Still To Come
 Setup
 -----
 
-Now works on Heroku at the expense of some install simplicity. I intend on bringing the simplicity back but for now, for a production install, follow the instructions below.
+Download or clone and run the following commands:
 
-- Download or clone.
-- Setup _config/database.yml_.
-- If you're not using PostgreSQL modify the Gemfile to include _mysql2_ rather than _pg_ for production.
-
-Run the following commands:
-
+	rake remark:setup:db[ _sqlite3 / mysql_ ]
 	bundle install
 	rake db:migrate RAILS_ENV=production
 	rake db:seed RAILS_ENV=production
