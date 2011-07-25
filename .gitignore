@@ -8,3 +8,5 @@ nbproject/*
 .idea/*
 test/*
 public/files/*
+config/database.yml
+Gemfile.lock
