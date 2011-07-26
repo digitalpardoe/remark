@@ -17,17 +17,57 @@ Still To Come
 Setup
 -----
 
-Download or clone, setup _config/database.yml_ and run the following commands:
+### Development
 
-	bundle install
-	rake db:migrate RAILS_ENV=production
-	rake db:seed RAILS_ENV=production
+Download or clone and run the following commands:
 
-Navigate to _http://yousite.com/admin_ and login using the default credentials:
+	bundle install --without production
+	rake db:migrate
+	rake db:seed
+	rails server
+
+Navigate to _http://localhost:3000/admin_ and login using the default credentials:
 
 	admin
 	password
 	
+Go to the _users_ tab and change your password (and username if you feel like it).
+
+### Production
+
+Download or clone, setup _config/database.yml_ (production mode defaults to MySQL) and run the following commands:
+
+	bundle install
+	rake db:migrate RAILS_ENV=production
+	rake db:seed RAILS_ENV=production
+	
+Run the server of your choice (I recommend [Phusion Passenger](http://www.modrails.com/)).
+
+Navigate to _http://yourserver.com/admin_ and login using the default credentials:
+
+	admin
+	password
+	
+Go to the _users_ tab and change your password (and username if you feel like it).
+
+### Heroku
+
+Download or clone and run the following commands:
+
+	rake remark:heroku:setup
+	bundle install
+	git add Procfile
+	git commit -a -m "Ready for Heroku."
+	heroku create --stack cedar
+	git push heroku master
+	heroku run rake db:migrate
+	heroku run rake db:seed
+	
+Navigate to _http://you-app-000.herokuapp.com/admin_ and login using the default credentials:
+
+	admin
+	password
+
 Go to the _users_ tab and change your password (and username if you feel like it).
 
 Next Steps

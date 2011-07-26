@@ -9,4 +9,3 @@ nbproject/*
 test/*
 public/files/*
 config/database.yml
-Gemfile.lock
