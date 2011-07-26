@@ -35,7 +35,8 @@ Go to the _users_ tab and change your password (and username if you feel like it
 
 ### Production
 
-Download or clone, setup _config/database.yml_ (production mode defaults to MySQL) and run the following commands:
+Download or clone, setup _config/database.yml_ (production mode defaults to MySQL) and run the following
+commands:
 
 	bundle install
 	rake db:migrate RAILS_ENV=production
@@ -69,6 +70,9 @@ Navigate to _http://your-app-000.herokuapp.com/admin_ and login using the defaul
 	password
 
 Go to the _users_ tab and change your password (and username if you feel like it).
+
+**Warning:** File uploads only appear to work correctly on Heroku but eventually your files will disappear.
+I'd advise using another service until Remark has the ability to upload elsewhere.
 
 Next Steps
 ----------
