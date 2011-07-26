@@ -11,15 +11,14 @@ Still To Come
 
 - Searching.
 - Themes.
-- Archive & tab browsing.
+- Archive & tag browsing.
 - Plugins (possibly).
 
 Setup
 -----
 
-Download or clone and run the following commands:
+Download or clone, setup _config/database.yml_ and run the following commands:
 
-	rake remark:setup:db[ _sqlite3 / mysql_ ]
 	bundle install
 	rake db:migrate RAILS_ENV=production
 	rake db:seed RAILS_ENV=production
