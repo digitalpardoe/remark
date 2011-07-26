@@ -1,0 +1,19 @@
+production:
+  adapter: mysql2
+  host: localhost
+  username: production
+  password: production
+  database: production
+      
+development:
+  adapter: sqlite3
+  database: db/development.sqlite3
+  pool: 5
+  timeout: 5000
+
+test:
+  adapter: sqlite3
+  database: db/development.sqlite3
+  pool: 5
+  timeout: 5000
+    

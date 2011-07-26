@@ -17,7 +17,7 @@ namespace :remark do
       File.open(File.join(Rails.root, 'Gemfile'), 'w') { |f| f.write(contents) }
       
       # Create the Procfile
-      contents = "web: bundle exec rails server thin -p $PORT"
+      contents = "web: bundle exec rails server thin -p $PORT\n"
       File.open(File.join(Rails.root, 'Procfile'), 'w') { |f| f.write(contents) }
     end
     

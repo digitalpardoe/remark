@@ -63,7 +63,7 @@ Download or clone and run the following commands:
 	heroku run rake db:migrate
 	heroku run rake db:seed
 	
-Navigate to _http://you-app-000.herokuapp.com/admin_ and login using the default credentials:
+Navigate to _http://your-app-000.herokuapp.com/admin_ and login using the default credentials:
 
 	admin
 	password
