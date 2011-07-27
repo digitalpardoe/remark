@@ -4,3 +4,4 @@ script: "bundle exec rake db:drop db:create db:migrate spec"
 branches:
   only:
     - master
+bundler_args: --without production
