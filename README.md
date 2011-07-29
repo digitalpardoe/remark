@@ -64,6 +64,12 @@ Download or clone and run the following commands:
 	heroku run rake db:migrate
 	heroku run rake db:seed
 	
+Setup your Amazon S3 details (or modify _s3.yml_ to suit and check it in):
+	
+	heroku config:add S3_ACCESS_KEY_ID=xxxxxxxxxx
+	heroku config:add S3_SECRET_ACCESS_KEY=xxxxxxxxxx
+	heroku config:add S3_BUCKET=xxxxxxxxxx
+	
 Navigate to _http://your-app-000.herokuapp.com/admin_ and login using the default credentials:
 
 	admin
@@ -71,8 +77,9 @@ Navigate to _http://your-app-000.herokuapp.com/admin_ and login using the defaul
 
 Go to the _users_ tab and change your password (and username if you feel like it).
 
-**Warning:** File uploads only appear to work correctly on Heroku but eventually your files will disappear.
-I'd advise using another service until Remark has the ability to upload elsewhere.
+**Warning:** File uploads on Heroku will only work correctly if you use Amazon S3, any attempts to use the
+local storage provided will result in files going missing, please configure your S3 details before using
+file uploads.
 
 Next Steps
 ----------
