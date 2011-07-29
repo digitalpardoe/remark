@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110509202603) do
+ActiveRecord::Schema.define(:version => 20110729104032) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -34,15 +34,13 @@ ActiveRecord::Schema.define(:version => 20110509202603) do
   add_index "articles_tags", ["article_id", "tag_id"], :name => "index_articles_tags_on_article_id_and_tag_id"
 
   create_table "documents", :force => true do |t|
-    t.string   "name"
-    t.string   "extension"
-    t.integer  "size"
-    t.string   "content_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "paperclip_file_name"
+    t.string   "paperclip_content_type"
+    t.integer  "paperclip_file_size"
+    t.datetime "paperclip_updated_at"
   end
-
-  add_index "documents", ["name", "extension"], :name => "index_documents_on_name_and_extension", :unique => true
 
   create_table "pages", :force => true do |t|
     t.string   "title"

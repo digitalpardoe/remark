@@ -7,4 +7,4 @@ coverage/*
 nbproject/*
 .idea/*
 test/*
-public/files/*
+public/system/*
