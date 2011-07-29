@@ -20,12 +20,12 @@ describe Admin::DocumentsController do
     end
   end
 
-  describe "GET 'create'" do
-    it "should be successful" do
-      get 'create'
-      response.should be_success
-    end
-  end
+#  describe "GET 'create'" do
+#    it "should be successful" do
+#      get 'create'
+#      response.should be_success
+#    end
+#  end
 
 #  describe "DELETE 'destroy'" do
 #    it "should be successful" do

@@ -28,19 +28,19 @@ describe Document do
     end
   end
   
-  it "stores a valid document" do
-    @document.save!
-  end
+#  it "stores a valid document" do
+#    @document.save!
+#  end
   
-  it "changes the name to prevent duplication" do
-    @document.save!
-    @duplicate.save!
-    
-    @duplicate.name.should == "ability_spec-1"
-  end
+#  it "changes the name to prevent duplication" do
+#    @document.save!
+#    @duplicate.save!
+#    
+#    @duplicate.name.should == "ability_spec-1"
+#  end
   
-  it "checks to see if the document is an image" do
-    @document.save!
-    @document.image?.should be false
-  end
+#  it "checks to see if the document is an image" do
+#    @document.save!
+#    @document.image?.should be false
+#  end
 end
