@@ -14,7 +14,7 @@ gem 'will_paginate', '3.0.pre2'
 # File uploading
 gem 'paperclip', '2.3.15'
 gem 'rmagick', '2.13.1'
-# gem 'right_aws', '2.1.0'  #heroku
+# gem 'aws-s3', '0.6.2'  #heroku
 
 # Other libraries
 gem 'jquery-rails', '1.0.2'
