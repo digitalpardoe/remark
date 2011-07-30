@@ -15,11 +15,7 @@ class ArticleSweeper < ActionController::Caching::Sweeper
   
   private
   def expire_cache_for(article)
-    expire_action(:controller => '/blog', :action => 'index')
-    expire_action(:controller => '/blog', :action => 'index', :format => 'rss')
-    expire_action(:controller => '/blog', :action => 'show', :day => article.published_at.strftime("%d"), :month => article.published_at.strftime("%m"), :year => article.published_at.strftime("%Y"), :permalink => article.permalink)
-    
-    expire_action(:controller => '/admin/articles', :action => 'index')
-    expire_action(:controller => '/admin/articles', :action => 'edit', :id => article.id)
+    # Should expire all the action & fragment caches
+    expire_fragment(/.*/)
   end
 end

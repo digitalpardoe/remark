@@ -1,5 +1,6 @@
 class BlogController < ApplicationController
-  caches_action :index, :show
+  caches_action :index, :cache_path => Proc.new { |controller| controller.params }
+  caches_action :show
   
   def index
     @articles = Article.published.includes(:tags, :user)
