@@ -2,8 +2,10 @@ module AdminHelper
   def error_messages_for(model)
     if model.errors.any?
       content_tag :div, :id => 'error_explanation' do
-        content_tag(:h2, "Please correct the following #{pluralize(model.errors.count, "error")}, to allow this #{model.class.model_name.human.downcase} to be saved:") \
-        << content_tag(:ul, model.errors.full_messages.map { |message| content_tag(:li, "#{message}.") }.to_s.html_safe)
+        "".tap do |string|
+          string << content_tag(:h2, "Please correct the following #{pluralize(model.errors.count, "error")}, to allow this #{model.class.model_name.human.downcase} to be saved:")
+          string << content_tag(:ul, "".tap { |li| model.errors.full_messages.each { |item| li << content_tag(:li, item) } }.html_safe )
+        end.html_safe
       end
     end
   end

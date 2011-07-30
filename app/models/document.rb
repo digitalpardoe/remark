@@ -9,6 +9,8 @@ class Document < ActiveRecord::Base
     has_attached_file :paperclip
   end
   
+  validates_attachment_presence :paperclip
+  
   def self.human_attribute_name(attr, options = {})
     { :document => "File" }[attr.to_sym] || super
   end
