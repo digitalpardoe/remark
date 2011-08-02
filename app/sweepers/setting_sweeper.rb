@@ -32,6 +32,8 @@ class SettingSweeper < ActionController::Caching::Sweeper
     end
         
     # Expire all page caches
-    expire_action(:controller => '/page', :action => 'show', :permalink => page.permalink)  
+    Page.published.all.each do |page|
+      expire_action(:controller => '/page', :action => 'show', :permalink => page.permalink)
+    end
   end
 end
