@@ -33,5 +33,11 @@ class SettingSweeper < ActionController::Caching::Sweeper
     end
     
     expire_action(:controller => '/admin/articles', :action => 'index')
+    
+    # Expire all page caches
+    expire_action(:controller => '/page', :action => 'show', :permalink => page.permalink)  
+
+    expire_action(:controller => '/admin/pages', :action => 'index')
+    expire_action(:controller => '/admin/pages', :action => 'edit', :id => page.id)
   end
 end
