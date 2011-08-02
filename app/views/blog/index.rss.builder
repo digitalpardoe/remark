@@ -12,7 +12,7 @@ xml.rss :version => "2.0" do
         xml.pubDate article.published_at.to_s(:rfc822)
         xml.link article_url(article)
         xml.author article.user.username
-        xml.guid article.uuid
+        xml.guid article.uuid, :isPermaLink => false
         for tag in article.tags
           xml.category tag.name
         end
