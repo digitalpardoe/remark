@@ -16,14 +16,10 @@ class PageSweeper < ActionController::Caching::Sweeper
   private
   def expire_cache_for(page)
     expire_action(:controller => '/page', :action => 'show', :permalink => page.permalink)  
-
-    expire_action(:controller => '/admin/pages', :action => 'index')
-    expire_action(:controller => '/admin/pages', :action => 'edit', :id => page.id)
     
     # Will also need to expire article caches to refresh links in navigation bar
     Article.published.all.each do |article|
       expire_action(:controller => '/blog', :action => 'show', :day => article.published_at.strftime("%d"), :month => article.published_at.strftime("%m"), :year => article.published_at.strftime("%Y"), :permalink => article.permalink)  
-      expire_action(:controller => '/admin/articles', :action => 'edit', :id => article.id)
     end
     
     expire_action(:controller => '/blog', :action => 'index')

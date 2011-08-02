@@ -22,7 +22,6 @@ class SettingSweeper < ActionController::Caching::Sweeper
     # Expire all article caches
     Article.published.all.each do |article|
       expire_action(:controller => '/blog', :action => 'show', :day => article.published_at.strftime("%d"), :month => article.published_at.strftime("%m"), :year => article.published_at.strftime("%Y"), :permalink => article.permalink)  
-      expire_action(:controller => '/admin/articles', :action => 'edit', :id => article.id)
     end
     
     expire_action(:controller => '/blog', :action => 'index')
@@ -31,13 +30,8 @@ class SettingSweeper < ActionController::Caching::Sweeper
     (1..(Article.published.count / Setting.application.value(:per_page).to_i)).each do |i|
       expire_action(:controller => '/blog', :action => 'index', :page => i)
     end
-    
-    expire_action(:controller => '/admin/articles', :action => 'index')
-    
+        
     # Expire all page caches
     expire_action(:controller => '/page', :action => 'show', :permalink => page.permalink)  
-
-    expire_action(:controller => '/admin/pages', :action => 'index')
-    expire_action(:controller => '/admin/pages', :action => 'edit', :id => page.id)
   end
 end

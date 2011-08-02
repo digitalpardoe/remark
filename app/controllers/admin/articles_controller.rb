@@ -1,7 +1,6 @@
 class Admin::ArticlesController < AdminController
   load_and_authorize_resource
   
-  caches_action :index, :edit
   cache_sweeper :article_sweeper, :only => [:create, :update, :destroy]
   
   def index

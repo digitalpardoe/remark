@@ -22,8 +22,5 @@ class ArticleSweeper < ActionController::Caching::Sweeper
     (1..(Article.published.count / Setting.application.value(:per_page).to_i)).each do |i|
       expire_action(:controller => '/blog', :action => 'index', :page => i)
     end
-    
-    expire_action(:controller => '/admin/articles', :action => 'index')
-    expire_action(:controller => '/admin/articles', :action => 'edit', :id => article.id)
   end
 end
