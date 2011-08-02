@@ -24,8 +24,10 @@ class PageSweeper < ActionController::Caching::Sweeper
     
     expire_action(:controller => '/blog', :action => 'index')
     
-    (1..(Article.published.count / Setting.application.value(:per_page).to_i)).each do |i|
-      expire_action(:controller => '/blog', :action => 'index', :page => i)
+    if Setting.application.value(:per_page).to_i > 0
+      (1..(Article.published.count / Setting.application.value(:per_page).to_i)).each do |i|
+        expire_action(:controller => '/blog', :action => 'index', :page => i)
+      end
     end
   end
 end

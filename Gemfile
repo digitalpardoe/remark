@@ -4,20 +4,20 @@ source 'http://rubygems.org'
 gem 'rails', '3.0.9'
 
 # Required libraries
-gem 'bluecloth', '2.0.9'
+gem 'bluecloth', '2.1.0'
 gem 'RedCloth', '4.2.7'
-gem 'cancan', '1.5.1'
-gem 'uuidtools', '2.1.1'
+gem 'cancan', '1.6.5'
+gem 'uuidtools', '2.1.2'
 gem 'gravtastic', '3.1.0'
-gem 'will_paginate', '3.0.pre2'
+gem 'will_paginate', '3.0.pre4'
 
 # File uploading
-gem 'paperclip', '2.3.15'
+gem 'paperclip', '2.3.16'
 gem 'rmagick', '2.13.1'
 # gem 'aws-s3', '0.6.2'  #heroku
 
 # Other libraries
-gem 'jquery-rails', '1.0.2'
+gem 'jquery-rails', '1.0.12'
 gem 'lessr', '1.0.0'
 
 # Environment specific libraries
@@ -28,7 +28,7 @@ group :production do
 end
 
 group :development, :test do
-  gem 'sqlite3', '1.3.3'
+  gem 'sqlite3', '1.3.4'
 end
 
 group :development do
@@ -37,8 +37,7 @@ group :development do
 end
 
 group :test do
-  gem 'rspec-rails', '2.5.0'
-  gem 'factory_girl_rails', '1.1.rc1'
-  gem 'rcov', '0.9.9'
+  gem 'rspec-rails', '2.6.1'
+  gem 'factory_girl_rails', '1.1.0'
   gem 'autotest', '4.4.6'
 end

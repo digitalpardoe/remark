@@ -8,7 +8,7 @@ class BlogController < ApplicationController
     
     respond_to do |format|
       format.html {
-        @articles = @articles.paginate(:page => params[:page], :per_page => Setting.application.value(:per_page))
+        @articles = @articles.paginate(:page => params[:page], :per_page => Setting.application.value(:per_page).to_i)
       }
       
       format.rss {
