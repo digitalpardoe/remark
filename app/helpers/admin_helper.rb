@@ -12,7 +12,7 @@ module AdminHelper
   
   def anytime(form, text_fields)
     text_fields = [text_fields].flatten
-    date_format = "format: \"%a %d %b %Y at %H:%i %@\""
+    date_format = "format: \"%a %d %b %Y at %H:%i\""
 
     javascript_tag do 
       "".tap do |js|
@@ -22,10 +22,6 @@ module AdminHelper
           js << "AnyTime.picker(\"#{object_name}\","
           js << "{ #{date_format}, firstDOW: 1 }"
           js << ");"
-          js << "$(\"input##{object_name}\").each(function() {"
-          js << "var converter = new AnyTime.Converter({#{date_format}});"
-          js << "$(this).val( converter.format(converter.parse($(this).val() + \" UTC+00:00\")) );"
-          js << "});"
         end
         js << "});"
       end.html_safe
