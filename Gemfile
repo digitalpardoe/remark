@@ -1,18 +1,18 @@
 source 'http://rubygems.org'
 
 # Rails version
-gem 'rails', '3.0.9'
+gem 'rails', '3.0.11'
 
 # Required libraries
-gem 'bluecloth', '2.1.0'
-gem 'RedCloth', '4.2.7'
-gem 'cancan', '1.6.5'
+gem 'bluecloth', '2.2.0'
+gem 'RedCloth', '4.2.9'
+gem 'cancan', '1.6.7'
 gem 'uuidtools', '2.1.2'
-gem 'gravtastic', '3.1.0'
-gem 'will_paginate', '3.0.pre4'
+gem 'gravtastic', '3.2.6'
+gem 'will_paginate', '3.0.3'
 
 # File uploading
-gem 'paperclip', '2.3.16'
+gem 'paperclip', '2.5.2'
 gem 'rmagick', '2.13.1'
 # gem 'aws-s3', '0.6.2'  #heroku
 
@@ -22,13 +22,13 @@ gem 'lessr', '1.0.0'
 
 # Environment specific libraries
 group :production do
-  gem 'mysql2', '0.3.6'   #no-heroku
-#  gem 'pg', '0.11.0'     #heroku
-#  gem 'thin', '1.2.11'   #heroku
+  gem 'mysql2', '0.3.11'   #no-heroku
+#  gem 'pg', '0.12.2'     #heroku
+#  gem 'thin', '1.3.1'   #heroku
 end
 
 group :development, :test do
-  gem 'sqlite3', '1.3.4'
+  gem 'sqlite3', '1.3.5'
 end
 
 group :development do
@@ -37,7 +37,7 @@ group :development do
 end
 
 group :test do
-  gem 'rspec-rails', '2.6.1'
-  gem 'factory_girl_rails', '1.1.0'
+  gem 'rspec-rails', '2.8.1'
+  gem 'factory_girl_rails', '1.6.0'
   gem 'autotest', '4.4.6'
 end
