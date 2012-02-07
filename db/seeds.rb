@@ -7,16 +7,17 @@
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
 [
-  {:resource => IDENTIFIER, :key => 'name', :value => 'Remark', :hidden => false, :human_readable => "Blog Name", :required => true},
-  {:resource => IDENTIFIER, :key => 'subtitle', :value => 'A Rails Blogging Engine', :hidden => false, :human_readable => "Blog Subtitle", :required => true},
-  {:resource => IDENTIFIER, :key => 'url', :value => 'http://example.com/', :hidden => false, :human_readable => "Blog URL", :required => true},
-  {:resource => IDENTIFIER, :key => 'tracking', :hidden => false, :human_readable => "Tracking Code", :required => false, :field_type => "text_area"},
-  {:resource => IDENTIFIER, :key => 'text_filter', :value => DEFAULT_TEXT_FILTER, :hidden => false, :human_readable => "Default Text Filter", :required => true, :field_type => "collection_select#constant"},
-  {:resource => IDENTIFIER, :key => 'disqus_shortname', :hidden => false, :human_readable => "DISQUS Shortname", :required => false},
-  {:resource => IDENTIFIER, :key => 'feedburner_stub', :hidden => false, :human_readable => "FeedBurner Stub", :required => false},
-  {:resource => IDENTIFIER, :key => 'per_page', :value => 5, :hidden => false, :human_readable => "Articles Per Page", :required => true}
+  {:key => 'name', :value => 'Remark', :hidden => false, :human_readable => "Blog Name", :required => true},
+  {:key => 'subtitle', :value => 'A Rails Blogging Engine', :hidden => false, :human_readable => "Blog Subtitle", :required => true},
+  {:key => 'url', :value => 'http://example.com/', :hidden => false, :human_readable => "Blog URL", :required => true},
+  {:key => 'tracking', :hidden => false, :human_readable => "Tracking Code", :required => false, :field_type => "text_area"},
+  {:key => 'text_filter', :value => DEFAULT_TEXT_FILTER, :hidden => false, :human_readable => "Default Text Filter", :required => true, :field_type => "collection_select#constant"},
+  {:key => 'disqus_shortname', :hidden => false, :human_readable => "DISQUS Shortname", :required => false},
+  {:key => 'feedburner_stub', :hidden => false, :human_readable => "FeedBurner Stub", :required => false},
+  {:key => 'per_page', :value => 5, :hidden => false, :human_readable => "Articles Per Page", :required => true},
+  {:key => 'time_zone', :value => DEFAULT_TIME_ZONE, :hidden => false, :human_readable => "Time Zone", :required => true, :field_type => "collection_select#constant"}
 ].each do |setting|
-  Setting.create!(setting)
+  Setting.create!( setting.merge( { :resource => IDENTIFIER } ) )
 end
 
 [
