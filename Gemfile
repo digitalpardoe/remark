@@ -41,4 +41,5 @@ group :test do
   gem 'rspec-rails', '2.8.1'
   gem 'factory_girl_rails', '1.6.0'
   gem 'autotest', '4.4.6'
+  gem 'simplecov', '0.5.4'
 end
