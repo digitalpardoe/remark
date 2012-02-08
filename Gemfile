@@ -4,7 +4,7 @@ source 'http://rubygems.org'
 gem 'rails', '3.0.11'
 
 # Required libraries
-gem 'bluecloth', '2.2.0'
+gem 'bluecloth', '2.1.0'
 gem 'RedCloth', '4.2.9'
 gem 'cancan', '1.6.7'
 gem 'uuidtools', '2.1.2'
