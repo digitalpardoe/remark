@@ -1,1 +1,5 @@
 require 'autotest/bundler'
+
+Autotest.add_hook :initialize do |at|
+  %w{.git db log coverage}.each { |exception| at.add_exception(exception) }
+end
