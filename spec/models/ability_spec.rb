@@ -43,6 +43,7 @@ describe Ability do
     @page.draft = true
     @page.user = @admin_user
     @page.text_filter = 'markdown'
+    @page.published_at = Time.now
     @page.save!
   end
   
