@@ -8,10 +8,10 @@ class Ability
       can :manage, :all
     else
       can :read, Article do |record|
-        !record.draft
+        !record.draft && record.published_at <= Time.now
       end
       can :read, Page do |record|
-        !record.draft
+        !record.draft && record.published_at <= Time.now
       end
     end
   end

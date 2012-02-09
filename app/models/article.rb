@@ -1,8 +1,7 @@
 class Article < ActiveRecord::Base
   include Permalink, Unique
   
-  validates_presence_of :title, :body, :user, :permalink, :uuid, :text_filter
-  validates_presence_of :published_at, :if => Proc.new { |article| !article.draft }
+  validates_presence_of :title, :body, :user, :permalink, :uuid, :text_filter, :published_at
   validates_uniqueness_of :title, :permalink, :uuid
   validates_format_of :permalink, :with => /\A([a-z0-9]+-{0,1})*([a-z0-9]+)\Z/
   
@@ -15,10 +14,9 @@ class Article < ActiveRecord::Base
   default_scope order('published_at DESC')
   
   scope :draft, where(:draft => true)
-  scope :published, where(:draft => false)
+  scope :published, where(:draft => false).where('published_at <= ?', Time.now)
   
   before_validation :generate_permalink, :process_tags
-  before_validation :set_published_at, :if => Proc.new { |article| !article.draft && (!article.published_at || article.draft_changed?) }
   before_validation :generate_uuid, :on => :create
   
   def self.human_attribute_name(attr, options = {})
@@ -36,14 +34,6 @@ class Article < ActiveRecord::Base
   end
   
   private
-  def set_published_at
-    if self.published_at && self.published_at > Time.now
-      self.draft = true
-    else
-      self.published_at = Time.now
-    end
-  end
-  
   def process_tags
     self.tags = self.tags_to_process.gsub(/\ *,\ */, ",").split(",").delete_if { |tag| tag == '' }.collect do |tag|
       Tag.find_or_create_by_name(tag)
