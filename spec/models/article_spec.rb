@@ -11,7 +11,7 @@ describe Article do
     @article.user = @user
     @article.draft = false
     @article.text_filter = 'markdown'
-    @article.published_at = Time.now
+    @article.published_at = Time.zone.now
   end
   
   it "stores a valid article" do

@@ -14,7 +14,7 @@ class Article < ActiveRecord::Base
   default_scope order('published_at DESC')
   
   scope :draft, where(:draft => true)
-  scope :published, where(:draft => false).where('published_at <= ?', Time.now)
+  scope :published, where(:draft => false).where('published_at <= ?', Time.zone.now)
   
   before_validation :generate_permalink, :process_tags
   before_validation :generate_uuid, :on => :create

@@ -10,7 +10,7 @@ class Page < ActiveRecord::Base
   default_scope order('sort_order DESC, title ASC')
   
   scope :draft, where(:draft => true)
-  scope :published, where(:draft => false).where('published_at <= ?', Time.now)
+  scope :published, where(:draft => false).where('published_at <= ?', Time.zone.now)
   scope :hidden, where(:hidden => true)
   scope :visible, where(:hidden => false)
   
