@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   
   helper_method :current_user, :feedburner_url
   
+  before_filter :set_timezone
+  
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_path
   end
@@ -14,5 +16,10 @@ class ApplicationController < ActionController::Base
   
   def feedburner_url
     "http://feeds2.feedburner.com/#{Setting.application.value(:feedburner_stub)}"
+  end
+  
+  private
+  def set_timezone
+    Time.zone = Setting.application.value(:time_zone)
   end
 end

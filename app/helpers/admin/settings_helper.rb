@@ -9,7 +9,9 @@ module Admin::SettingsHelper
       when "text_area"
         form.text_area(setting.id, :value => setting.value, :class => 'normal')
       when "url_field"
-        form.url_field(setting.id, :value => setting.value, :size => 50)
+        form.url_field(setting.id, :value => setting.value)
+      when "time_zone"
+        select_tag("setting[#{setting.id}]", time_zone_options_for_select(setting.value))
       when "collection_select"
         case option
           when "model"
@@ -18,7 +20,7 @@ module Admin::SettingsHelper
             eval "form.select setting.id, #{setting.key.pluralize.upcase}.collect { |tf| [truncate(tf[:human_readable]), tf[:name]]}, { :selected => setting.value }"
         end
       else
-        form.text_field(setting.id, :value => setting.value, :size => 50)
+        form.text_field(setting.id, :value => setting.value)
     end
   end
 end

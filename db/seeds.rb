@@ -15,7 +15,7 @@
   {:key => 'disqus_shortname', :hidden => false, :human_readable => "DISQUS Shortname", :required => false},
   {:key => 'feedburner_stub', :hidden => false, :human_readable => "FeedBurner Stub", :required => false},
   {:key => 'per_page', :value => 5, :hidden => false, :human_readable => "Articles Per Page", :required => true},
-  {:key => 'time_zone', :value => DEFAULT_TIME_ZONE, :hidden => false, :human_readable => "Time Zone", :required => true, :field_type => "collection_select#constant"}
+  {:key => 'time_zone', :value => DEFAULT_TIME_ZONE, :hidden => false, :human_readable => "Time Zone", :required => true, :field_type => "time_zone"}
 ].each do |setting|
   Setting.create!( setting.merge( { :resource => IDENTIFIER } ) )
 end
