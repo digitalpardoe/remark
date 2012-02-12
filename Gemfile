@@ -12,9 +12,9 @@ gem 'gravtastic', '3.2.6'
 gem 'will_paginate', '3.0.3'
 
 # File uploading
-gem 'paperclip', '2.5.2'
+gem 'paperclip', '2.6.0'
 gem 'rmagick', '2.13.1'
-# gem 'aws-s3', '0.6.2'  #heroku
+# gem 'aws-sdk', '1.3.4'  #heroku
 
 # Other libraries
 gem 'jquery-rails', '1.0.12'
