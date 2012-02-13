@@ -30,9 +30,9 @@ module AdminHelper
   
   def nav_link(text, controller_name)
     if controller.controller_name == controller_name
-      eval "link_to \"#{text}\", admin_#{controller_name}_path, :class => \"active\""
+      link_to text, send("admin_#{controller_name}_path"), :class => "active"
     else
-      eval "link_to \"#{text}\", admin_#{controller_name}_path"
+      link_to text, send("admin_#{controller_name}_path")
     end
   end
   
