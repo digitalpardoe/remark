@@ -15,9 +15,9 @@ module Admin::SettingsHelper
       when "collection_select"
         case option
           when "model"
-            eval "select_tag('setting[#{setting.id}]', options_from_collection_for_select(#{setting.key.camelize}.all, :id, :human_readable, setting.value))"
+            select_tag("setting[#{setting.id}]", options_from_collection_for_select(Object.const_get(setting.key.camelize.to_sym).all, :id, :human_readable, setting.value))
           when "constant"
-            eval "form.select setting.id, #{setting.key.pluralize.upcase}.collect { |tf| [truncate(tf[:human_readable]), tf[:name]]}, { :selected => setting.value }"
+            form.select setting.id, Object.const_get(setting.key.pluralize.upcase.to_sym).collect { |tf| [truncate(tf[:human_readable]), tf[:name]] }, { :selected => setting.value }
         end
       else
         form.text_field(setting.id, :value => setting.value)
