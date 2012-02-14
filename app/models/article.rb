@@ -28,7 +28,7 @@ class Article < ActiveRecord::Base
   def composite_tags=(args)
     self.tags_to_process = args
   end
-  
+
   def composite_tags
     self.tags.map { |tag| tag = tag.name }.join(', ')
   end

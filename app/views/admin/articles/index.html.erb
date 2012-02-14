@@ -13,10 +13,14 @@
     <tr class="<%= cycle("", "alternate") %>">
       <td><%= article.title %></td>
       <td><%= article.user.username %></td>
-      <td><%= article.composite_tags %></td>
+      <td>
+        <% article.tags.each do |tag| %>
+            <span class="label"><%= tag.name %></span>
+        <% end %>
+      </td>
       <td><%= !article.draft ? article.published_at.to_s(:admin) : "Not Published" %></td>
-      <td><%= link_to 'Edit', edit_admin_article_path(article) %></td>
-      <td><%= link_to 'Delete', admin_article_path(article), :confirm => 'Are you sure?', :method => :delete %></td>
+      <td class="center"><%= link_to '<i class="icon-pencil"></i> Edit'.html_safe, edit_admin_article_path(article) %></td>
+      <td class="center"><%= link_to '<i class="icon-remove"></i> Delete'.html_safe, admin_article_path(article), :confirm => 'Are you sure?', :method => :delete %></td>
     </tr>
   <% end %>
 </table>
