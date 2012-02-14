@@ -3,16 +3,15 @@
 <head>
   <meta charset="utf-8"/>
   <title><%= name %> Administration - <%= (yield :title).empty? ? human_name.capitalize : (yield :title) %></title>
-  <%= stylesheet_link_tag 'admin/screen',
-                          '../markitup/skins/markitup/style',
+  <%= less_link_tag 'admin/screen' %>
+  <%= stylesheet_link_tag '../markitup/skins/markitup/style',
                           '../markitup/sets/html/style',
                           '../markitup/sets/markdown/style',
                           '../markitup/sets/textile/style',
                           (Rails.env == "production" ? '../anytime/anytimec.css' : '../anytime/anytime.css'),
                           (Rails.env == "production" ? '../bootstrap/css/bootstrap.min.css' : '../bootstrap/css/bootstrap.css'),
                           (Rails.env == "production" ? '../bootstrap/css/bootstrap-responsive.min.css' : '../bootstrap/css/bootstrap-responsive.css') %>
-  <%= javascript_include_tag (Rails.env == "production" ? 'jquery.min.js' : 'jquery.js'),
-                             'jquery_ujs',
+  <%= javascript_include_tag :defaults,
                              '../markitup/jquery.markitup.js',
                              '../markitup/sets/html/set.js',
                              '../markitup/sets/markdown/set.js',
