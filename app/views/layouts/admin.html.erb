@@ -58,11 +58,13 @@
     <div class="span4">
       <div class="well">
         <h2>Tools</h2>
-        <% if !Setting.application.value(:disqus_shortname).blank? %>
-            <p><%= link_to "DISQUS Control Panel", "http://#{Setting.application.value(:disqus_shortname)}.disqus.com/" %></p>
-        <% else %>
-            <p>Useful tools coming soon…</p>
-        <% end %>
+        <ul class="nav nav-list">
+          <% if !Setting.application.value(:disqus_shortname).blank? %>
+              <li><%= link_to "<i class=\"icon-pencil\"></i> DISQUS Control Panel".html_safe, "http://#{Setting.application.value(:disqus_shortname)}.disqus.com/" %></li>
+          <% else %>
+              <li>Useful tools coming soon…</li>
+          <% end %>
+        </ul>
       </div>
     </div>
   </div>
