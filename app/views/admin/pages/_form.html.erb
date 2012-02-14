@@ -3,42 +3,26 @@
 <%= markitup(f, :body, :toggle => 'text_filter') %>
 <%= anytime(f, :published_at) %>
 
-<fieldset>
-  <%= f.label :title, :class => 'block' %>
-  <%= f.text_field :title, :placeholder => "Example Title" %>
-</fieldset>
+<%= f.label :title, :class => 'block' %>
+<%= f.text_field :title, :placeholder => "Example Title" %>
 
-<table>
-  <tr>
-    <td><%= f.label :text_filter %></td>
-    <td><%= f.select :text_filter, TEXT_FILTERS.collect { |tf| [tf[:human_readable], tf[:name]]}, { :selected => f.object.text_filter ? f.object.text_filter : Setting.application.value(:text_filter) } %> <span class="note">Changing this will change the editing mode of the field below.</span></td>
-  </tr>
-</table>
+<%= f.label :text_filter %>
+<%= f.select :text_filter, TEXT_FILTERS.collect { |tf| [tf[:human_readable], tf[:name]]}, { :selected => f.object.text_filter ? f.object.text_filter : Setting.application.value(:text_filter) } %>
+<span class="help-inline">Changing this will change the editing mode of the field below.</span>
 
-<fieldset>
-  <%= f.label :body, "Content", :class => 'block' %>
-  <%= f.text_area :body %>
+<%= f.label :body, "Content", :class => 'block' %>
+<%= f.text_area :body %>
   
-  <%= f.label :permalink, :class => 'block mid' %>
-  <%= f.text_field :permalink, :placeholder => 'generated-or-fill-me-in' %>
-</fieldset>
+<%= f.label :permalink, :class => 'block mid' %>
+<%= f.text_field :permalink, :placeholder => 'generated-or-fill-me-in' %>
 
-<table>
-  <tr>
-    <td><%= f.label :published_at, "Published" %></td>
-    <td><%= f.text_field :published_at, :value => (@page.published_at || Time.zone.now).to_s(:anytime), :class => 'noted' %> <span class="note">Set a future date to delay publishing.</span></td>
-  </tr>
-  <tr>
-    <td><%= f.label :draft %></td>
-    <td><%= f.check_box :draft %></td>
-  </tr>
-  <tr>
-    <td><%= f.label :hidden %></td>
-    <td><%= f.check_box :hidden %></td>
-  </tr>
-</table>
+<%= f.label :published_at, "Published" %>
+<%= f.text_field :published_at, :value => (@page.published_at || Time.zone.now).to_s(:anytime), :class => 'noted' %>
+<span class="help-inline">Set a future date to delay publishing.</span>
 
-<fieldset>
-  <%= f.submit "Save" %>
-  <%= link_to "Cancel", admin_pages_path, :class => 'cancel' %>
-</fieldset>
+
+<%= f.label :draft, ("Draft " + (f.check_box :draft)).html_safe, :class => "checkbox" %>
+<%= f.label :hidden, ("Hidden " + (f.check_box :hidden)).html_safe, :class => "checkbox" %>
+
+<%= f.submit "Save" %>
+<%= link_to "Cancel", admin_pages_path, :class => 'cancel' %>

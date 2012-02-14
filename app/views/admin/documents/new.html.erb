@@ -1,15 +1,17 @@
-<%= form_for(@document, :url => admin_documents_path, :html => { :multipart => true }) do |f| %>
-  <%= error_messages_for(@document) %>
+<%= form_for(@document, :url => admin_documents_path, :html => {:multipart => true, :class => "form-horizontal" }) do |f| %>
+    <%= error_messages_for(@document) %>
 
-  <table>
-    <tr>
-      <td><%= f.label :paperclip, "File" %></td>
-      <td><%= f.file_field :paperclip %></td>
-    </tr>
-  </table>
-  
-  <fieldset>
-    <%= f.submit "Upload" %>
-    <%= link_to "Cancel", admin_documents_path, :class => 'cancel' %>
-  </fieldset>
+    <fieldset>
+      <div class="control-group">
+        <%= f.label :paperclip, "File" %>
+        <div class="controls">
+          <%= f.file_field :paperclip %>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <%= f.submit "Upload", :class => ["btn", "btn-primary"] %>
+        <%= link_to "Cancel", admin_documents_path, :class => 'btn' %>
+      </div>
+    </fieldset>
 <% end %>
