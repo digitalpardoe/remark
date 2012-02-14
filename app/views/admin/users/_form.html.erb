@@ -2,28 +2,28 @@
 
 <fieldset>
   <div class="control-group">
-    <%= f.label :username, :class => 'block' %>
+    <%= f.label :username %>
     <div class="controls">
       <%= f.text_field :username, :placeholder => "example" %>
     </div>
   </div>
 
   <div class="control-group">
-    <%= f.label :password, :class => 'block' %>
+    <%= f.label :password %>
     <div class="controls">
       <%= f.password_field :password, :placeholder => "secure_pa55word" %>
     </div>
   </div>
 
   <div class="control-group">
-    <%= f.label :password_confirmation, :class => 'block mid' %>
+    <%= f.label :password_confirmation %>
     <div class="controls">
       <%= f.password_field :password_confirmation, :placeholder => "secure_pa55word" %>
     </div>
   </div>
 
   <div class="control-group">
-    <%= f.label :email, :class => 'block' %>
+    <%= f.label :email %>
     <div class="controls">
       <%= f.email_field :email, :placeholder => "example@example.com" %>
     </div>
@@ -31,6 +31,5 @@
 
   <div class="form-actions">
     <%= f.submit "Save", :class => ["btn", "btn-primary"] %>
-    <%= link_to "Cancel", admin_users_path, :class => 'btn' %>
   </div>
 </fieldset>

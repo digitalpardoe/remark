@@ -3,21 +3,21 @@
 <%= markitup(f, :body, :toggle => 'text_filter') %>
 <%= anytime(f, :published_at) %>
 
-<%= f.label :title, :class => 'block' %>
-<%= f.text_field :title, :placeholder => "Example Title" %>
+<%= f.label :title %>
+<%= f.text_field :title, :placeholder => "Example Title", :class => "input-xxlarge" %>
 
 <%= f.label :text_filter %>
 <%= f.select :text_filter, TEXT_FILTERS.collect { |tf| [tf[:human_readable], tf[:name]] }, {:selected => f.object.text_filter ? f.object.text_filter : Setting.application.value(:text_filter)} %>
 <span class="help-inline">Changing this will change the editing mode of the field below.</span>
 
-<%= f.label :body, "Content", :class => 'block' %>
+<%= f.label :body, "Content" %>
 <%= f.text_area :body %>
 
-<%= f.label :permalink, :class => 'block mid' %>
-<%= f.text_field :permalink, :placeholder => 'generated-or-fill-me-in' %>
+<%= f.label :permalink %>
+<%= f.text_field :permalink, :placeholder => 'generated-or-fill-me-in', :class => "input-xlarge" %>
 
 <%= f.label :published_at, "Published" %>
-<%= f.text_field :published_at, :value => (@page.published_at || Time.zone.now).to_s(:anytime), :class => 'noted' %>
+<%= f.text_field :published_at, :value => (@page.published_at || Time.zone.now).to_s(:anytime) %>
 <span class="help-inline">Set a future date to delay publishing.</span>
 
 
@@ -26,5 +26,4 @@
 
 <div class="form-actions">
   <%= f.submit "Save", :class => ["btn", "btn-primary"] %>
-  <%= link_to "Cancel", admin_pages_path, :class => 'btn' %>
 </div>

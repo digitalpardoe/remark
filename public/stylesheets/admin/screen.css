@@ -9,3 +9,15 @@ body {
 .clear-top {
     padding-top: 20px;
 }
+
+.markItUp {
+	width: 620px !important;
+}
+
+.markItUpEditor {
+	width: 562px !important;
+}
+
+input.btn {
+	margin-bottom: 0px !important;
+}
