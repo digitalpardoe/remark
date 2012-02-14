@@ -1,12 +1,17 @@
-<%= form_for :setting, :url => { :action => "update" }, :html => { :method => :put } do |f| %>
-  <% for setting in @settings %>
+<%= form_for :setting, :url => {:action => "update"}, :html => {:method => :put, :class => "form-horizontal"} do |f| %>
     <fieldset>
-      <%= f.label setting.id, setting.human_readable, :class => 'block' %>
-      <%= field_for(setting, f) %>
+      <% for setting in @settings %>
+          <div class="control-group">
+            <%= f.label setting.id, setting.human_readable, :class => "control-label" %>
+            <div class="controls">
+              <%= field_for(setting, f) %>
+            </div>
+          </div>
+
+      <% end %>
+
+      <div class="form-actions">
+        <%= f.submit "Save", :class => ["btn", "btn-primary"] %>
+      </div>
     </fieldset>
-  <% end %>
-  
-  <fieldset>
-    <%= f.submit "Save" %>
-  </fieldset>
 <% end %>
