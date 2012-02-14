@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
-  <title><%= name %> Administration</title>
+  <title><%= name %> Administration - <%= (yield :title).empty? ? human_name.capitalize : (yield :title) %></title>
   <%= stylesheet_link_tag 'admin/screen',
                           '../markitup/skins/markitup/style',
                           '../markitup/sets/html/style',
@@ -49,13 +49,16 @@
 <div class="container">
   <div class="row">
     <div class="span8">
+      <div class="page-header">
+        <h1><%= (yield :title).empty? ? human_name.capitalize : (yield :title) %></h1>
+      </div>
       <% flash.each do |key, msg| %>
           <%= content_tag :div, msg, :class => ["alert", "alert-#{key}"] %>
       <% end %>
 
       <%= yield %>
     </div>
-    <div class="span4">
+    <div class="span4 clear-top">
       <div class="well">
         <h2>Tools</h2>
         <ul class="nav nav-list">
