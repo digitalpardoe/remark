@@ -8,7 +8,7 @@
     <th></th>
   </tr>
   <% for document in @documents %>
-    <tr class="<%= cycle("", "alternate") %>">
+    <tr>
       <td><%= link_to "#{document.paperclip_file_name}", document.paperclip.url %></td>
       <td><%= number_to_human_size(document.paperclip_file_size) %></td>
       <td><%= document.paperclip_content_type %></td>

@@ -10,7 +10,7 @@
     <th></th>
   </tr>
   <% for article in @articles %>
-    <tr class="<%= cycle("", "alternate") %>">
+    <tr>
       <td><%= article.title %></td>
       <td><%= article.user.username %></td>
       <td>
