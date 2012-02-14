@@ -9,7 +9,7 @@
 [
   {:key => 'name', :value => 'Remark', :hidden => false, :human_readable => "Blog Name", :required => true},
   {:key => 'subtitle', :value => 'A Rails Blogging Engine', :hidden => false, :human_readable => "Blog Subtitle", :required => true},
-  {:key => 'url', :value => 'http://example.com/', :hidden => false, :human_readable => "Blog URL", :required => true},
+  {:key => 'url', :value => 'http://example.com/', :hidden => false, :human_readable => "Blog URL", :required => true, :field_type => "url_field"},
   {:key => 'tracking', :hidden => false, :human_readable => "Tracking Code", :required => false, :field_type => "text_area"},
   {:key => 'text_filter', :value => DEFAULT_TEXT_FILTER, :hidden => false, :human_readable => "Default Text Filter", :required => true, :field_type => "collection_select#constant"},
   {:key => 'disqus_shortname', :hidden => false, :human_readable => "DISQUS Shortname", :required => false},
