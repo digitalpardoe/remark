@@ -17,7 +17,7 @@ gem 'rmagick', '2.13.1'
 # gem 'aws-sdk', '1.3.4'  #heroku
 
 # Other libraries
-gem 'jquery-rails', '1.0.12'
+gem 'jquery-rails', '1.0.19'
 gem 'lessr', '1.0.0'
 
 # Environment specific libraries
