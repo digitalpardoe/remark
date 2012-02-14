@@ -1,58 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8" />
+  <meta charset="utf-8"/>
   <title><%= name %> Administration</title>
   <%= less_link_tag 'admin/screen' %>
-	<%= stylesheet_link_tag	'../markitup/skins/markitup/style',
-													'../markitup/sets/html/style',
-													'../markitup/sets/markdown/style',
-													'../markitup/sets/textile/style',
-													(Rails.env == "production" ? '../anytime/anytimec.css' : '../anytime/anytime.css') %>	
-  <%= javascript_include_tag	:defaults,
-															'../markitup/jquery.markitup.js',
-															'../markitup/sets/html/set.js',
-															'../markitup/sets/markdown/set.js',
-															'../markitup/sets/textile/set.js',
-															(Rails.env == "production" ? '../anytime/anytimec.js' : '../anytime/anytime.js') %>
-	<!--[if lt IE 9]>
-		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
+  <%= stylesheet_link_tag '../markitup/skins/markitup/style',
+                          '../markitup/sets/html/style',
+                          '../markitup/sets/markdown/style',
+                          '../markitup/sets/textile/style',
+                          (Rails.env == "production" ? '../anytime/anytimec.css' : '../anytime/anytime.css'),
+                          (Rails.env == "production" ? '../bootstrap/css/bootstrap.min.css' : '../bootstrap/css/bootstrap.css'),
+                          (Rails.env == "production" ? '../bootstrap/css/bootstrap-responsive.min.css' : '../bootstrap/css/bootstrap-responsive.css') %>
+  <%= javascript_include_tag :defaults,
+                             '../markitup/jquery.markitup.js',
+                             '../markitup/sets/html/set.js',
+                             '../markitup/sets/markdown/set.js',
+                             '../markitup/sets/textile/set.js',
+                             (Rails.env == "production" ? '../anytime/anytimec.js' : '../anytime/anytime.js'),
+                             (Rails.env == "production" ? '../bootstrap/js/bootstrap.min.js' : '../bootstrap/js/bootstrap.js') %>
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
   <%= csrf_meta_tag %>
 </head>
 <body>
-	<header>
-		<h1><%= link_to name, admin_index_path %></h1>
-  	<%= link_to 'Logout', user_session_path, :method => :delete, :class => 'session' %>
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <%= link_to name, admin_index_path, :class => "brand" %>
+      <div class="nav-collapse">
+        <ul class="nav">
+          <%= nav_link 'Articles', 'articles' %>
+          <%= nav_link 'Pages', 'pages' %>
+          <%= nav_link 'Files', 'documents' %>
+          <%= nav_link 'Settings', 'settings' %>
+          <%= nav_link 'Users', 'users' %>
+        </ul>
+      </div>
+      <ul class="nav pull-right">
+        <li><%= link_to 'Logout', user_session_path, :method => :delete, :class => 'session' %></li>
+      </ul>
+    </div>
+  </div>
+</div>
 
-  	<nav>
-  	  <ul>
-  	    <li><%= nav_link 'Articles', 'articles' %></li>
-				<li><%= nav_link 'Pages', 'pages' %></li>
-				<li><%= nav_link 'Files', 'documents' %></li>
-  	    <li><%= nav_link 'Settings', 'settings' %></li>
-  	    <li><%= nav_link 'Users', 'users' %></li>
-  	  </ul>
-  	</nav>
+<div class="container">
+  <div class="row">
+    <div class="span8">
+      <% flash.each do |key, msg| %>
+          <%= content_tag :div, msg, :class => ["alert", "alert-#{key}"] %>
+      <% end %>
 
-		<div id="shadow"> </div>
-	</header>
-	
-	<div id="content">
-  	<% flash.each do |key, msg| %>
-			<%= content_tag :div, content_tag(:p, msg), :id => key %>
-		<% end %>
-
-  	<%= yield %>
-	</div>
-	
-	<div id="sidebar">
-		<h2>Tools</h2>
-		<% if !Setting.application.value(:disqus_shortname).blank? %>
-			<p><%= link_to "DISQUS Control Panel", "http://#{Setting.application.value(:disqus_shortname)}.disqus.com/" %></p>
-		<% else %>
-			<p>Useful tools coming soon…</p>
-		<% end %>
-	</div>
+      <%= yield %>
+    </div>
+    <div class="span4">
+      <div class="well">
+        <h2>Tools</h2>
+        <% if !Setting.application.value(:disqus_shortname).blank? %>
+            <p><%= link_to "DISQUS Control Panel", "http://#{Setting.application.value(:disqus_shortname)}.disqus.com/" %></p>
+        <% else %>
+            <p>Useful tools coming soon…</p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
 </html>

@@ -9,12 +9,12 @@ module AdminHelper
       end
     end
   end
-  
+
   def anytime(form, text_fields)
     text_fields = [text_fields].flatten
     date_format = "format: \"%a %d %b %Y at %H:%i\""
 
-    javascript_tag do 
+    javascript_tag do
       "".tap do |js|
         js << "$(document).ready(function() {"
         text_fields.each do |text_field|
@@ -27,22 +27,22 @@ module AdminHelper
       end.html_safe
     end
   end
-  
+
   def nav_link(text, controller_name)
     if controller.controller_name == controller_name
-      link_to text, send("admin_#{controller_name}_path"), :class => "active"
+      content_tag(:li, link_to(text, send("admin_#{controller_name}_path")), :class => "active")
     else
-      link_to text, send("admin_#{controller_name}_path")
+      content_tag(:li, link_to(text, send("admin_#{controller_name}_path")))
     end
   end
-  
+
   def markitup(form, text_areas, *options)
     text_areas = [text_areas].flatten
     options = options.extract_options!.stringify_keys
     toggle = options.delete("toggle")
     toggle_text = toggle ? "$(\"##{form.object_name}_#{toggle} option:selected\").text()" : "\"#{DEFAULT_TEXT_FILTER}\""
-    
-    javascript_tag do 
+
+    javascript_tag do
       "".tap do |js|
         js << "$(document).ready(function() {"
         text_areas.each { |text_area| js << "Remark.switchMarkItUp(\"##{form.object_name}_#{text_area}\", #{toggle_text});" }

@@ -1,6 +1,6 @@
 class Admin::DocumentsController < AdminController
   load_and_authorize_resource
-  
+
   def index
     @documents = Document.all
   end
@@ -23,9 +23,13 @@ class Admin::DocumentsController < AdminController
 
   def destroy
     @document.destroy
-    
+
     respond_to do |format|
       format.html { redirect_to(admin_documents_path, :notice => "File deleted.") }
     end
+  end
+
+  def human_name
+    "files"
   end
 end
