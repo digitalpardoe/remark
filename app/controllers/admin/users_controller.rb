@@ -24,7 +24,7 @@ class Admin::UsersController < AdminController
   def create
     respond_to do |format|
       if @user.save
-        format.html { redirect_to(admin_users_path, :notice => "User created.") }
+        format.html { redirect_to(admin_users_path, :flash => { :success => "User created." }) }
       else
         format.html { render :action => "new" }
       end
@@ -34,7 +34,7 @@ class Admin::UsersController < AdminController
   def update
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to(admin_users_path, :notice => "User updated.") }
+        format.html { redirect_to(admin_users_path, :flash => { :info => "User updated." }) }
       else
         format.html { render :action => "edit" }
       end
@@ -45,7 +45,7 @@ class Admin::UsersController < AdminController
     @user.destroy
     
     respond_to do |format|
-      format.html { redirect_to(admin_users_path, :notice => "User removed.") }
+      format.html { redirect_to(admin_users_path, :flash => { :error => "User removed." }) }
     end
   end
 end

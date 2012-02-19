@@ -3,7 +3,7 @@
 <article>
 	<h2><%= link_to @article.title, article_path(@article) %></h2>
 	<%= text_filter(@article, :body) %>
-	<details>Published by <%= @article.user.username %> on <%= @article.published_at.to_s(:blog) %></details>
+	<section>Published by <%= @article.user.username %> on <%= @article.published_at.to_s(:blog) %></section>
 </article>
 
 <%= disqus(@article) %>

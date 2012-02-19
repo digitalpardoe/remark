@@ -25,7 +25,7 @@ class Admin::ArticlesController < AdminController
     
     respond_to do |format|
       if @article.save
-        format.html { redirect_to(admin_articles_path, :notice => "Article created.") }
+        format.html { redirect_to(admin_articles_path, :flash => { :success => "Article created." }) }
       else
         format.html { render :action => "new" }
       end
@@ -35,7 +35,7 @@ class Admin::ArticlesController < AdminController
   def update
     respond_to do |format|
       if @article.update_attributes(params[:article])
-        format.html { redirect_to(admin_articles_path, :notice => "Article updated.") }
+        format.html { redirect_to(admin_articles_path, :flash => { :info => "Article updated." }) }
       else
         format.html { render :action => "edit" }
       end
@@ -46,7 +46,7 @@ class Admin::ArticlesController < AdminController
     @article.destroy
     
     respond_to do |format|
-      format.html { redirect_to(admin_articles_path, :notice => "Article removed.") }
+      format.html { redirect_to(admin_articles_path, :flash => { :error => "Article removed." }) }
     end
   end
 end

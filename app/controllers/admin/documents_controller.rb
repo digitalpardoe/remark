@@ -14,7 +14,7 @@ class Admin::DocumentsController < AdminController
   def create
     respond_to do |format|
       if @document.save
-        format.html { redirect_to(admin_documents_path, :notice => "File uploaded.") }
+        format.html { redirect_to(admin_documents_path, :flash => { :success => "File uploaded." }) }
       else
         format.html { render :action => "new" }
       end
@@ -25,7 +25,7 @@ class Admin::DocumentsController < AdminController
     @document.destroy
 
     respond_to do |format|
-      format.html { redirect_to(admin_documents_path, :notice => "File deleted.") }
+      format.html { redirect_to(admin_documents_path, :flash => { :error => "File deleted." }) }
     end
   end
 

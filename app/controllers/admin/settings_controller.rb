@@ -15,7 +15,7 @@ class Admin::SettingsController < AdminController
     Setting.update(params[:setting].keys, params[:setting].values.map { |item| item = { :value => item } })
     
     respond_to do |format|
-      format.html { redirect_to(admin_settings_path, :notice => "Settings updated.") }
+      format.html { redirect_to(admin_settings_path, :flash => { :success => "Settings updated." }) }
     end
   end
 end

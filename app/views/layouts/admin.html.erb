@@ -52,7 +52,7 @@
         <h1><%= (yield :title).empty? ? human_name.capitalize : (yield :title) %></h1>
       </div>
       <% flash.each do |key, msg| %>
-          <%= content_tag :div, msg, :class => ["alert", "alert-#{key}"] %>
+	  	<%= content_tag :div, msg, :class => ["alert", "alert-#{key}"] %>
       <% end %>
 
       <%= yield %>

@@ -3,8 +3,8 @@
 <% for article in @articles %>
 	<article>
 		<h2><%= link_to article.title, article_path(article) %></h2>
-		<%= article.excerpt.blank? ? text_filter(article, :body) : article.excerpt %>
-		<details>Published by <%= article.user.username %> on <%= article.published_at.to_s(:blog) %></details>
+		<%= article.excerpt.blank? ? text_filter(article, :body) : text_filter(article, :excerpt) %>
+		<section>Published by <%= article.user.username %> on <%= article.published_at.to_s(:blog) %></section>
 	</article>
 <% end %>
 

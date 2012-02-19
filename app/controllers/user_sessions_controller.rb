@@ -15,9 +15,9 @@ class UserSessionsController < ApplicationController
         session[:user_id] = @user.id
         format.html {
           if (@user.role?(:admin))
-            redirect_to(admin_index_path, :notice => "Logged in successfully.")
+            redirect_to(admin_index_path, :flash => { :success => "Logged in successfully." })
           else
-            redirect_to(root_path, :notice => "Logged in successfully.")
+            redirect_to(root_path, :flash => { :success => "Logged in successfully." })
           end
         }
       else
@@ -33,7 +33,7 @@ class UserSessionsController < ApplicationController
     session[:user_id] = nil
     
     respond_to do |format|
-      format.html { redirect_to(new_user_session_path, :notice => "Logged out.") }
+      format.html { redirect_to(new_user_session_path, :flash => { :notice => "Logged out." }) }
     end
   end
 end
