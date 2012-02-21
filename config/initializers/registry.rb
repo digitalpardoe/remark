@@ -1,5 +1,3 @@
-# encoding: UTF-8
-
 IDENTIFIER = "com.github.digitalpardoe.remark"
 TEXT_FILTERS = [
   {:name => 'html', :human_readable => 'HTML', :method => lambda { |text| text }},

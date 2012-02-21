@@ -53,7 +53,7 @@ module AdminHelper
             js << "$(\"##{form.object_name}_#{text_area}\").markItUpRemove();"
             js << "Remark.switchMarkItUp(\"##{form.object_name}_#{text_area}\", $(\"##{form.object_name}_#{toggle} option:selected\").text());"
           end
-          js << "})"
+          js << "});"
         end
         js << "});"
       end.html_safe
