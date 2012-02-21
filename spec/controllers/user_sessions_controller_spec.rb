@@ -16,7 +16,7 @@ describe UserSessionsController do
     it "should be successful" do
       put 'create', :user => { :username => @user.username, :password => PASSWORD }
       response.should redirect_to('/admin')
-      flash[:notice].should == "Logged in successfully."
+      flash[:success].should == "Logged in successfully."
     end
     
     it "shouldn't be successful" do

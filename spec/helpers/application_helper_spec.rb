@@ -26,11 +26,12 @@ describe "tracking code" do
     end
     
     it "should be retrieved from the settings" do
+      helper.stub(:setting => "some_tracking_code")
       helper.tracking.should == @setting.value
     end
   end
 
-  it "checkes the environment isn't still production" do
+  it "checks the environment isn't still production" do
     Rails.env.should_not == 'production'
   end
 end
@@ -41,6 +42,7 @@ describe "application name" do
   end
   
   it "should be retrieved from the settings" do
-    helper.name.should == @setting.value
+    helper.stub(:setting => "Application Name")
+    helper.setting(:name).should == @setting.value
   end
 end
