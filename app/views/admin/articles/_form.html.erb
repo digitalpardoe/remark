@@ -1,7 +1,7 @@
 <%= error_messages_for(@article) %>
 
 <%= markitup(f, [:body, :excerpt], :toggle => 'text_filter') %>
-<%= anytime(f, :published_at) %>
+<%= datetime(f, :published_at) %>
 
 <%= f.label :title %>
 <%= f.text_field :title, :placeholder => "Example Title", :class => "input-xxlarge" %>
@@ -23,7 +23,7 @@
 <%= f.text_field :permalink, :placeholder => 'generated-or-fill-me-in', :class => "input-xlarge" %>
 
 <%= f.label :published_at, "Published" %>
-<%= f.text_field :published_at, :value => (@article.published_at || Time.zone.now).to_s(:anytime) %>
+<%= f.text_field :published_at, :value => (@article.published_at || Time.zone.now).to_s(:datetime) %>
 <span class="help-inline">Set a future date to delay publishing.</span>
 
 <%= f.label :draft, ("Draft " + (f.check_box :draft)).html_safe, :class => "checkbox" %>

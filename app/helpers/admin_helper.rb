@@ -10,18 +10,19 @@ module AdminHelper
     end
   end
 
-  def anytime(form, text_fields)
+  def datetime(form, text_fields)
     text_fields = [text_fields].flatten
-    date_format = "format: \"%a %d %b %Y at %H:%i\""
 
     javascript_tag do
       "".tap do |js|
         js << "$(document).ready(function() {"
         text_fields.each do |text_field|
           object_name = "#{form.object_name}_#{text_field}"
-          js << "AnyTime.picker(\"#{object_name}\","
-          js << "{ #{date_format}, firstDOW: 1 }"
-          js << ");"
+          js << "$('##{object_name}').datetimepicker({"
+          js << "separator: ' at ',"
+          js << "dateFormat: 'D dd M yy',"
+          js << "firstDay: 1"
+          js << "});"
         end
         js << "});"
       end.html_safe
