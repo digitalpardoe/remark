@@ -23,10 +23,8 @@ module Schedule
 
     # Make sure we don't duplicate jobs, last thing we need is the
     # cache getting cleared all the time
-    if (existing_jobs.length > 0)
-      existing_jobs.each do |job|
-        job.unschedule
-      end
+    existing_jobs.each do |job|
+     job.unschedule
     end
   end
 end
