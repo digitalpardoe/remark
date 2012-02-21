@@ -18,7 +18,8 @@
                              '../markitup/sets/html/set.js',
                              '../markitup/sets/markdown/set.js',
                              '../markitup/sets/textile/set.js',
-                             (Rails.env == "production" ? '../bootstrap/js/bootstrap.min.js' : '../bootstrap/js/bootstrap.js') %>
+                             (Rails.env == "production" ? '../bootstrap/js/bootstrap.min.js' : '../bootstrap/js/bootstrap.js'),
+							 '../bootstrap/js/plugins/bootstrap-tooltip.js' %>
   <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
@@ -67,6 +68,17 @@
               <li>Useful tools coming soon…</li>
           <% end %>
         </ul>
+		<% if scheduled_jobs.size > 0 %>
+			<h2>Scheduled Jobs</h2>
+			<table class="table table-bordered table-well">
+				<%= job_list %>
+			<table>
+			<script type="text/javascript">
+				$(document).ready(function() {
+					$('.tip').tooltip();
+				});
+			</script>
+		<% end %>
       </div>
     </div>
   </div>

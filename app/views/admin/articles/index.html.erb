@@ -15,7 +15,7 @@
       <td><%= article.user.username %></td>
       <td>
         <% article.tags.each do |tag| %>
-            <span class="label"><%= tag.name %></span>
+		<span class="label"><%= tag.name.gsub(' ','&nbsp;').html_safe %></span>
         <% end %>
       </td>
       <td><%= !article.draft ? article.published_at.to_s(:admin) : "Not Published" %></td>

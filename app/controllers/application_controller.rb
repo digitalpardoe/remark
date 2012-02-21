@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   layout 'application'
 
-  helper_method :current_user, :feedburner_url, :human_name, :setting
+  helper_method :current_user, :feedburner_url, :human_name, :setting, :scheduled_jobs
 
   before_filter :set_timezone
 
@@ -24,6 +24,10 @@ class ApplicationController < ActionController::Base
 
   def setting(key)
     Rails.cache.fetch("setting_#{key.to_s}") { Setting.application.value(key) }
+  end
+  
+  def scheduled_jobs
+    Hash[ *SCHEDULER.jobs.collect { |item| [ item.last.tags.first.to_sym, item.last.t ] }.flatten ]
   end
 
   private

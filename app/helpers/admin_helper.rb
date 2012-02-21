@@ -68,4 +68,15 @@ module AdminHelper
       end
     end.html_safe
   end
+  
+  def job_list    
+    "".tap do |list|
+      scheduled_jobs.each do |key,value|
+        model = key.to_s.split('_').first.camelize
+        id = key.to_s.split('_').last.to_i
+                
+        list << content_tag(:tr, content_tag(:td, "#{model}") + content_tag(:td, "#{value.to_s(:admin)}") + content_tag(:td, content_tag(:span, iconify(:icon_info_sign), :class => "tip", :'data-original-title' => Object.const_get(model).find(id).title), :class => 'center'))
+      end
+    end.html_safe
+  end
 end
