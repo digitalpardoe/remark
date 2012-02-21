@@ -7,7 +7,7 @@
 <%= f.text_field :title, :placeholder => "Example Title", :class => "input-xxlarge" %>
 
 <%= f.label :text_filter %>
-<%= f.select :text_filter, TEXT_FILTERS.collect { |tf| [tf[:human_readable], tf[:name]] }, {:selected => f.object.text_filter ? f.object.text_filter : Setting.application.value(:text_filter)} %>
+<%= f.select :text_filter, TEXT_FILTERS.collect { |tf| [tf[:human_readable], tf[:name]] }, {:selected => f.object.text_filter ? f.object.text_filter : setting(:text_filter)} %>
 <span class="help-inline">Changing this will change the editing mode of the field below.</span>
 
 <%= f.label :body, "Content" %>

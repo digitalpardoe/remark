@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
-  <title><%= name %> Administration - <%= (yield :title).empty? ? human_name.capitalize : (yield :title) %></title>
+  <title><%= setting(:name) %> Administration - <%= (yield :title).empty? ? human_name.capitalize : (yield :title) %></title>
   <%= less_link_tag 'admin/screen' %>
   <%= stylesheet_link_tag '../jquery-ui/jquery-ui.timepicker',
                           '../jquery-ui/smoothness/jquery-ui.css',
@@ -28,7 +28,7 @@
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
-      <%= link_to name, root_path, :class => "brand" %>
+      <%= link_to setting(:name), root_path, :class => "brand" %>
       <div class="nav-collapse">
         <ul class="nav">
           <%= nav_link 'Articles', 'articles' %>
@@ -61,8 +61,8 @@
       <div class="well">
         <h2>Tools</h2>
         <ul class="nav nav-list">
-          <% if !Setting.application.value(:disqus_shortname).blank? %>
-              <li><%= link_to "<i class=\"icon-pencil\"></i> DISQUS Control Panel".html_safe, "http://#{Setting.application.value(:disqus_shortname)}.disqus.com/" %></li>
+          <% if !setting(:disqus_shortname).blank? %>
+              <li><%= link_to "<i class=\"icon-pencil\"></i> DISQUS Control Panel".html_safe, "http://#{setting(:disqus_shortname)}.disqus.com/" %></li>
           <% else %>
               <li>Useful tools coming soon…</li>
           <% end %>

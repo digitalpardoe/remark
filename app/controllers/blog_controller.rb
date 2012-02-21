@@ -8,11 +8,11 @@ class BlogController < ApplicationController
     
     respond_to do |format|
       format.html {
-        @articles = @articles.paginate(:page => params[:page], :per_page => Setting.application.value(:per_page).to_i)
+        @articles = @articles.paginate(:page => params[:page], :per_page => setting(:per_page).to_i)
       }
       
       format.rss {
-        if (Setting.application.value(:feedburner_stub) || "").empty? or request.env['HTTP_USER_AGENT'] =~ /FeedBurner/i
+        if (setting(:feedburner_stub) || "").empty? or request.env['HTTP_USER_AGENT'] =~ /FeedBurner/i
           @articles = @articles.limit(10)
           render :layout => false
         else

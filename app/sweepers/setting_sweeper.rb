@@ -37,5 +37,8 @@ class SettingSweeper < ActionController::Caching::Sweeper
     Page.published.all.each do |page|
       expire_action(:controller => '/page', :action => 'show', :permalink => page.permalink)
     end
+
+    # Expire cache for setting
+    Rails.cache.delete("setting_#{setting.key}")
   end
 end

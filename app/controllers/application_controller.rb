@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   layout 'application'
 
-  helper_method :current_user, :feedburner_url, :human_name
+  helper_method :current_user, :feedburner_url, :human_name, :setting
 
   before_filter :set_timezone
 
@@ -15,15 +15,19 @@ class ApplicationController < ActionController::Base
   end
 
   def feedburner_url
-    "http://feeds2.feedburner.com/#{Setting.application.value(:feedburner_stub)}"
+    "http://feeds2.feedburner.com/#{setting(:feedburner_stub)}"
   end
 
   def human_name
     controller_name
   end
 
+  def setting(key)
+    Rails.cache.fetch("setting_#{key.to_s}") { Setting.application.value(key) }
+  end
+
   private
   def set_timezone
-    Time.zone = Setting.application.value(:time_zone)
+    Time.zone = setting(:time_zone)
   end
 end

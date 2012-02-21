@@ -1,20 +1,12 @@
 module ApplicationHelper
   def tracking
-    (Setting.application.value(:tracking) || "").html_safe unless Rails.env != 'production'
+    (setting(:tracking) || "").html_safe unless Rails.env != 'production'
   end
-  
-  def name
-    Setting.application.value(:name)
-  end
-  
-  def subtitle
-    Setting.application.value(:subtitle)
-  end
-  
+
   def title(title)
 		content_for(:title) { title }
 	end
-  
+
   def navigation
     pages = Page.published.visible.select(:title).select(:permalink).all
     content_tag :ul do
@@ -31,7 +23,7 @@ module ApplicationHelper
   end
   
   def article_url(article)
-    Setting.application.value(:url) + article_path(article)[1..-1]
+    setting(:url) + article_path(article)[1..-1]
   end
   
   def text_filter(entity, text_method)
@@ -39,6 +31,6 @@ module ApplicationHelper
   end
   
   def auto_discovery_link_tag
-    super :rss, Setting.application.value(:feedburner_stub).nil? || Setting.application.value(:feedburner_stub).empty? ? { :controller => "blog", :format => "rss" } : feedburner_url
+    super :rss, setting(:feedburner_stub).nil? || setting(:feedburner_stub).empty? ? { :controller => "blog", :format => "rss" } : feedburner_url
   end
 end

@@ -3,7 +3,7 @@ module BlogHelper
     "".tap do |code|
       code << "<div id=\"disqus_thread\"></div>"
       code << "<script type=\"text/javascript\">"
-      code << "var disqus_shortname = '#{Setting.application.value(:disqus_shortname)}';"
+      code << "var disqus_shortname = '#{setting(:disqus_shortname)}';"
       code << "var disqus_identifier = '#{article.uuid}';"
       code << "var disqus_url = '#{article_url(article)}';"
       code << "var disqus_developer = #{Rails.env == 'production' ? "0" : "1"};"
@@ -14,7 +14,7 @@ module BlogHelper
       code << "})();"
       code << "</script>"
       code << "<noscript>Please enable JavaScript to view the <a href=\"http://disqus.com/?ref_noscript\">comments powered by Disqus.</a></noscript>"
-    end.html_safe unless Setting.application.value(:disqus_shortname).blank?    
+    end.html_safe unless setting(:disqus_shortname).blank?
   end
   
   def pagination(collection)

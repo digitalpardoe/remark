@@ -1,9 +1,9 @@
 xml.instruct! :xml, :version => "1.0"
 xml.rss :version => "2.0" do
   xml.channel do
-    xml.title "#{name} RSS Feed"
-    xml.description subtitle
-    xml.link Setting.application.value(:url)
+    xml.title "#{setting(:name)} RSS Feed"
+    xml.description setting(:subtitle)
+    xml.link setting(:url)
 
     for article in @articles
       xml.item do
