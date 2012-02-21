@@ -12,7 +12,7 @@
       <td><%= link_to "#{document.paperclip_file_name}", document.paperclip.url %></td>
       <td><%= number_to_human_size(document.paperclip_file_size) %></td>
       <td><%= document.paperclip_content_type %></td>
-      <td class="center"><%= link_to '<i class="icon-remove"></i> Delete'.html_safe, admin_document_path(document), :confirm => 'Are you sure?', :method => :delete %></td>
+      <td class="center"><%= link_to iconify(:icon_remove, "Delete"), admin_document_path(document), :confirm => 'Are you sure?', :method => :delete %></td>
     </tr>
   <% end %>
 </table>

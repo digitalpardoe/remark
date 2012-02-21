@@ -17,12 +17,12 @@
         <td><%= page.user.username %></td>
         <td><%= page.permalink %></td>
         <td><%= !page.draft ? page.published_at.to_s(:admin) : "Not Published" %></td>
-        <td class="center"><%= page.hidden ? "<i class=\"icon-ok\"></i>".html_safe : "" %></td>
+        <td class="center"><%= page.hidden ? iconify(:icon_ok) : "" %></td>
         <td class="center">
-          <%= link_to "<i class=\"icon-arrow-up\"></i>".html_safe, up_admin_page_path(page, :sort_order => 'up') %>
-          <%= link_to "<i class=\"icon-arrow-down\"></i>".html_safe, down_admin_page_path(page, :sort_order => 'down') %></td>
-        <td class="center"><%= link_to '<i class="icon-pencil"></i> Edit'.html_safe, edit_admin_page_path(page) %></td>
-        <td class="center"><%= link_to '<i class="icon-remove"></i> Delete'.html_safe, admin_page_path(page), :confirm => 'Are you sure?', :method => :delete %></td>
+          <%= link_to iconify(:icon_arrow_up), up_admin_page_path(page, :sort_order => 'up') %>
+          <%= link_to iconify(:icon_arrow_down), down_admin_page_path(page, :sort_order => 'down') %></td>
+        <td class="center"><%= link_to iconify(:icon_pencil, "Edit"), edit_admin_page_path(page) %></td>
+        <td class="center"><%= link_to iconify(:icon_remove, "Delete"), admin_page_path(page), :confirm => 'Are you sure?', :method => :delete %></td>
       </tr>
   <% end %>
 </table>

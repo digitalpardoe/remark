@@ -19,8 +19,8 @@
         <% end %>
       </td>
       <td><%= !article.draft ? article.published_at.to_s(:admin) : "Not Published" %></td>
-      <td class="center"><%= link_to '<i class="icon-pencil"></i> Edit'.html_safe, edit_admin_article_path(article) %></td>
-      <td class="center"><%= link_to '<i class="icon-remove"></i> Delete'.html_safe, admin_article_path(article), :confirm => 'Are you sure?', :method => :delete %></td>
+      <td class="center"><%= link_to iconify(:icon_pencil, "Edit"), edit_admin_article_path(article) %></td>
+      <td class="center"><%= link_to iconify(:icon_remove, "Delete"), admin_article_path(article), :confirm => 'Are you sure?', :method => :delete %></td>
     </tr>
   <% end %>
 </table>

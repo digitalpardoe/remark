@@ -62,7 +62,7 @@
         <h2>Tools</h2>
         <ul class="nav nav-list">
           <% if !setting(:disqus_shortname).blank? %>
-              <li><%= link_to "<i class=\"icon-pencil\"></i> DISQUS Control Panel".html_safe, "http://#{setting(:disqus_shortname)}.disqus.com/" %></li>
+              <li><%= link_to iconify(:icon_pencil, "DISQUS Control Panel"), "http://#{setting(:disqus_shortname)}.disqus.com/" %></li>
           <% else %>
               <li>Useful tools coming soon…</li>
           <% end %>

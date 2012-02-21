@@ -59,4 +59,13 @@ module AdminHelper
       end.html_safe
     end
   end
+
+  def iconify(icon, text=nil)
+    "".tap do |tag|
+      tag << "<i class=\"#{icon.to_s.gsub('_','-')}\"></i>"
+      if (text)
+        tag << " #{text}"
+      end
+    end.html_safe
+  end
 end
