@@ -4,7 +4,7 @@ module Schedule
     SCHEDULER.at self.published_at, :tags => generate_tag do
       # This needs to be made more intelligent (obviously)
       Rails.cache.clear
-    end unless self.published_at <= Time.now
+    end unless self.published_at <= Time.now || self.draft
   end
 
   def unschedule
