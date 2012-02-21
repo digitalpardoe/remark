@@ -1,5 +1,5 @@
 class Page < ActiveRecord::Base
-  include Permalink
+  include Permalink, Schedule
   
   validates_presence_of :title, :body, :user, :permalink, :text_filter, :published_at
   validates_uniqueness_of :title, :permalink
@@ -15,6 +15,9 @@ class Page < ActiveRecord::Base
   scope :visible, where(:hidden => false)
   
   before_validation :generate_permalink
+
+  after_save :schedule
+  before_destroy :unschedule
 
   def up
     self.sort_order = self.sort_order + 1

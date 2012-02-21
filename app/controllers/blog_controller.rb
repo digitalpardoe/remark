@@ -1,5 +1,5 @@
 class BlogController < ApplicationController
-  caches_action :index, :cache_path => Proc.new { |controller| controller.params }, :if => Proc.new { |c| !c.request.format.rss? }
+  caches_action :index, :cache_path => Proc.new { |c| c.params }
   caches_action :show
   
   def index

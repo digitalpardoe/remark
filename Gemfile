@@ -10,6 +10,7 @@ gem 'cancan', '1.6.7'
 gem 'uuidtools', '2.1.2'
 gem 'gravtastic', '3.2.6'
 gem 'will_paginate', '3.0.3'
+gem 'rufus-scheduler', '2.0.16'
 
 # File uploading
 gem 'paperclip', '2.6.0'

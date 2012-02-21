@@ -1,5 +1,5 @@
 class Article < ActiveRecord::Base
-  include Permalink, Unique
+  include Permalink, Unique, Schedule
   
   validates_presence_of :title, :body, :user, :permalink, :uuid, :text_filter, :published_at
   validates_uniqueness_of :title, :permalink, :uuid
@@ -18,6 +18,9 @@ class Article < ActiveRecord::Base
   
   before_validation :generate_permalink, :process_tags
   before_validation :generate_uuid, :on => :create
+
+  after_save :schedule
+  before_destroy :unschedule
   
   def self.human_attribute_name(attr, options = {})
     { :body => "Content" }[attr.to_sym] || super
