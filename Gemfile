@@ -19,10 +19,10 @@ gem 'rmagick', '2.13.1'
 
 # Other libraries
 gem 'jquery-rails', '1.0.19'
+gem 'less-rails-bootstrap', '2.0.6'
 
 group :assets do
   gem 'less-rails', '2.1.6'
-  gem 'less-rails-bootstrap', '2.0.6'
   gem 'coffee-rails', '3.2.2'  
   gem 'uglifier', '1.2.3'
 end
