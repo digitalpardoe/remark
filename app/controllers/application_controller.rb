@@ -23,7 +23,8 @@ class ApplicationController < ActionController::Base
   end
 
   def setting(key)
-    Rails.cache.fetch("setting_#{key.to_s}") { Setting.application.value(key) }
+    Setting.application.value(key)
+#    Rails.cache.fetch("setting_#{key.to_s}") { Setting.application.value(key) }
   end
   
   def scheduled_jobs

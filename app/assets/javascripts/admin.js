@@ -1,10 +1,13 @@
-// Place your application-specific JavaScript functions and classes here
-// This file is automatically included by javascript_include_tag :defaults
+//= require jquery
+//= require jquery_ujs
+//= require jquery-ui
+//= require_tree .
+//= require twitter/bootstrap 
 
 var Remark = {
   switchMarkItUp: function(textArea, setting) {
-		$(textArea).parent().removeClass();
-		$(textArea).parent().addClass(setting.toLowerCase());
+    $(textArea).parent().removeClass();
+    $(textArea).parent().addClass(setting.toLowerCase());
     switch(setting.toLowerCase()) {
       case 'html':
         $(textArea).markItUp(myHtmlSettings);
@@ -12,7 +15,7 @@ var Remark = {
       case 'markdown':
         $(textArea).markItUp(myMarkdownSettings);
         break;
-      case 'textile' :
+      case 'textile':
         $(textArea).markItUp(myTextileSettings);
         break;
     }

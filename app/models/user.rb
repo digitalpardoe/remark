@@ -1,4 +1,3 @@
-require 'active_support/secure_random'
 require 'digest/sha1'
 
 class User < ActiveRecord::Base
@@ -45,7 +44,7 @@ class User < ActiveRecord::Base
   end
   
   def generate_salt
-    self.password_salt = ActiveSupport::SecureRandom.base64(16)
+    self.password_salt = SecureRandom.base64(16)
   end
   
   def encode_password
