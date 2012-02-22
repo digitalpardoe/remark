@@ -1,5 +1,5 @@
 class Article < ActiveRecord::Base
-  include Permalink, Unique, Schedule
+  include Permalink, Unique, Publishable
   
   validates_presence_of :title, :body, :user, :permalink, :uuid, :text_filter, :published_at
   validates_uniqueness_of :title, :permalink, :uuid
@@ -15,6 +15,7 @@ class Article < ActiveRecord::Base
   
   scope :draft, where(:draft => true)
   scope :published, where(:draft => false).where('published_at <= ?', Time.zone.now)
+  scope :unpublished, where(:draft => false).where('published_at > ?', Time.zone.now)
   
   before_validation :generate_permalink, :process_tags
   before_validation :generate_uuid, :on => :create

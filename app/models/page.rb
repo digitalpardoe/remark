@@ -1,5 +1,5 @@
 class Page < ActiveRecord::Base
-  include Permalink, Schedule
+  include Permalink, Publishable
   
   validates_presence_of :title, :body, :user, :permalink, :text_filter, :published_at
   validates_uniqueness_of :title, :permalink
@@ -11,6 +11,7 @@ class Page < ActiveRecord::Base
   
   scope :draft, where(:draft => true)
   scope :published, where(:draft => false).where('published_at <= ?', Time.zone.now)
+  scope :unpublished, where(:draft => false).where('published_at > ?', Time.zone.now)
   scope :hidden, where(:hidden => true)
   scope :visible, where(:hidden => false)
   

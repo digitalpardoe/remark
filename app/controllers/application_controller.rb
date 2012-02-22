@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
   end
   
   def scheduled_jobs
-    Hash[ *SCHEDULER.jobs.collect { |item| [ item.last.tags.first.to_sym, item.last.t ] }.flatten ]
+    Hash[ *Scheduler.jobs.collect { |item| [ item.last.tags.first.to_sym, item.last.t ] }.flatten ]
   end
 
   private
