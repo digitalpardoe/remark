@@ -4,6 +4,7 @@ module Publishable
   end
 
   def schedule
+    unschedule
     Scheduler.add_publishable(self) do
       # This will have to do for now, Rails sweepers are tied to
       # controllers, will need to come up with a workaround
