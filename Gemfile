@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 # Rails version
-gem 'rails', '3.0.11'
+gem 'rails', '3.2.1'
 
 # Required libraries
 gem 'bluecloth', '2.1.0'
@@ -19,7 +19,13 @@ gem 'rmagick', '2.13.1'
 
 # Other libraries
 gem 'jquery-rails', '1.0.19'
-gem 'lessr', '1.0.0'
+gem 'less-rails-bootstrap', '2.0.6'
+
+group :assets do
+  gem 'less-rails', '2.1.6'
+  gem 'coffee-rails', '3.2.2'  
+  gem 'uglifier', '1.2.3'
+end
 
 # Environment specific libraries
 group :production do
