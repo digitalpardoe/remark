@@ -6,8 +6,7 @@ describe Setting do
   end
   
   it "protects 'hidden' from mass assignment" do
-    setting = Setting.create!(Factory.attributes_for(:setting).merge({:hidden => true}))
-    setting.hidden.should be false
+    lambda { Setting.create!(Factory.attributes_for(:setting).merge({:hidden => true})) }.should raise_error(ActiveModel::MassAssignmentSecurity::Error)
   end
   
   it "only returns application settings" do
