@@ -39,6 +39,6 @@ class SettingSweeper < ActionController::Caching::Sweeper
     end
 
     # Expire cache for setting
-    Rails.cache.delete("setting_#{setting.key}")
+    Rails.cache.delete("setting_#{Zlib.crc32(setting.key)}")
   end
 end
