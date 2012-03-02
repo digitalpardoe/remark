@@ -18,7 +18,7 @@ gem 'rmagick', '2.13.1'
 # gem 'aws-sdk', '1.3.4'  #heroku
 
 # Other libraries
-gem 'jquery-rails', '2.0.0'
+gem 'jquery-rails', '2.0.1'
 gem 'less-rails-bootstrap', '2.0.6'
 
 group :assets do
