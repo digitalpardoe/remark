@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 # Rails version
-gem 'rails', '3.2.1'
+gem 'rails', '3.2.2'
 
 # Required libraries
 gem 'bluecloth', '2.2.0'
