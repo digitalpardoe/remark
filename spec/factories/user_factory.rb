@@ -21,7 +21,7 @@ FactoryGirl.define do
       admin.save!
     end
     after_build do |admin|
-      admin.role = Factory.create(:admin_role)
+      admin.role = FactoryGirl.create(:admin_role)
     end
   end
 end

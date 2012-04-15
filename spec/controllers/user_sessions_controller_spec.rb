@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe UserSessionsController do
   before(:each) do
-    @user = Factory.create(:admin)
+    @user = FactoryGirl.create(:admin)
   end
 
   describe "GET 'new'" do

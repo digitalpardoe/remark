@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe Article do
   before(:each) do
-    @setting = Factory.create(:setting)
-    @user = Factory.create(:user)
+    @setting = FactoryGirl.create(:setting)
+    @user = FactoryGirl.create(:user)
     
     @article = Article.new
     @article.title = 'This Is A Test Title'

@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe User do  
 #  before(:each) do
-#    @admin_role = Factory.create(:admin_role)
-#    @user_role = Factory.create(:user_role)
+#    @admin_role = FactoryGirl.create(:admin_role)
+#    @user_role = FactoryGirl.create(:user_role)
 #    @user = Factory.stub(:user)
 #    @other_user = Factory.stub(:user)
 #  end

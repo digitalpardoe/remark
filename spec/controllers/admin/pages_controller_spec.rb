@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Admin::PagesController do
   before(:each) do
-    @user = Factory.create(:admin)
+    @user = FactoryGirl.create(:admin)
     session[:user_id] = @user.id
   end
 

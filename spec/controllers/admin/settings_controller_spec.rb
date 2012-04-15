@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe Admin::SettingsController do
   before(:each) do
-    @setting = Factory.create(:setting)
-    @user = Factory.create(:admin)
+    @setting = FactoryGirl.create(:setting)
+    @user = FactoryGirl.create(:admin)
     session[:user_id] = @user.id
   end
   
