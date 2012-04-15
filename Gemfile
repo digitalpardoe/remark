@@ -15,7 +15,7 @@ gem 'rufus-scheduler', '2.0.16'
 # File uploading
 gem 'paperclip', '3.0.2'
 gem 'rmagick', '2.13.1'
-# gem 'aws-sdk', '1.3.4'  #heroku
+# gem 'aws-sdk', '1.4.0'  #heroku
 
 # Other libraries
 gem 'jquery-rails', '2.0.2'
@@ -30,7 +30,7 @@ end
 # Environment specific libraries
 group :production do
   gem 'mysql2', '0.3.11'   #no-heroku
-#  gem 'pg', '0.12.2'     #heroku
+#  gem 'pg', '0.13.2'     #heroku
 #  gem 'thin', '1.3.1'   #heroku
 end
 
