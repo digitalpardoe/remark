@@ -2,9 +2,10 @@
 .bundle
 db/*.sqlite3
 log/*.log
-tmp/**/*
-coverage/*
-nbproject/*
-.idea/*
-test/*
-public/system/*
+tmp
+coverage
+nbproject
+test
+public/system
+.idea/workspace.xml
+.idea/tasks.xml

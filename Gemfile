@@ -48,4 +48,5 @@ group :test do
   gem 'factory_girl_rails', '3.1.0'
   gem 'autotest', '4.4.6'
   gem 'simplecov', '0.6.1'
+  gem 'multi_json', '1.3.6'
 end
