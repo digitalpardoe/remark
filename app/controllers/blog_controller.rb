@@ -5,7 +5,7 @@ class BlogController < ApplicationController
   def index
     @articles = Article.published.includes(:tags, :user)
     @articles = @articles.where('body LIKE ? or title LIKE ?', "%#{params[:query]}%", "%#{params[:query]}%") unless !params[:query]
-    
+
     respond_to do |format|
       format.html {
         @articles = @articles.paginate(:page => params[:page], :per_page => setting(:per_page).to_i)

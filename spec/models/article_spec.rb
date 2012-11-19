@@ -2,7 +2,8 @@ require 'spec_helper'
 
 describe Article do
   before(:each) do
-    @setting = FactoryGirl.create(:setting)
+    FactoryGirl.create(:time_zone)
+
     @user = FactoryGirl.create(:user)
     
     @article = Article.new
@@ -11,7 +12,7 @@ describe Article do
     @article.user = @user
     @article.draft = false
     @article.text_filter = 'markdown'
-    @article.published_at = Time.zone.now
+    @article.published_at = Time.now.utc
   end
   
   it "stores a valid article" do

@@ -18,7 +18,7 @@
 		<span class="label"><%= tag.name.gsub(' ','&nbsp;').html_safe %></span>
         <% end %>
       </td>
-      <td><%= !article.draft ? article.published_at.to_s(:admin) : "Not Published" %></td>
+      <td><%= !article.draft ? article.published_at.zoned.to_s(:admin) : "Not Published" %></td>
       <td class="center"><%= link_to iconify(:icon_pencil, "Edit"), edit_admin_article_path(article) %></td>
       <td class="center"><%= link_to iconify(:icon_remove, "Delete"), admin_article_path(article), :confirm => 'Are you sure?', :method => :delete %></td>
     </tr>

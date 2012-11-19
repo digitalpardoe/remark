@@ -25,4 +25,13 @@ FactoryGirl.define do
     human_readable 'Application Name'
     required true
   end
+
+  factory :time_zone, :class => Setting do
+    resource IDENTIFIER
+    key 'time_zone'
+    value 'UTC'
+    hidden false
+    human_readable 'Time Zone'
+    required true
+  end
 end

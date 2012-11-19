@@ -16,7 +16,7 @@
         <td><%= page.title %></td>
         <td><%= page.user.username %></td>
         <td><%= page.permalink %></td>
-        <td><%= !page.draft ? page.published_at.to_s(:admin) : "Not Published" %></td>
+        <td><%= !page.draft ? page.published_at.zoned.to_s(:admin) : "Not Published" %></td>
         <td class="center"><%= page.hidden ? iconify(:icon_ok) : "" %></td>
         <td class="center">
           <%= link_to iconify(:icon_arrow_up), up_admin_page_path(page, :sort_order => 'up') %>

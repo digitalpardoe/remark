@@ -4,8 +4,6 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user, :feedburner_url, :human_name, :setting, :scheduled_jobs
 
-  before_filter :set_timezone
-
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_path
   end
@@ -28,10 +26,5 @@ class ApplicationController < ActionController::Base
   
   def scheduled_jobs
     Hash[ *Scheduler.jobs.collect { |item| [ item.last.tags.first.to_sym, item.last.t ] }.flatten ]
-  end
-
-  private
-  def set_timezone
-    Time.zone = setting(:time_zone)
   end
 end

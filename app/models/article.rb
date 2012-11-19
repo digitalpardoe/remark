@@ -1,5 +1,5 @@
 class Article < ActiveRecord::Base
-  include Permalink, Unique, Publishable
+  include Permalink, Unique, Publishable, TimeZoned
   
   validates_presence_of :title, :body, :user, :permalink, :uuid, :text_filter, :published_at
   validates_uniqueness_of :title, :permalink, :uuid
@@ -14,10 +14,10 @@ class Article < ActiveRecord::Base
   default_scope order('published_at DESC')
   
   scope :draft, where(:draft => true)
-  scope :published, where(:draft => false).where('published_at <= ?', Time.zone.now)
-  scope :unpublished, where(:draft => false).where('published_at > ?', Time.zone.now)
+  scope :published, where(:draft => false).where('published_at <= ?', Time.now.utc)
+  scope :unpublished, where(:draft => false).where('published_at > ?', Time.now.utc)
   
-  before_validation :generate_permalink, :process_tags
+  before_validation :generate_permalink, :process_tags, :unzone
   before_validation :generate_uuid, :on => :create
 
   after_save :schedule

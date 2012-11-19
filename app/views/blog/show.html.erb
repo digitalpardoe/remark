@@ -6,7 +6,7 @@
 	<% if !@article.composite_tags.blank? %>
 		<section>Tagged: <%= @article.composite_tags %></section>
 	<% end %>
-	<section>Published by <%= @article.user.username %> on <%= @article.published_at.to_s(:blog) %></section>
+	<section>Published by <%= @article.user.username %> on <%= @article.published_at.zoned.to_s(:blog) %></section>
 </article>
 
 <%= disqus(@article) %>
