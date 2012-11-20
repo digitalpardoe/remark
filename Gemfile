@@ -1,16 +1,16 @@
 source 'http://rubygems.org'
 
 # Rails version
-gem 'rails', '3.2.3'
+gem 'rails', '3.2.9'
 
 # Required libraries
 gem 'bluecloth', '2.2.0'
 gem 'RedCloth', '4.2.9'
-gem 'cancan', '1.6.7'
-gem 'uuidtools', '2.1.2'
+gem 'cancan', '1.6.8'
+gem 'uuidtools', '2.1.3'
 gem 'gravtastic', '3.2.6'
 gem 'will_paginate', '3.0.3'
-gem 'rufus-scheduler', '2.0.16'
+gem 'rufus-scheduler', '2.0.17'
 
 # File uploading
 gem 'paperclip', '3.0.2'
@@ -22,7 +22,8 @@ gem 'jquery-rails', '2.0.2'
 gem 'less-rails-bootstrap', '2.0.10'
 
 group :assets do
-  gem 'less-rails', '2.2.0'
+  gem 'less-rails', '2.2.6'
+  gem 'therubyracer', '0.10.2'
   gem 'coffee-rails', '3.2.2'  
   gem 'uglifier', '1.2.4'
 end
