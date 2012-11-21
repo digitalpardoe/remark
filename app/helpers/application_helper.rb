@@ -1,4 +1,4 @@
-require 'Time'
+require 'time_zoned'
 
 module ApplicationHelper
   def tracking
