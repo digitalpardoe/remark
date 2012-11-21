@@ -58,5 +58,8 @@ module Remark
     
     # Change the way error fields are processed.
     config.action_view.field_error_proc = Proc.new { |html_tag, instance| "#{html_tag}".html_safe }
+
+    # Don't try and connect to the database when precompiling assets.
+    config.assets.initialize_on_precompile = false
   end
 end
