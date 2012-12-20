@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
   end
 
   def setting(key)
-    Rails.cache.fetch("setting_#{Zlib.crc32(key.to_s)}") { Setting.application.value(key) }
+    Setting.application.value(key)
   end
   
   def scheduled_jobs

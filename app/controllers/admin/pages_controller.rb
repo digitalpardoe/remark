@@ -1,8 +1,6 @@
 class Admin::PagesController < AdminController
   load_and_authorize_resource
-  
-  cache_sweeper :page_sweeper, :only => [:create, :update, :destroy, :up, :down]
-  
+
   def index
     @pages = Page.includes(:user).all
     authorize! :manage, Page

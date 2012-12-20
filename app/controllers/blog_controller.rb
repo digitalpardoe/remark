@@ -1,7 +1,4 @@
 class BlogController < ApplicationController
-  caches_action :index, :cache_path => Proc.new { |c| c.params }
-  caches_action :show
-  
   def index
     @articles = Article.published.includes(:tags, :user)
     @articles = @articles.where('body LIKE ? or title LIKE ?', "%#{params[:query]}%", "%#{params[:query]}%") unless !params[:query]

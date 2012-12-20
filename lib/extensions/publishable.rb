@@ -6,9 +6,7 @@ module Publishable
   def schedule
     unschedule
     Scheduler.add_publishable(self) do
-      # This will have to do for now, Rails sweepers are tied to
-      # controllers, will need to come up with a workaround
-      Rails.cache.clear
+      # This is where we'll probably sort out the cache
     end unless self.published_at <= Time.now.utc || self.draft
   end
 

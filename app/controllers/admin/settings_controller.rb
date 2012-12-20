@@ -1,8 +1,6 @@
 class Admin::SettingsController < AdminController
   authorize_resource
-  
-  cache_sweeper :setting_sweeper, :only => [:update]
-  
+
   def show
     @settings = Setting.application.all
     
