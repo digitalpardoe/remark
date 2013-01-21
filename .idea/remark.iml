@@ -9,7 +9,7 @@
       </configuration>
     </facet>
   </component>
-  <component name="NewModuleRootManager">
+  <component name="NewModuleRootManager" inherit-compiler-output="false">
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/tmp" />
@@ -17,18 +17,18 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="RedCloth (v4.2.9, RVM: ruby-1.9.3-p194) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="ZenTest (v4.8.2, RVM: ruby-1.9.3-p194) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="actionmailer (v3.2.9, RVM: ruby-1.9.3-p194) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="actionpack (v3.2.9, RVM: ruby-1.9.3-p194) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="activemodel (v3.2.9, RVM: ruby-1.9.3-p194) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="activerecord (v3.2.9, RVM: ruby-1.9.3-p194) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="activeresource (v3.2.9, RVM: ruby-1.9.3-p194) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="activesupport (v3.2.9, RVM: ruby-1.9.3-p194) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="ZenTest (v4.8.3, RVM: ruby-1.9.3-p194) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="actionmailer (v3.2.10, RVM: ruby-1.9.3-p194) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="actionpack (v3.2.10, RVM: ruby-1.9.3-p194) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="activemodel (v3.2.10, RVM: ruby-1.9.3-p194) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="activerecord (v3.2.10, RVM: ruby-1.9.3-p194) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="activeresource (v3.2.10, RVM: ruby-1.9.3-p194) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="activesupport (v3.2.10, RVM: ruby-1.9.3-p194) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="arel (v3.0.2, RVM: ruby-1.9.3-p194) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="autotest (v4.4.6, RVM: ruby-1.9.3-p194) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bluecloth (v2.2.0, RVM: ruby-1.9.3-p194) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="builder (v3.0.4, RVM: ruby-1.9.3-p194) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="bundler (v1.1.5, RVM: ruby-1.9.3-p194) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="bundler (v1.2.3, RVM: ruby-1.9.3-p194) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="cancan (v1.6.8, RVM: ruby-1.9.3-p194) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="cocaine (v0.4.2, RVM: ruby-1.9.3-p194) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="coffee-rails (v3.2.2, RVM: ruby-1.9.3-p194) [gem]" level="application" />
@@ -47,7 +47,7 @@
     <orderEntry type="library" scope="PROVIDED" name="i18n (v0.6.1, RVM: ruby-1.9.3-p194) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="journey (v1.0.4, RVM: ruby-1.9.3-p194) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="jquery-rails (v2.0.2, RVM: ruby-1.9.3-p194) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="json (v1.7.5, RVM: ruby-1.9.3-p194) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="json (v1.7.6, RVM: ruby-1.9.3-p194) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="less (v2.2.2, RVM: ruby-1.9.3-p194) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="less-rails (v2.2.6, RVM: ruby-1.9.3-p194) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="less-rails-bootstrap (v2.0.10, RVM: ruby-1.9.3-p194) [gem]" level="application" />
@@ -58,13 +58,13 @@
     <orderEntry type="library" scope="PROVIDED" name="multi_json (v1.3.6, RVM: ruby-1.9.3-p194) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="paperclip (v3.0.2, RVM: ruby-1.9.3-p194) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="polyglot (v0.3.3, RVM: ruby-1.9.3-p194) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="rack (v1.4.1, RVM: ruby-1.9.3-p194) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rack (v1.4.2, RVM: ruby-1.9.3-p194) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack-cache (v1.2, RVM: ruby-1.9.3-p194) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack-ssl (v1.3.2, RVM: ruby-1.9.3-p194) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack-test (v0.6.2, RVM: ruby-1.9.3-p194) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="rails (v3.2.9, RVM: ruby-1.9.3-p194) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="railties (v3.2.9, RVM: ruby-1.9.3-p194) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="rake (v10.0.2, RVM: ruby-1.9.3-p194) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rails (v3.2.10, RVM: ruby-1.9.3-p194) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="railties (v3.2.10, RVM: ruby-1.9.3-p194) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rake (v10.0.3, RVM: ruby-1.9.3-p194) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rdoc (v3.12, RVM: ruby-1.9.3-p194) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rmagick (v2.13.1, RVM: ruby-1.9.3-p194) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rspec (v2.9.0, RVM: ruby-1.9.3-p194) [gem]" level="application" />
@@ -75,7 +75,7 @@
     <orderEntry type="library" scope="PROVIDED" name="rufus-scheduler (v2.0.17, RVM: ruby-1.9.3-p194) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="simplecov (v0.6.1, RVM: ruby-1.9.3-p194) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="simplecov-html (v0.5.3, RVM: ruby-1.9.3-p194) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="sprockets (v2.2.1, RVM: ruby-1.9.3-p194) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="sprockets (v2.2.2, RVM: ruby-1.9.3-p194) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sqlite3 (v1.3.5, RVM: ruby-1.9.3-p194) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="therubyracer (v0.10.2, RVM: ruby-1.9.3-p194) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="thor (v0.16.0, RVM: ruby-1.9.3-p194) [gem]" level="application" />
