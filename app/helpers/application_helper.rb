@@ -31,8 +31,4 @@ module ApplicationHelper
   def text_filter(entity, text_method)
     (TEXT_FILTERS.select { |filter| filter[:name] == entity.text_filter }).first[:method].call(entity.send(text_method)).html_safe
   end
-  
-  def auto_discovery_link_tag
-    super :rss, setting(:feedburner_stub).nil? || setting(:feedburner_stub).empty? ? { :controller => "blog", :format => "rss" } : feedburner_url
-  end
 end

@@ -9,12 +9,8 @@ class BlogController < ApplicationController
       }
       
       format.rss {
-        if (setting(:feedburner_stub) || "").empty? or request.env['HTTP_USER_AGENT'] =~ /FeedBurner/i
-          @articles = @articles.limit(10)
-          render :layout => false
-        else
-          redirect_to feedburner_url
-        end
+        @articles = @articles.limit(10)
+        render :layout => false
       }
     end
   end
