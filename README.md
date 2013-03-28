@@ -51,36 +51,6 @@ Navigate to _http://yourserver.com/admin_ and login using the default credential
 	
 Go to the _users_ tab and change your password (and username if you feel like it).
 
-### Heroku
-
-Download or clone and run the following commands:
-
-	rake remark:heroku:setup
-	bundle install
-	git add Procfile
-	git commit -a -m "Ready for Heroku."
-	heroku create --stack cedar
-	git push heroku master
-	heroku run rake db:migrate
-	heroku run rake db:seed
-	
-Setup your Amazon S3 details (or modify _s3.yml_ to suit and check it in):
-	
-	heroku config:add S3_ACCESS_KEY_ID=xxxxxxxxxx
-	heroku config:add S3_SECRET_ACCESS_KEY=xxxxxxxxxx
-	heroku config:add S3_BUCKET=xxxxxxxxxx
-	
-Navigate to _http://your-app-000.herokuapp.com/admin_ and login using the default credentials:
-
-	admin
-	password
-
-Go to the _users_ tab and change your password (and username if you feel like it).
-
-**Warning:** File uploads on Heroku will only work correctly if you use Amazon S3, any attempts to use the
-local storage provided will result in files going missing, please configure your S3 details before using
-file uploads.
-
 Next Steps
 ----------
 

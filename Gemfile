@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 # Rails version
-gem 'rails', '3.2.10'
+gem 'rails', '3.2.13'
 
 # Required libraries
 gem 'bluecloth', '2.2.0'
@@ -15,7 +15,6 @@ gem 'rufus-scheduler', '2.0.17'
 # File uploading
 gem 'paperclip', '3.0.2'
 gem 'rmagick', '2.13.1'
-# gem 'aws-sdk', '1.4.0'  #heroku
 
 # Other libraries
 gem 'jquery-rails', '2.0.2'
@@ -30,9 +29,7 @@ end
 
 # Environment specific libraries
 group :production do
-  gem 'mysql2', '0.3.11'   #no-heroku
-#  gem 'pg', '0.13.2'     #heroku
-#  gem 'thin', '1.3.1'   #heroku
+  gem 'pg', '0.13.2'
 end
 
 group :development, :test do
@@ -48,6 +45,7 @@ group :test do
   gem 'rspec-rails', '2.9.0'
   gem 'factory_girl_rails', '3.1.0'
   gem 'autotest', '4.4.6'
+  gem 'ZenTest', '4.9.0'
   gem 'simplecov', '0.6.1'
   gem 'multi_json', '1.3.6'
 end
