@@ -59,9 +59,6 @@
 			<li><%= link_to iconify(:icon_file, "New Page"), new_admin_page_path %></li>
 			<li><%= link_to iconify(:icon_upload, "Upload File"), new_admin_document_path %></li>
 			<li><%= link_to iconify(:icon_user, "Change Password"), edit_admin_user_path(current_user.id) %></li>
-          	<% if !setting(:disqus_shortname).blank? %>
-		  		<li><%= link_to iconify(:icon_comment, "DISQUS Control Panel"), "http://#{setting(:disqus_shortname)}.disqus.com/" %></li>
-          	<% end %>
         </ul>
 		<% if scheduled_jobs.size > 0 %>
 			<h2>Publishing Schedule</h2>
