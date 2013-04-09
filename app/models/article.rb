@@ -28,7 +28,7 @@ class Article < ActiveRecord::Base
   before_destroy :unschedule
   
   def self.human_attribute_name(attr, options = {})
-    { :body => "Content", :url => "External URL" }[attr.to_sym] || super
+    { :body => "Content", :url => "Link URL" }[attr.to_sym] || super
   end
   
   attr_accessor :tags_to_process

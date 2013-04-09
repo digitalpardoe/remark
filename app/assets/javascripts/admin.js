@@ -6,7 +6,7 @@
 
 var Remark = {
 	switchMarkItUp: function(textArea, setting) {
-		$(textArea).parent().removeClass();
+		$(textArea).parent().removeClass('html markdown textile');
 		$(textArea).parent().addClass(setting.toLowerCase());
 		switch(setting.toLowerCase()) {
 			case 'html':
@@ -19,5 +19,23 @@ var Remark = {
 				$(textArea).markItUp(myTextileSettings);
 				break;
 		}
-	}
+	},
+  
+  elementToggler: function(configuration, buttons, setInitalState) {
+    $(document).ready(function() {
+      $(buttons).hide();
+    
+      for (var key in configuration) {
+        $(configuration[key]).hide();
+      }
+      
+      setInitalState(buttons);
+    
+      $(buttons + " .btn").click(function(event) {
+        event.preventDefault();
+        $(buttons).slideToggle(300);
+        $(configuration[event.target.className.replace("btn ", "")]).fadeToggle(300);
+      });
+    });
+  }
 };
