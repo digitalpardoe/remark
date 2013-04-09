@@ -1,7 +1,11 @@
 class Article < ActiveRecord::Base
   include Permalink, Unique, Publishable, TimeZoned
   
-  validates_presence_of :title, :body, :user, :permalink, :uuid, :text_filter, :published_at
+  validates_presence_of :title, :user, :permalink, :uuid, :text_filter, :published_at
+  validates_presence_of :body, :if => Proc.new { |article| article.url.blank? }
+  validates_presence_of :url, :if => Proc.new { |article| article.body.blank? } 
+  validates_presence_of :excerpt, :if => Proc.new { |article| article.body.blank? && !article.url.blank? }
+  
   validates_uniqueness_of :title, :permalink, :uuid
   validates_format_of :permalink, :with => /\A([a-z0-9]+-{0,1})*([a-z0-9]+)\Z/
   
@@ -24,7 +28,7 @@ class Article < ActiveRecord::Base
   before_destroy :unschedule
   
   def self.human_attribute_name(attr, options = {})
-    { :body => "Content" }[attr.to_sym] || super
+    { :body => "Content", :url => "External URL" }[attr.to_sym] || super
   end
   
   attr_accessor :tags_to_process
