@@ -2,17 +2,17 @@
 
 <% for article in @articles %>
 	<article>
-    <% if article.url.blank? %>
-		  <h2><%= link_to article.title, article_path(article) %></h2>
-		  <%= article.excerpt.blank? ? text_filter(article, :body) : text_filter(article, :excerpt) %>
-    <% else %>
-	    <h2><%= link_to article.title, article.url %></h2>
-	    <%= text_filter(article, :excerpt) %>
-      <p><%= link_to "&bull;".html_safe, article_path(article) %></p>
+		<h2><%= link_to article.title, article.link_post? ? article.url : article_path(article) %></h2>
+		<%= article.link_post? || !article.excerpt.blank? ? text_filter(article, :excerpt) : text_filter(article, :body) %>
+    
+    <% if article.link_post? %>
+      <%= link_post_master(article) %>
     <% end %>
+    
 		<% if !article.composite_tags.blank? %>
 			<section>Tagged: <%= article.composite_tags %></section>
 		<% end %>
+    
 		<section>Published by <%= article.user.username %> on <%= article.published_at.zoned.to_s(:blog) %></section>
 	</article>
 <% end %>

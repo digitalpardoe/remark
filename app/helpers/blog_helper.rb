@@ -10,4 +10,8 @@ module BlogHelper
       end
     end
   end
+  
+  def link_post_master(article)
+    "<p><a href=\"#{article_path(article)}\">&bull;</a></p>".html_safe
+  end
 end

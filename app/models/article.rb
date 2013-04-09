@@ -41,6 +41,10 @@ class Article < ActiveRecord::Base
     self.tags.map { |tag| tag = tag.name }.join(', ')
   end
   
+  def link_post?
+    !self.url.blank?
+  end
+  
   private
   def process_tags
     self.tags = self.tags_to_process.gsub(/\ *,\ */, ",").split(",").delete_if { |tag| tag == '' }.collect do |tag|

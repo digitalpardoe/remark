@@ -8,17 +8,9 @@ xml.rss :version => "2.0" do
     for article in @articles
       xml.item do
         xml.title article.title
-        if (article.url.blank?)
-          xml.description text_filter(article, :body)
-        else
-          xml.description text_filter(article, :excerpt) + "<p><a href=\"#{article_path(article)}\">&bull;</a></p>".html_safe
-        end
+        xml.description article.link_post? ? text_filter(article, :excerpt) + link_post_master(article) : text_filter(article, :body)
         xml.pubDate article.published_at.to_s(:rfc822)
-        if (article.url.blank?)
-          xml.link article_url(article)
-        else
-          xml.link article.url
-        end
+        xml.link article.link_post? ? article.url : article_url(article)
         xml.author article.user.username
         xml.guid article.uuid, :isPermaLink => false
         for tag in article.tags
