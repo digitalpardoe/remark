@@ -1,8 +1,14 @@
 <% title @article.title %>
 
 <article>
-	<h2><%= link_to @article.title, article_path(@article) %></h2>
-	<%= text_filter(@article, :body) %>
+  <% if @article.url.blank? %>
+	  <h2><%= link_to @article.title, article_path(@article) %></h2>
+	  <%= text_filter(@article, :body) %>
+  <% else %>
+    <h2><%= link_to @article.title, @article.url %></h2>
+    <%= text_filter(@article, :excerpt) %>
+    <p><%= link_to "&bull;".html_safe, article_path(@article) %></p>
+  <% end %>
 	<% if !@article.composite_tags.blank? %>
 		<section>Tagged: <%= @article.composite_tags %></section>
 	<% end %>
