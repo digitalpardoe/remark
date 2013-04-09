@@ -29,7 +29,7 @@ var Remark = {
         $(configuration[key]).hide();
       }
       
-      setInitalState(buttons);
+      setInitalState(configuration, buttons);
     
       $(buttons + " .btn").click(function(event) {
         event.preventDefault();

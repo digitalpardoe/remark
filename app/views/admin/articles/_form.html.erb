@@ -4,7 +4,7 @@
 <%= datetime(f, :published_at) %>
 
 <script type="text/javascript">
-  Remark.elementToggler( { "link" : ".link-post", "article" : ".article-post" }, ".btn-group.form-actions", function(buttons) {
+  Remark.elementToggler( { "link" : ".link-post", "article" : ".article-post" }, ".btn-group.form-actions", function(configuration, buttons) {
     if ($("#article_url").val().length > 0) {
       $(configuration["link"]).show();
     } else if ($("#article_body").val().length > 0) {
