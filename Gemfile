@@ -16,11 +16,12 @@ gem 'paperclip', '3.0.4'
 gem 'rmagick', '2.13.2'
 
 # Other libraries
-gem 'jquery-rails', '2.0.3'
-gem 'less-rails-bootstrap', '2.0.13'
+gem 'jquery-rails', '2.2.1'
+gem 'less-rails-bootstrap', '2.3.2'
+gem 'bootstrap-datetimepicker-rails', '0.0.10.1'
 
 group :assets do
-  gem 'less-rails', '2.2.6'
+  gem 'less-rails', '2.3.1'
   gem 'therubyracer', '0.10.2'
   gem 'coffee-rails', '3.2.2'  
   gem 'uglifier', '1.2.7'
