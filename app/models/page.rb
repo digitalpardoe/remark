@@ -17,6 +17,10 @@ class Page < ActiveRecord::Base
   
   before_validation :generate_permalink, :unzone
   
+  def self.human_attribute_name(attr, options = {})
+    { :body => "Content" }[attr.to_sym] || super
+  end
+  
   def up
     self.sort_order = self.sort_order + 1
   end

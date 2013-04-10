@@ -40,7 +40,7 @@
 </div>
 
 <div class="article-post">
-  <%= f.label :body, "Content" %>
+  <%= f.label :body %>
   <%= f.text_area :body %>
 </div>
 
@@ -51,7 +51,6 @@
   <%= f.label :permalink %>
   <%= f.text_field :permalink, :placeholder => 'generated-or-fill-me-in', :class => "input-xlarge" %>
 
-  
   <%= f.label :published_at, "Published" %>
   <div id="article_published" class="input-append">
     <%= f.text_field :published_at, :value => (@article.published_at || Time.now.utc).zoned.to_s(:admin), "data-format" => "dd/MM/yyyy at hh:mm" %>
@@ -59,9 +58,7 @@
       <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
     </span>
   </div>
-  
-   <span class="help-inline">Set a future date to delay publishing.</span>
-  
+  <span class="help-inline">Set a future date to delay publishing.</span>
 
   <%= f.label :draft, ("Draft " + (f.check_box :draft)).html_safe, :class => "checkbox" %>
 
