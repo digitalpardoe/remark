@@ -33,8 +33,9 @@ var Remark = {
     
       $(buttons + " .btn").click(function(event) {
         event.preventDefault();
-        $(buttons).slideToggle(300);
-        $(configuration[event.target.className.replace("btn ", "")]).fadeToggle(300);
+        $(buttons).fadeToggle(200, function() {
+          $(configuration[event.target.className.replace("btn ", "")]).fadeToggle(200);
+        });
       });
     });
   }
