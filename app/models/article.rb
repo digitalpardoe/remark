@@ -1,5 +1,5 @@
 class Article < ActiveRecord::Base
-  include Permalink, Unique, Publishable, TimeZoned
+  include Permalink, Unique, TimeZoned
   
   validates_presence_of :title, :user, :permalink, :uuid, :text_filter, :published_at
   validates_presence_of :body, :if => Proc.new { |article| article.url.blank? }
@@ -23,9 +23,6 @@ class Article < ActiveRecord::Base
   
   before_validation :generate_permalink, :process_tags, :unzone
   before_validation :generate_uuid, :on => :create
-
-  after_save :schedule
-  before_destroy :unschedule
   
   def self.human_attribute_name(attr, options = {})
     { :body => "Content", :url => "Link URL" }[attr.to_sym] || super

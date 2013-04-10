@@ -60,17 +60,6 @@
 			<li><%= link_to iconify(:icon_upload, "Upload File"), new_admin_document_path %></li>
 			<li><%= link_to iconify(:icon_user, "Change Password"), edit_admin_user_path(current_user.id) %></li>
         </ul>
-		<% if scheduled_jobs.size > 0 %>
-			<h2>Publishing Schedule</h2>
-			<table class="table table-bordered table-well">
-				<%= job_list %>
-			<table>
-			<script type="text/javascript">
-				$(document).ready(function() {
-					$('.tip').tooltip();
-				});
-			</script>
-		<% end %>
       </div>
     </div>
   </div>

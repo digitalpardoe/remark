@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   layout 'application'
 
-  helper_method :current_user, :human_name, :setting, :scheduled_jobs
+  helper_method :current_user, :human_name, :setting
 
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_path
@@ -18,9 +18,5 @@ class ApplicationController < ActionController::Base
 
   def setting(key)
     Setting.application.value(key)
-  end
-  
-  def scheduled_jobs
-    Hash[ *Scheduler.jobs.collect { |item| [ item.last.tags.first.to_sym, item.last.t ] }.flatten ]
   end
 end
