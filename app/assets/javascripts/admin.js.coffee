@@ -18,7 +18,7 @@ window.Remark =
       when "textile"
         $(textArea).markItUp myTextileSettings
 
-  elementToggler: (configuration, buttons, setInitalState) ->
+  elementToggler: (configuration, buttons, setInitalState, clickHandler) ->
     $(document).ready ->
       $(buttons).hide()
       for key of configuration
@@ -26,5 +26,7 @@ window.Remark =
       setInitalState configuration, buttons
       $(buttons + " .btn").click (event) ->
         event.preventDefault()
+        clickedButton = event.target.className.replace("btn ", "")
+        clickHandler(clickedButton)
         $(buttons).fadeToggle 200, ->
-          $(configuration[event.target.className.replace("btn ", "")]).fadeToggle 200
+          $(configuration[clickedButton]).fadeToggle 200

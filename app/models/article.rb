@@ -2,8 +2,8 @@ class Article < ActiveRecord::Base
   include Permalink, Unique, TimeZoned
   
   validates_presence_of :title, :user, :permalink, :uuid, :text_filter, :published_at
-  validates_presence_of :body, :if => Proc.new { |article| article.url.blank? }
-  validates_presence_of :url, :if => Proc.new { |article| article.body.blank? } 
+  validates_presence_of :body, :if => Proc.new { |article| article.link_post == "false" }
+  validates_presence_of :url, :if => Proc.new { |article| article.link_post == "true" }
   validates_presence_of :excerpt, :if => Proc.new { |article| article.body.blank? && !article.url.blank? }
   
   validates_uniqueness_of :title, :permalink, :uuid
@@ -28,7 +28,7 @@ class Article < ActiveRecord::Base
     { :body => "Content", :url => "Link URL" }[attr.to_sym] || super
   end
   
-  attr_accessor :tags_to_process
+  attr_accessor :tags_to_process, :link_post
   
   def composite_tags=(args)
     self.tags_to_process = args
@@ -41,7 +41,7 @@ class Article < ActiveRecord::Base
   def link_post?
     !self.url.blank?
   end
-  
+
   private
   def process_tags
     self.tags = self.tags_to_process.gsub(/\ *,\ */, ",").split(",").delete_if { |tag| tag == '' }.collect do |tag|

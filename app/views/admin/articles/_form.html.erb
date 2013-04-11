@@ -4,21 +4,34 @@
 <%= datetime(f, :published_at) %>
 
 <script type="text/javascript">
-  Remark.elementToggler( { "link" : ".link-post", "article" : ".article-post" }, ".btn-group", function(configuration, buttons) {
-    if ($("#article_url").val().length > 0) {
-      $(configuration["link"]).show();
-    } else if ($("#article_body").val().length > 0) {
-      $(configuration["article"]).show();
-    } else {
-      $(buttons).show();
+  Remark.elementToggler(
+    { "link" : ".link-post", "article" : ".article-post" },
+    ".btn-group",
+    function(configuration, buttons){
+      if ($("#article_url").val().length > 0 || $("#article_link_post").val() == "true") {
+        $(configuration["link"]).show();
+      } else if ($("#article_body").val().length > 0 || $("#article_link_post").val() == "false") {
+        $(configuration["article"]).show();
+      } else {
+        $(buttons).show();
+      }
+    },
+    function(clickedButton){
+      if (clickedButton == "link") {
+        $("#article_link_post").prop('value', "true");
+      } else {
+        $("#article_link_post").prop('value', "false");
+      }
     }
-  });
+  );
 </script>
 
 <div class="btn-group">
   <button class="btn link">Post Link</button>
   <button class="btn article">Write Article</button>
 </div>
+
+<%= f.hidden_field :link_post %>
 
 <div class="link-post article-post">
   <%= f.label :title %>
