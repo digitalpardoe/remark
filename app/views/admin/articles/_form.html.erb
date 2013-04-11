@@ -8,9 +8,9 @@
     { "link" : ".link-post", "article" : ".article-post" },
     ".btn-group",
     function(configuration, buttons){
-      if ($("#article_url").val().length > 0 || $("#article_link_post").val() == "true") {
+      if ($("#article_url").val().length > 0 || $("#article_link_article").val() == "t") {
         $(configuration["link"]).show();
-      } else if ($("#article_body").val().length > 0 || $("#article_link_post").val() == "false") {
+      } else if ($("#article_body").val().length > 0 || $("#article_link_article").val() == "f") {
         $(configuration["article"]).show();
       } else {
         $(buttons).show();
@@ -18,9 +18,9 @@
     },
     function(clickedButton){
       if (clickedButton == "link") {
-        $("#article_link_post").prop('value', "true");
+        $("#article_link_article").val("t");
       } else {
-        $("#article_link_post").prop('value', "false");
+        $("#article_link_article").val("f");
       }
     }
   );
@@ -31,7 +31,7 @@
   <button class="btn article">Write Article</button>
 </div>
 
-<%= f.hidden_field :link_post %>
+<%= f.hidden_field :link_article %>
 
 <div class="link-post article-post">
   <%= f.label :title %>

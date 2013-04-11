@@ -2,8 +2,8 @@ class Article < ActiveRecord::Base
   include Permalink, Unique, TimeZoned
   
   validates_presence_of :title, :user, :permalink, :uuid, :text_filter, :published_at
-  validates_presence_of :body, :if => Proc.new { |article| article.link_post == "false" }
-  validates_presence_of :url, :if => Proc.new { |article| article.link_post == "true" }
+  validates_presence_of :body, :if => Proc.new { |article| !article.link_article }
+  validates_presence_of :url, :if => Proc.new { |article| article.link_article }
   validates_presence_of :excerpt, :if => Proc.new { |article| article.body.blank? && !article.url.blank? }
   
   validates_uniqueness_of :title, :permalink, :uuid
@@ -36,10 +36,6 @@ class Article < ActiveRecord::Base
 
   def composite_tags
     self.tags.map { |tag| tag = tag.name }.join(', ')
-  end
-  
-  def link_post?
-    !self.url.blank?
   end
 
   private
