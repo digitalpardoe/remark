@@ -4,15 +4,7 @@ Remark
 Introduction
 ------------
 
-Remark is a simple blogging tool & a work in progress.
-
-Still To Come
--------------
-
-- Searching.
-- Themes.
-- Archive & tag browsing.
-- Plugins (possibly).
+Remark is a simple blogging tool.
 
 Setup
 -----
