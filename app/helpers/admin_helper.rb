@@ -19,7 +19,9 @@ module AdminHelper
         text_fields.each do |text_field|
           object_name = "#{form.object_name}_#{text_field}"
           js << "$('##{object_name}').datetimepicker({"
-          js << "pickSeconds: false"
+          js << "separator: ' at ',"
+          js << "dateFormat: 'dd/mm/yy',"
+          js << "firstDay: 1"
           js << "});"
         end
         js << "});"

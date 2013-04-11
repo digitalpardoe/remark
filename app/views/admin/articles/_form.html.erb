@@ -1,7 +1,7 @@
 <%= error_messages_for(@article) %>
 
 <%= markitup(f, [:body, :excerpt], :toggle => 'text_filter') %>
-<%= datetime(f, :published) %>
+<%= datetime(f, :published_at) %>
 
 <script type="text/javascript">
   Remark.elementToggler( { "link" : ".link-post", "article" : ".article-post" }, ".btn-group", function(configuration, buttons) {
@@ -52,12 +52,7 @@
   <%= f.text_field :permalink, :placeholder => 'generated-or-fill-me-in', :class => "input-xlarge" %>
 
   <%= f.label :published_at, "Published" %>
-  <div id="article_published" class="input-append">
-    <%= f.text_field :published_at, :value => (@article.published_at || Time.now.utc).zoned.to_s(:admin), "data-format" => "dd/MM/yyyy at hh:mm" %>
-    <span class="add-on">
-      <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
-    </span>
-  </div>
+  <%= f.text_field :published_at, :value => (@article.published_at || Time.now.utc).zoned.to_s(:admin) %>
   <span class="help-inline">Set a future date to delay publishing.</span>
 
   <%= f.label :draft, ("Draft " + (f.check_box :draft)).html_safe, :class => "checkbox" %>

@@ -1,8 +1,10 @@
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require jquery.ui.datepicker
+//= require jquery.ui.slider
+//= require jquery.ui.draggable
+//= require jquery-ui-timepicker-addon
 //= require twitter/bootstrap
-//= require bootstrap-datetimepicker
 
 var Remark = {
 	switchMarkItUp: function(textArea, setting) {

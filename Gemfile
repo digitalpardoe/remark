@@ -17,8 +17,8 @@ gem 'rmagick', '2.13.2'
 
 # Other libraries
 gem 'jquery-rails', '2.2.1'
+gem 'jquery-ui-rails', '4.0.2'
 gem 'less-rails-bootstrap', '2.3.2'
-gem 'bootstrap-datetimepicker-rails', '0.0.10.1'
 
 group :assets do
   gem 'less-rails', '2.3.1'
