@@ -10,7 +10,7 @@ describe AdminController do
       session[:user_id] = @admin.id
       
       get 'index'
-      response.should render_template("index")
+      response.should redirect_to("/admin/articles")
     end
   end
 end
