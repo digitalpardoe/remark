@@ -8,5 +8,6 @@ class AdminController < ApplicationController
   
   def index
     raise CanCan::AccessDenied unless can? :manage, :all
+    redirect_to admin_articles_path, :flash => flash
   end
 end

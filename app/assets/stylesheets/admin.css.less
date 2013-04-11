@@ -12,3 +12,34 @@ body {
 .text-center {
   text-align: center !important;
 }
+
+.markItUp(@width) {
+  .markItUp {
+    width: @width !important;
+  }
+
+  .markItUpEditor {
+  	width: (@width - 58px) !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  @width:800px;
+  .markItUp(@width);
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+  @width: 535px;
+  .markItUp(@width);
+}
+
+@media (max-width: 767px) {
+  @width: 440px;
+  .markItUp(@width);
+}
+
+
+@media (max-width: 480px) {
+  @width: 280px;
+  .markItUp(@width);
+}
