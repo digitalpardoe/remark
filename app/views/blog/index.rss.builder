@@ -8,9 +8,9 @@ xml.rss :version => "2.0" do
     for article in @articles
       xml.item do
         xml.title article.title
-        xml.description article.link_post? ? text_filter(article, :excerpt) + link_post_master(article) : text_filter(article, :body)
+        xml.description article.link_post ? text_filter(article, :excerpt) + link_post_master(article) : text_filter(article, :body)
         xml.pubDate article.published_at.to_s(:rfc822)
-        xml.link article.link_post? ? article.url : article_url(article)
+        xml.link article.link_post ? article.url : article_url(article)
         xml.author article.user.username
         xml.guid article.uuid, :isPermaLink => false
         for tag in article.tags
