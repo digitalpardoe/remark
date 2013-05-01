@@ -50,7 +50,7 @@ License
 -------
 
 All of my code is licensed under the terms found in the LICENSE file, the license is essentially based
-on the BSD new license but breaks down into the following points;
+on the BSD new license but breaks down into the following points:
 
 1. You can use the code wherever you wish.
 2. You can modify the code as much as you want and use the modified code wherever you wish.
