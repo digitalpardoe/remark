@@ -14,8 +14,8 @@ Setup
 Download or clone and run the following commands:
 
 	bundle install --without production
-	bundle exec rake db:migrate
-	bundle exec rails server
+	bundle exec rake db:setup
+	bundle exec rails s thin
 
 Navigate to _http://localhost:3000/admin_ and login using the default credentials:
 
@@ -30,9 +30,7 @@ Download or clone, setup _config/database.yml_ (production mode defaults to MySQ
 commands:
 
 	bundle install
-	bundle exec rake db:migrate RAILS_ENV=production
-	
-Run the server of your choice (I recommend [Phusion Passenger](http://www.modrails.com/)).
+	bundle exec rake db:setup RAILS_ENV=production
 
 Navigate to _http://yourserver.com/admin_ and login using the default credentials:
 
