@@ -32,13 +32,12 @@ group :production do
   gem 'pg', '0.13.2'
 end
 
-group :development, :test do
-  gem 'sqlite3', '1.3.7'
+group :development do
+  gem 'thin', '1.5.1'
 end
 
-group :development do
-  # Application server
-  gem 'mongrel', '1.2.0.pre2'
+group :development, :test do
+  gem 'sqlite3', '1.3.7'
 end
 
 group :test do
