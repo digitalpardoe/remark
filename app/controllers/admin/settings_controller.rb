@@ -2,7 +2,7 @@ class Admin::SettingsController < AdminController
   authorize_resource
 
   def show
-    @settings = Setting.application.all
+    @settings = Setting.application.load
     
     respond_to do |format|
       format.html

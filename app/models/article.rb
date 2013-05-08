@@ -1,5 +1,5 @@
 class Article < ActiveRecord::Base
-  include Permalink, Unique, TimeZoned
+  include ActiveModel::MassAssignmentSecurity, Permalink, Unique, TimeZoned
   
   validates_presence_of :title, :user, :permalink, :uuid, :text_filter, :published_at
   validates_presence_of :body, :if => Proc.new { |article| !article.link_article }
@@ -15,11 +15,11 @@ class Article < ActiveRecord::Base
   belongs_to :user
   has_and_belongs_to_many :tags
   
-  default_scope order('published_at DESC')
+  default_scope { order('published_at DESC') }
   
-  scope :draft, where(:draft => true)
-  scope :published, where(:draft => false).where('published_at <= ?', Time.now.utc)
-  scope :unpublished, where(:draft => false).where('published_at > ?', Time.now.utc)
+  scope :draft, -> { where(:draft => true) }
+  scope :published, -> { where(:draft => false).where('published_at <= ?', Time.now.utc) }
+  scope :unpublished, -> { where(:draft => false).where('published_at > ?', Time.now.utc) }
   
   before_validation :generate_permalink, :process_tags, :unzone
   before_validation :generate_uuid, :on => :create

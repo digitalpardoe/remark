@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  include Gravtastic
+  include ActiveModel::MassAssignmentSecurity, Gravtastic
 
   validates_presence_of :username, :email, :role
   validates_presence_of :password, :password_confirmation, :unless => :password_exists?
@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :username, :email
   validates_length_of :password, :minimum => 6, :unless => :password_blank?
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
-  validates_format_of :website, :with => /^$|^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$/i
+  validates_format_of :website, :with => /\A\z|\A(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?\z/i
   
   before_validation :generate_salt, :unless => :password_blank?
   before_validation :assign_default_role, :on => :create
@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   attr_protected :crypted_password, :password_salt
   attr_accessor :password, :password_confirmation
 
-  default_scope order('username ASC')
+  default_scope { order('username ASC') }
 
   has_many :articles
   has_many :pages

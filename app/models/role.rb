@@ -1,4 +1,6 @@
 class Role < ActiveRecord::Base
+  include ActiveModel::MassAssignmentSecurity
+  
   validates_presence_of :name, :human_readable
   validates_uniqueness_of :name, :human_readable
   

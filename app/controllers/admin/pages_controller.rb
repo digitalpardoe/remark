@@ -2,7 +2,7 @@ class Admin::PagesController < AdminController
   load_and_authorize_resource
 
   def index
-    @pages = Page.includes(:user).all
+    @pages = Page.includes(:user).load
     authorize! :manage, Page
   end
 

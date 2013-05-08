@@ -1,5 +1,5 @@
 class Page < ActiveRecord::Base
-  include Permalink, TimeZoned
+  include ActiveModel::MassAssignmentSecurity, Permalink, TimeZoned
   
   validates_presence_of :title, :body, :user, :permalink, :text_filter, :published_at
   validates_uniqueness_of :title, :permalink
@@ -7,13 +7,13 @@ class Page < ActiveRecord::Base
   
   belongs_to :user
   
-  default_scope order('sort_order DESC, title ASC')
+  default_scope { order('sort_order DESC, title ASC') }
   
-  scope :draft, where(:draft => true)
-  scope :published, where(:draft => false).where('published_at <= ?', Time.now.utc)
-  scope :unpublished, where(:draft => false).where('published_at > ?', Time.now.utc)
-  scope :hidden, where(:hidden => true)
-  scope :visible, where(:hidden => false)
+  scope :draft, -> { where(:draft => true) }
+  scope :published, -> { where(:draft => false).where('published_at <= ?', Time.now.utc) }
+  scope :unpublished, -> { where(:draft => false).where('published_at > ?', Time.now.utc) }
+  scope :hidden, -> { where(:hidden => true) }
+  scope :visible, -> { where(:hidden => false) }
   
   before_validation :generate_permalink, :unzone
   

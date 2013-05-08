@@ -1,7 +1,10 @@
 source 'http://rubygems.org'
 
 # Rails version
-gem 'rails', '3.2.13'
+gem 'rails', '4.0.0.rc1'
+
+# Additional Rails gems
+gem 'protected_attributes', '1.0.1'
 
 # Required libraries
 gem 'bluecloth', '2.2.0'
@@ -12,7 +15,7 @@ gem 'gravtastic', '3.2.6'
 gem 'will_paginate', '3.0.4'
 
 # File uploading
-gem 'paperclip', '3.0.4'
+gem 'paperclip', '3.4.1'
 gem 'rmagick', '2.13.2'
 
 # Other libraries
@@ -20,25 +23,24 @@ gem 'jquery-rails', '2.2.1'
 gem 'jquery-ui-rails', '4.0.2'
 gem 'less-rails-bootstrap', '2.3.2'
 
-group :assets do
-  gem 'less-rails', '2.3.1'
-  gem 'therubyracer', '0.10.2'
-  gem 'coffee-rails', '3.2.2'  
-  gem 'uglifier', '1.2.7'
-end
+# Asset libraries
+gem 'less-rails', '2.3.1'
+gem 'therubyracer', '0.10.2'
+gem 'coffee-rails', '4.0.0'  
+gem 'uglifier', '1.2.7'
+
 
 # Environment specific libraries
 group :production do
   gem 'pg', '0.13.2'
 end
 
-group :development, :test do
-  gem 'sqlite3', '1.3.7'
+group :development do
+  gem 'thin', '1.5.1'
 end
 
-group :development do
-  # Application server
-  gem 'mongrel', '1.2.0.pre2'
+group :development, :test do
+  gem 'sqlite3', '1.3.7'
 end
 
 group :test do

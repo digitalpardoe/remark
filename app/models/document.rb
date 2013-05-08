@@ -1,4 +1,6 @@
 class Document < ActiveRecord::Base
+  include ActiveModel::MassAssignmentSecurity
+  
   has_attached_file :paperclip
   
   validates_attachment_presence :paperclip
