@@ -5,10 +5,6 @@ describe Setting do
     lambda { FactoryGirl.create(:setting, :resource => 'com.test') }.should_not raise_error
   end
   
-  it "protects 'hidden' from mass assignment" do
-    lambda { Setting.create!(FactoryGirl.attributes_for(:setting).merge({:hidden => true})) }.should raise_error(ActiveModel::MassAssignmentSecurity::Error)
-  end
-  
   it "only returns application settings" do
     FactoryGirl.create(:setting, :resource => IDENTIFIER)
     FactoryGirl.create(:setting, :resource => 'com.test', :human_readable => 'Other Test Key')

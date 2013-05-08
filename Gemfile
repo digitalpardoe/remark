@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 # Rails version
 gem 'rails', '4.0.0.rc1'
 
-# Additional Rails gems
+# Additional Rails 4 gems
 gem 'protected_attributes', '1.0.1'
 
 # Required libraries
@@ -44,10 +44,11 @@ group :development, :test do
 end
 
 group :test do
-  gem 'rspec-rails', '2.9.0'
-  gem 'factory_girl_rails', '3.1.0'
+  gem 'rspec-rails', '2.13.1'
+  gem 'factory_girl_rails', '4.2.1'
   gem 'autotest', '4.4.6'
-  gem 'ZenTest', '4.9.0'
-  gem 'simplecov', '0.6.4'
-  gem 'multi_json', '1.3.7'
+  gem 'ZenTest', '4.9.1'
+  gem 'simplecov', '0.7.1'
+  gem 'multi_json', '1.7.3'
+  gem 'json', '1.7.7'
 end

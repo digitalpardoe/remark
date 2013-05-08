@@ -16,11 +16,11 @@ FactoryGirl.define do
     username 'admin'
     email { "#{username}@example.com" }
     association :role, :factory => :user_role
-    after_create do |admin|
+    after(:create) do |admin|
       admin.role = Role.retrieve(:admin)
       admin.save!
     end
-    after_build do |admin|
+    after(:build) do |admin|
       admin.role = FactoryGirl.create(:admin_role)
     end
   end

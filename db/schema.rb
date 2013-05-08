@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(version: 20130411095908) do
     t.string   "uuid"
     t.boolean  "draft",        default: true
     t.datetime "published_at"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "text_filter"
     t.string   "url"
     t.boolean  "link_article"
@@ -40,12 +40,12 @@ ActiveRecord::Schema.define(version: 20130411095908) do
     t.string   "paperclip_file_name"
     t.integer  "paperclip_file_size"
     t.string   "paperclip_content_type"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.datetime "paperclip_updated_at"
   end
 
-  add_index "documents", ["paperclip_file_name"], name: "index_documents_on_name_and_extension", unique: true
+  add_index "documents", ["paperclip_file_name"], name: "index_documents_on_paperclip_file_name_and_extension", unique: true
 
   create_table "pages", force: true do |t|
     t.string   "title"
@@ -54,8 +54,8 @@ ActiveRecord::Schema.define(version: 20130411095908) do
     t.string   "permalink"
     t.boolean  "draft",        default: false
     t.datetime "published_at"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.boolean  "hidden",       default: false
     t.string   "text_filter"
     t.integer  "sort_order",   default: 0
@@ -64,8 +64,8 @@ ActiveRecord::Schema.define(version: 20130411095908) do
   create_table "roles", force: true do |t|
     t.string   "name"
     t.string   "human_readable"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "roles", ["name"], name: "index_roles_on_name", unique: true
@@ -76,8 +76,8 @@ ActiveRecord::Schema.define(version: 20130411095908) do
     t.text     "value",          limit: 255
     t.boolean  "hidden",                     default: false
     t.string   "human_readable"
-    t.datetime "created_at",                                 null: false
-    t.datetime "updated_at",                                 null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.boolean  "required",                   default: false
     t.string   "field_type"
   end
@@ -86,8 +86,8 @@ ActiveRecord::Schema.define(version: 20130411095908) do
 
   create_table "tags", force: true do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true
@@ -97,8 +97,8 @@ ActiveRecord::Schema.define(version: 20130411095908) do
     t.string   "crypted_password"
     t.string   "password_salt"
     t.string   "email"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "role_id"
     t.string   "website"
   end

@@ -1,5 +1,5 @@
 class Setting < ActiveRecord::Base
-  include ActiveModel::MassAssignmentSecurity
+  #include ActiveModel::MassAssignmentSecurity
   
   validates_presence_of :resource, :key, :human_readable
   validates_presence_of :value, :if => Proc.new { |setting| setting.required }
@@ -16,7 +16,7 @@ class Setting < ActiveRecord::Base
   end
   
   scope :application, -> { resource(IDENTIFIER) }
-  scope :hidden, lambda { with_exclusive_scope do where(:hidden => true) end }
+  scope :hidden, lambda { unscoped do where(:hidden => true) end }
     
   attr_protected :hidden
 end

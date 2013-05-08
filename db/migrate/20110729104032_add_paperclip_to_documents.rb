@@ -11,7 +11,7 @@ class AddPaperclipToDocuments < ActiveRecord::Migration
     
     Document.reset_column_information
     
-    documents = Document.unscoped.all
+    documents = Document.unscoped.load
     documents.each do |d|
       d.paperclip_file_name = "#{d.paperclip_file_name}.#{d.extension}"
       d.paperclip_updated_at = d.updated_at

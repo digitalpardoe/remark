@@ -41,7 +41,7 @@ class Article < ActiveRecord::Base
   private
   def process_tags
     self.tags = self.tags_to_process.gsub(/\ *,\ */, ",").split(",").delete_if { |tag| tag == '' }.collect do |tag|
-      Tag.find_or_create_by_name(tag)
+      Tag.find_or_create_by(name: tag)
     end unless !self.tags_to_process
   end
 end
