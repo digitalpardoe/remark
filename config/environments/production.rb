@@ -46,7 +46,7 @@ Remark::Application.configure do
   # config.action_controller.asset_host = "http://assets.example.com"
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-  config.assets.precompile += %w( admin.js admin.css blog.css session.css )
+  config.assets.precompile += %w( admin.js ) + (Dir.entries( File.join(Rails.root, 'app', 'assets', 'stylesheets') )).select { |x| x =~ /^.*less$/ }.collect { |x| x.gsub(".less","") }
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
