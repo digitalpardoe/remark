@@ -21,7 +21,7 @@ module Admin::SettingsHelper
           when "constant"
             form.select setting.id, Object.const_get(setting.key.pluralize.upcase.to_sym).collect { |tf| [truncate(tf[:human_readable]), tf[:name]] }, { :selected => setting.value }, :class => classes
           when "stylesheet"
-            select_tag("setting[#{setting.id}]", options_for_select((Dir.entries( File.join(Rails.root, 'app', 'assets', 'stylesheets') )).select { |x| x =~ /^(?!session|admin).*less$/ }.collect { |x| x = x.gsub(".css.less",""); [x, x] }, :selected => setting.value ), :class => classes)
+            select_tag("setting[#{setting.id}]", options_for_select(Stylesheet.available.collect { |x| [x, x] }, :selected => setting.value ), :class => classes)
         end
       else
         form.text_field(setting.id, :value => setting.value, :class => classes)
