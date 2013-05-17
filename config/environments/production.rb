@@ -1,3 +1,5 @@
+require File.dirname(__FILE__) + '/../../lib/stylesheet.rb'
+
 Remark::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
@@ -6,7 +8,7 @@ Remark::Application.configure do
 
   # Full error reports are disabled and caching is turned on
   config.consider_all_requests_local       = false
-  config.action_controller.perform_caching = true
+  config.action_controller.perform_caching = false
 
   # Disable Rails's static asset server (Apache or nginx will already do this)
   config.serve_static_assets = false
@@ -46,7 +48,7 @@ Remark::Application.configure do
   # config.action_controller.asset_host = "http://assets.example.com"
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-  config.assets.precompile += %w( admin.js admin.css blog.css session.css )
+  config.assets.precompile += %w( admin.js ) + Stylesheet.available.collect { |x| "#{x}.less" }
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false

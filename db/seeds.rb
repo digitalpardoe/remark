@@ -13,7 +13,8 @@
   {:key => 'tracking', :human_readable => "Tracking Code", :required => false, :field_type => "text_area"},
   {:key => 'text_filter', :value => DEFAULT_TEXT_FILTER, :human_readable => "Default Text Filter", :required => true, :field_type => "collection_select#constant"},
   {:key => 'per_page', :value => 5, :human_readable => "Articles Per Page", :required => true},
-  {:key => 'time_zone', :value => DEFAULT_TIME_ZONE, :human_readable => "Time Zone", :required => true, :field_type => "time_zone"}
+  {:key => 'time_zone', :value => DEFAULT_TIME_ZONE, :human_readable => "Time Zone", :required => true, :field_type => "time_zone"},
+  {:key => 'stylesheet', :value => DEFAULT_STYLESHEET, :human_readable => "Stylesheet", :required => true, :field_type => "collection_select#stylesheet"}
 ].each do |setting|
   Setting.create!( setting.merge( { :resource => IDENTIFIER } ) )
 end
