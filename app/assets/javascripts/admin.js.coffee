@@ -9,7 +9,7 @@
 window.Remark =
   switchMarkItUp: (textArea, setting) ->
     $(textArea).parent().removeClass "html markdown textile"
-    $(textArea).parent().addClass setting.toLowerCase()
+    $('link[title="markitup"]').attr('href', '/markitup/sets/' + setting.toLowerCase() + '/style.css')
     switch setting.toLowerCase()
       when "html"
         $(textArea).markItUp myHtmlSettings
@@ -17,6 +17,7 @@ window.Remark =
         $(textArea).markItUp myMarkdownSettings
       when "textile"
         $(textArea).markItUp myTextileSettings
+      
 
   elementToggler: (configuration, buttons, setInitalState, clickHandler) ->
     $(document).ready ->

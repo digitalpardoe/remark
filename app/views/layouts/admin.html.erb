@@ -5,10 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><%= setting(:name) %> Administration - <%= (yield :title).empty? ? human_name.capitalize : (yield :title) %></title>
   <%= stylesheet_link_tag "admin" %>
-  <%= stylesheet_link_tag '/markitup/skins/markitup/style',
-                          '/markitup/sets/html/style',
-                          '/markitup/sets/markdown/style',
-                          '/markitup/sets/textile/style' %>
+  <%= stylesheet_link_tag "/markitup/skins/markitup/style" %>
+  <%= stylesheet_link_tag "/markitup/sets/default/style", :title => "markitup" %>
   <%= javascript_include_tag "admin" %>
   <%= javascript_include_tag '/markitup/jquery.markitup.js',
                              '/markitup/sets/html/set.js',
