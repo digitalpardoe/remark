@@ -6,18 +6,18 @@ gem 'rails', '3.2.13'
 # Required libraries
 gem 'bluecloth', '2.2.0'
 gem 'RedCloth', '4.2.9'
-gem 'cancan', '1.6.9'
-gem 'uuidtools', '2.1.3'
+gem 'cancan', '1.6.10'
+gem 'uuidtools', '2.1.4'
 gem 'gravtastic', '3.2.6'
 gem 'will_paginate', '3.0.4'
 
 # File uploading
-gem 'paperclip', '3.0.4'
+gem 'paperclip', '3.4.2'
 gem 'rmagick', '2.13.2'
 
 # Other libraries
 gem 'jquery-rails', '2.2.1'
-gem 'jquery-ui-rails', '4.0.2'
+gem 'jquery-ui-rails', '4.0.3'
 gem 'less-rails-bootstrap', '2.3.2'
 
 group :assets do
@@ -29,7 +29,7 @@ end
 
 # Environment specific libraries
 group :production do
-  gem 'pg', '0.13.2'
+  gem 'pg', '0.15.1'
 end
 
 group :development do
