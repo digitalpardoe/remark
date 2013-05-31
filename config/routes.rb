@@ -63,9 +63,10 @@ Remark::Application.routes.draw do
   # root :to => "welcome#index"
   root :to => "blog#index"
 
-  match ':year/:month/:day/:permalink' => 'blog#show', :as => :article
   match 'page/:page' => 'blog#index', :page => /\d+/, :as => :paginate
-  match 'search/:query' => 'blog#index', :as => :search
+  match ':year/:month' => 'blog#index', :year => /\d+/, :month => /\d+/, :as => :archive
+  
+  match ':year/:month/:day/:permalink' => 'blog#show', :year => /\d+/, :month => /\d+/, :day => /\d+/, :as => :article
   match ':permalink' => 'page#show', :as => :page
 
   # See how all your routes lay out with "rake routes"

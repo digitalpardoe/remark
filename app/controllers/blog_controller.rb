@@ -1,11 +1,15 @@
 class BlogController < ApplicationController
   def index
     @articles = Article.published.includes(:tags, :user)
-    @articles = @articles.where('body LIKE ? or title LIKE ?', "%#{params[:query]}%", "%#{params[:query]}%") unless !params[:query]
 
     respond_to do |format|
       format.html {
-        @articles = @articles.paginate(:page => params[:page], :per_page => setting(:per_page).to_i)
+        if (params[:year] && params[:month])
+          date = Date.new(params[:year].to_i, params[:month].to_i, 1)
+          @articles = @articles.where("published_at >= ? and published_at <= ?", date.beginning_of_month, date.end_of_month)
+        else
+          @articles = @articles.paginate(:page => params[:page], :per_page => setting(:per_page).to_i)
+        end
       }
       
       format.rss {
