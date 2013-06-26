@@ -1,10 +1,10 @@
 source 'http://rubygems.org'
 
 # Rails version
-gem 'rails', '4.0.0.rc1'
+gem 'rails', '4.0.0'
 
 # Additional Rails 4 gems
-gem 'protected_attributes', '1.0.1'
+gem 'protected_attributes', '1.0.2'
 
 # Required libraries
 gem 'bluecloth', '2.2.0'
@@ -21,11 +21,11 @@ gem 'rmagick', '2.13.2'
 # Other libraries
 gem 'jquery-rails', '2.2.1'
 gem 'jquery-ui-rails', '4.0.3'
-gem 'less-rails-bootstrap', '2.3.2'
+gem 'less-rails-bootstrap', '2.3.3'
 
 # Asset libraries
-gem 'less-rails', '2.3.1'
-gem 'therubyracer', '0.10.2'
+gem 'less-rails', '2.3.3'
+gem 'therubyracer', '0.11.4'
 gem 'coffee-rails', '4.0.0'  
 gem 'uglifier', '1.2.7'
 
