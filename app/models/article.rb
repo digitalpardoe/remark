@@ -24,8 +24,18 @@ class Article < ActiveRecord::Base
   before_validation :generate_permalink, :process_tags, :unzone
   before_validation :generate_uuid, :on => :create
   
-  def self.human_attribute_name(attr, options = {})
-    { :body => "Content", :url => "Link URL" }[attr.to_sym] || super
+  class << self
+    def human_attribute_name(attr, options = {})
+      { :body => "Content", :url => "Link URL" }[attr.to_sym] || super
+    end
+  
+    def archive_dates
+      {}.tap do |hash|
+        self.published.select('published_at').map { |item| Date.new(item.published_at.year, item.published_at.month, 1) }.uniq.each do |date|
+          (hash[date.year] ||= []) << date.month
+        end
+      end
+    end
   end
   
   attr_accessor :tags_to_process, :link_post

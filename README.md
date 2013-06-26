@@ -11,7 +11,7 @@ Setup
 
 ### Development
 
-Download or clone and run the following commands:
+Download or clone (always from the most recent tag if you don't intend to do any development) and run the following commands:
 
 	bundle install --without production
 	bundle exec rake db:setup

@@ -17,4 +17,22 @@
 	</article>
 <% end %>
 
-<%= pagination @articles %>
+<% if !params[:year] && !params[:month] %>
+ <%= pagination @articles %>
+<% end %>
+
+<footer>
+  <% for year in Article.archive_dates.keys.sort { |x,y| y <=> x } %>
+    <div class="archive">
+      <h3><%= year %></h3>
+      <ul>
+        <% for month in Article.archive_dates[year].sort %>
+          <li>
+            <%= link_to "%02d" % month, archive_path(:year => year, :month => month) %>
+            
+            <%=  %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+</footer>
