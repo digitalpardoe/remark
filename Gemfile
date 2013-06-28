@@ -29,7 +29,6 @@ gem 'therubyracer', '0.11.4'
 gem 'coffee-rails', '4.0.0'  
 gem 'uglifier', '1.2.7'
 
-
 # Environment specific libraries
 group :production do
   gem 'pg', '0.15.1'
