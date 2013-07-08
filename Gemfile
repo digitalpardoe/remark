@@ -22,11 +22,9 @@ gem 'rmagick', '2.13.2'
 gem 'jquery-rails', '2.2.1'
 gem 'jquery-ui-rails', '4.0.3'
 gem 'bootstrap-sass', '2.3.2.0'
-# gem 'less-rails-bootstrap', '2.3.3'
 
 # Asset libraries
 gem 'sass-rails', '~> 4.0.0'
-# gem 'less-rails', '2.3.3'
 gem 'coffee-rails', '4.0.0'  
 gem 'uglifier', '1.2.7'
 
