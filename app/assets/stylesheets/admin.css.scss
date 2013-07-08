@@ -1,0 +1,43 @@
+@import "jquery.ui.datepicker";
+@import "jquery.ui.slider";
+@import "bootstrap";
+@import "bootstrap-responsive";
+
+body {
+  margin-top: 20px;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+@mixin markItUp($width) {
+  .markItUp {
+    width: $width !important;
+  }
+
+  .markItUpEditor {
+  	width: ($width - 58px) !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  $width: 800px;
+  @include markItUp($width);
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+  $width: 535px;
+  @include markItUp($width);
+}
+
+@media (max-width: 767px) {
+  $width: 440px;
+  @include markItUp($width);
+}
+
+
+@media (max-width: 480px) {
+  $width: 280px;
+  @include markItUp($width);
+}

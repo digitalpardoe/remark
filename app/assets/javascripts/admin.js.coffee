@@ -4,7 +4,7 @@
 #= require jquery.ui.slider
 #= require jquery.ui.draggable
 #= require jquery-ui-timepicker-addon
-#= require twitter/bootstrap
+#= require bootstrap
 
 window.Remark =
   switchMarkItUp: (textArea, setting) ->
