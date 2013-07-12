@@ -36,6 +36,7 @@ end
 
 group :development do
   gem 'thin', '1.5.1'
+  gem 'bullet', '4.6.0'
 end
 
 group :development, :test do

@@ -10,7 +10,7 @@ module ApplicationHelper
 	end
 
   def navigation
-    pages = Page.published.visible.select(:title).select(:permalink).all
+    pages = Page.published.visible.select(:title).select(:permalink).load
     content_tag :ul do
       "".tap do |list|
         pages.each do |page|

@@ -27,5 +27,11 @@ Remark::Application.configure do
   
   # For Rails 4
   config.eager_load = false
+  
+  # For Bullet
+  config.after_initialize do
+    Bullet.enable = true
+    Bullet.bullet_logger = true
+  end
 end
 
