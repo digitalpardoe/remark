@@ -37,6 +37,8 @@ end
 group :development do
   gem 'thin', '1.5.1'
   gem 'bullet', '4.6.0'
+  gem 'better_errors', '0.9.0'
+  gem 'quiet_assets', '1.0.2'
 end
 
 group :development, :test do
