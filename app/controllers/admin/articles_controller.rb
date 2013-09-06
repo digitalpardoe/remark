@@ -1,5 +1,7 @@
 class Admin::ArticlesController < AdminController
   load_and_authorize_resource
+  
+  before_filter :expire_archive, only: [:create, :update, :destroy]
 
   def index
     @articles = Article.includes(:tags, :user).load
@@ -46,5 +48,10 @@ class Admin::ArticlesController < AdminController
     respond_to do |format|
       format.html { redirect_to(admin_articles_path, :flash => { :error => "Article removed." }) }
     end
+  end
+  
+  private
+  def expire_archive
+    expire_fragment('archive')
   end
 end
