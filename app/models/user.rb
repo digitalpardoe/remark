@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   include ActiveModel::MassAssignmentSecurity, Gravtastic
+  
+  before_save :touch_articles
 
   validates_presence_of :username, :email, :role
   validates_presence_of :password, :password_confirmation, :unless => :password_exists?
@@ -52,6 +54,10 @@ class User < ActiveRecord::Base
   
   def assign_default_role
     self.role = Role.retrieve(:user)
+  end
+  
+  def touch_articles
+    self.articles.each { |article| article.touch }
   end
   
   class << self
