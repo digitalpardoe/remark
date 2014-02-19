@@ -1,10 +1,10 @@
 source 'http://rubygems.org'
 
 # Rails version
-gem 'rails', '4.0.0'
+gem 'rails', '4.0.3'
 
 # Additional Rails 4 gems
-gem 'protected_attributes', '1.0.2'
+gem 'protected_attributes', '1.0.5'
 
 # Required libraries
 gem 'bluecloth', '2.2.0'
@@ -25,7 +25,7 @@ gem 'bootstrap-sass', '2.3.2.0'
 
 # Asset libraries
 gem 'sass-rails', '~> 4.0.0'
-gem 'coffee-rails', '4.0.0'  
+gem 'coffee-rails', '~> 4.0.0'  
 gem 'uglifier', '1.2.7'
 
 # Environment specific libraries
@@ -49,7 +49,7 @@ group :test do
   gem 'rspec-rails', '2.13.1'
   gem 'factory_girl_rails', '4.2.1'
   gem 'autotest', '4.4.6'
-  gem 'ZenTest', '4.9.1'
+  gem 'ZenTest', '~> 4.9.1'
   gem 'simplecov', '0.7.1'
   gem 'multi_json', '1.7.3'
   gem 'json', '1.7.7'
