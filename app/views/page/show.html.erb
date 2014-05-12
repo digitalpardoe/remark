@@ -1,4 +1,6 @@
 <% title @page.title %>
 
-<h2><%= @page.title %></h2>
-<%= text_filter(@page, :body) %>
+<% cache([ 'show_page', @page ]) do %>
+  <h2><%= @page.title %></h2>
+  <%= text_filter(@page, :body) %>
+<% end %>
