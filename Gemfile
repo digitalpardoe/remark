@@ -31,7 +31,7 @@ gem 'uglifier', '1.2.7'
 # Environment specific libraries
 group :production do
   gem 'therubyracer', '~> 0.11.4'
-  gem 'pg', '~> 0.15.1'
+  gem 'pg', '~> 0.17.1'
 end
 
 group :development do
