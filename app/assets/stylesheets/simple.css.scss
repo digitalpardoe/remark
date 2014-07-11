@@ -11,7 +11,7 @@ a {
 		color: #000;
 		text-decoration: underline;
 	}
-	
+
 	&:hover, &:active {
 		color: #999;
 	}
@@ -27,30 +27,31 @@ p {
 	font-size: 16px;
 	line-height: 28px;
 	margin: 20px 0px 20px 0px;
-	
+
 	img {
 		border: none;
 		padding: 0px;
-		margin: 0px;
+		margin: 0px auto 0px auto;
+		display: block;
 	}
 }
 
 header {
 	margin: 20px;
-	
+
 	p {
 		margin: 10px 0px 0px 2px;
 	}
-	
+
 	h1 {
 		margin: 0px;
-		
+
 		a {
 			&:link, &:visited {
 				color: #000;
 				text-decoration: none;
 			}
-			
+
 			&:hover, &:active {
 				color: #999;
 			}
@@ -60,17 +61,17 @@ header {
 
 nav {
 	margin: 0px 20px 20px 20px;
-	
+
 	ul {
 		padding: 5px 10px 5px 10px;
 		margin: 0px;
-		
+
 		border-top: 1px solid #CCC;
 		border-bottom: 1px solid #CCC;
-		
+
 		li {
 			display: inline;
-			
+
 			a {
 				&:link, &:visited {
 					margin-right: 10px;
@@ -83,28 +84,28 @@ nav {
 #content {
 	width: 650px;
 	margin: 0px auto 0px auto;
-	
+
 	article {
 		margin-bottom: 20px;
-		
+
 		border-bottom: 1px solid #CCC;
-		
+
 		section {
 			display: block;
 			margin-bottom: 20px;
-			
+
 			font-style: italic;
 			font-size: 0.9em;
-			
+
 			color: #999;
 		}
-		
+
 		pre {
 			font-size: 12px;
 			overflow: auto;
 			margin: 0px 20px 0px 20px;
 		}
-    
+
     p {
       code {
         color: #999;
@@ -112,29 +113,29 @@ nav {
       }
     }
 	}
-	
+
 	#pagination {
 		margin-bottom: 20px;
 	}
-  
+
   footer {
     text-align: left;
-    
-    padding: 25px 0px 0px 0px; 
-       
+
+    padding: 25px 0px 0px 0px;
+
     border-top: 1px solid #CCC;
-    
+
     .archive {
       margin: 0px 0px 10px 0px;
-      
+
       h3 {
         display: inline;
       }
-    
+
       ul {
         display: inline;
         padding: 0px 0px 0px 0px;
-      
+
         li {
           display: inline;
           margin: 0px 0px 0px 10px;
