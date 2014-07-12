@@ -2,8 +2,8 @@
 
 <% cache([ 'show_article', @article ]) do %>
 	<article>
-		<h2><%= link_to @article.title, @article.link_article ? @article.url : article_path(@article) %></h2>
-		<%= @article.link_article ? text_filter(@article, :excerpt) : text_filter(@article, :body) %>
+		<h2><%= link_to @article.title, article_path(@article) %></h2>
+		<%= @article.link_article ? content_tag(:blockquote, text_filter(@article, :excerpt)) : text_filter(@article, :body) %>
 
 	  <% if @article.link_article %>
 	    <%= link_post_master(@article) %>

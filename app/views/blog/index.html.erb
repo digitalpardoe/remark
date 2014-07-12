@@ -3,17 +3,17 @@
 <% for article in @articles %>
     <% cache([ 'index', article ]) do %>
 	    <article>
-	    	<h2><%= link_to article.title, article.link_article ? article.url : article_path(article) %></h2>
-	    	<%= article.link_article || !article.excerpt.blank? ? text_filter(article, :excerpt) : text_filter(article, :body) %>
-        
+	    	<h2><%= link_to article.title, article_path(article) %></h2>
+	    	<%= article.link_article || !article.excerpt.blank? ? content_tag(:blockquote, text_filter(article, :excerpt)) : text_filter(article, :body) %>
+
             <% if article.link_article %>
               <%= link_post_master(article) %>
             <% end %>
-        
+
 	    	<% if !article.composite_tags.blank? %>
 	    		<section>Tagged: <%= article.composite_tags %></section>
 	    	<% end %>
-        
+
 	    	<section>Published by <%= article.user.username %> on <%= article.published_at.zoned.to_s(:blog) %></section>
 	    </article>
     <% end %>

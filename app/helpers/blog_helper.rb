@@ -1,4 +1,4 @@
-module BlogHelper  
+module BlogHelper
   def pagination(collection)
     if collection.total_pages > 1
       content_tag :div, :id => 'pagination' do
@@ -10,8 +10,8 @@ module BlogHelper
       end
     end
   end
-  
+
   def link_post_master(article)
-    "<p><a href=\"#{article_path(article)}\">&bull;</a></p>".html_safe
+    "<p><a href=\"#{article.link_article ? article.url : article_path(article)}\">#{article.link_article ? "Goto Site" : "Read More"} &rarr;</a></p>".html_safe
   end
 end
