@@ -19,7 +19,7 @@ gem 'paperclip', '~> 3.4.2'
 gem 'rmagick', '~> 2.13.2'
 
 # Other libraries
-gem 'jquery-rails', '2.2.1'
+gem 'jquery-rails', '3.1.3'
 gem 'jquery-ui-rails', '4.0.3'
 gem 'bootstrap-sass', '2.3.2.0'
 
