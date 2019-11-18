@@ -15,7 +15,7 @@ gem 'gravtastic', '~> 3.2.6'
 gem 'will_paginate', '~> 3.0.4'
 
 # File uploading
-gem 'paperclip', '~> 3.4.2'
+gem 'paperclip', '~> 4.3.7'
 gem 'rmagick', '~> 2.13.2'
 
 # Other libraries
