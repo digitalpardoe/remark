@@ -1,0 +1,5 @@
+{
+  "image": "ruby:2.7.8",
+  "forwardPorts": [3000],
+  "postCreateCommand": "gem update --system 3.3.22 && bundle config set --local without 'production' && bundle install"
+}

@@ -1,10 +1,10 @@
 source 'http://rubygems.org'
 
 # Rails version
-gem 'rails', '~> 4.0.3'
+gem 'rails', '~> 5.0.0'
 
 # Additional Rails 4 gems
-gem 'protected_attributes', '~> 1.0.5'
+gem 'protected_attributes_continued', '~> 1.2.0'
 
 # Required libraries
 gem 'bluecloth', '~> 2.2.0'
@@ -19,13 +19,13 @@ gem 'paperclip', '~> 3.4.2'
 gem 'rmagick', '~> 2.13.2'
 
 # Other libraries
-gem 'jquery-rails', '2.2.1'
+gem 'jquery-rails', '~> 4.1.0'
 gem 'jquery-ui-rails', '4.0.3'
 gem 'bootstrap-sass', '2.3.2.0'
 
 # Asset libraries
-gem 'sass-rails', '~> 4.0.0'
-gem 'coffee-rails', '~> 4.0.0'
+gem 'sass-rails', '~> 5.0.0'
+gem 'coffee-rails', '~> 4.2.0'
 gem 'uglifier', '1.2.7'
 
 # Environment specific libraries
@@ -36,21 +36,19 @@ end
 
 group :development do
   gem 'thin', '~> 1.5.1'
-  gem 'bullet', '~> 4.6.0'
   gem 'better_errors', '~> 0.9.0'
-  gem 'quiet_assets', '~> 1.0.2'
 end
 
 group :development, :test do
-  gem 'sqlite3', '~> 1.3.7'
+  gem 'sqlite3', '~> 1.3.0'
 end
 
 group :test do
   gem 'rspec-rails', '~> 2.13.1'
   gem 'factory_girl_rails', '~> 4.2.1'
   gem 'autotest', '~> 4.4.6'
-  gem 'ZenTest', '~> 4.9.1'
+  gem 'ZenTest', '~> 4.11.0'
   gem 'simplecov', '~> 0.7.1'
   gem 'multi_json', '~> 1.7.3'
-  gem 'json', '~> 1.7.7'
+  gem 'json', '~> 1.8.0'
 end
