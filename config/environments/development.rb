@@ -24,8 +24,11 @@ Remark::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
-  
+
   # For Rails 4
   config.eager_load = false
+
+  # For Rails 5
+  config.assets.check_precompiled_asset = false
 end
 
