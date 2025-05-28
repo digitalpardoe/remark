@@ -1,0 +1,5 @@
+{
+  "build": { "dockerfile": "Dockerfile" },
+  "forwardPorts": [ 3000 ],
+  "postCreateCommand": "bundle install --without production && rake db:migrate"
+}
