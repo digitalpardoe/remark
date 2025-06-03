@@ -17,15 +17,15 @@ gem 'will_paginate', '3.0.4'
 
 # File uploading
 gem 'paperclip', '3.4.2'
-gem 'rmagick', '2.13.2'
+gem 'rmagick', '2.15.4'
 
 # Other libraries
 gem 'jquery-rails', '2.2.1'
 gem 'jquery-ui-rails', '4.0.3'
-gem 'bootstrap-sass', '2.3.2.0'
+gem 'bootstrap-sass', '2.3.2.2'
 
 # Asset libraries
-gem 'sass-rails', '4.0.0'
+gem 'sass-rails', '4.0.5'
 gem 'coffee-rails', '4.0.0'
 gem 'uglifier', '1.2.7'
 
@@ -39,8 +39,8 @@ gem 'thor', '0.18.1'
 
 # Environment specific libraries
 group :production do
-  gem 'therubyracer', '0.11.4'
-  gem 'pg', '0.17.1'
+  # gem 'therubyracer', '0.11.4'
+  # gem 'pg', '0.17.1'
 end
 
 group :development do

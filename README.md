@@ -16,7 +16,7 @@ Setup
 Download or clone (always from the most recent tag if you don't intend to do any development) and run the following commands:
 
 	bundle install --without production
-	bundle exec rake db:setup
+	bundle exec rake db:migrate
 	bundle exec rails s thin
 
 Navigate to _http://localhost:3000/admin_ and login using the default credentials:
@@ -26,7 +26,14 @@ Navigate to _http://localhost:3000/admin_ and login using the default credential
 	
 Go to the _users_ tab and change your password (and username if you feel like it).
 
+### Testing
+
+You can run the test suite simply by executing `rspec`.
+
 ### Production
+
+> [!WARNING]  
+> This section is currently incorrect and in need of updating.
 
 Download or clone, setup _config/database.yml_ (production mode defaults to MySQL) and run the following
 commands:
