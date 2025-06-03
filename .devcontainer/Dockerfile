@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM ubuntu:24.04
 
 SHELL ["/bin/bash", "-c"]
 
@@ -10,7 +10,6 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive && \
     imagemagick \
     libsqlite3-dev \
     zlib1g-dev \
-    python2 \
     build-essential && \
     rm -rf /var/lib/apt/lists/*
 
