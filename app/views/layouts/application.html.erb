@@ -8,7 +8,7 @@
 	<!--[if lt IE 9]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
-  	<%= csrf_meta_tag %>
+  	<%= csrf_meta_tags %>
 	<%= auto_discovery_link_tag(:rss, { :controller => "blog", :format => "rss" }) %>
 	<%= tracking %>
 </head>

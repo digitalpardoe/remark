@@ -1,4 +1,4 @@
-class RemoveDisqus < ActiveRecord::Migration
+class RemoveDisqus < ActiveRecord::Migration[6.1]
   def up
     setting = Setting.application.where(:key => 'disqus_shortname').first
     if setting

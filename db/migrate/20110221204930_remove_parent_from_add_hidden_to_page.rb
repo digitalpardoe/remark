@@ -1,4 +1,4 @@
-class RemoveParentFromAddHiddenToPage < ActiveRecord::Migration
+class RemoveParentFromAddHiddenToPage < ActiveRecord::Migration[6.1]
   def self.up
     remove_column :pages, :page_id
     add_column :pages, :hidden, :boolean, :default => false

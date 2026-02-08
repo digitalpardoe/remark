@@ -1,4 +1,4 @@
-class AddWebsiteToUser < ActiveRecord::Migration
+class AddWebsiteToUser < ActiveRecord::Migration[6.1]
   def self.up
     add_column :users, :website, :string
   end

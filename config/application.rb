@@ -6,7 +6,7 @@ Bundler.require(*Rails.groups)
 
 module Remark
   class Application < Rails::Application
-    config.load_defaults 6.1
+    config.load_defaults 7.0
 
     # Custom directories with classes and modules you want to be autoloadable.
     config.autoload_paths += %W(#{Rails.root}/lib #{Rails.root}/lib/extensions)

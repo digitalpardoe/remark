@@ -1,5 +1,3 @@
-require 'time_zoned'
-
 module ApplicationHelper
   def tracking
     (setting(:tracking) || "").html_safe unless Rails.env != 'production'

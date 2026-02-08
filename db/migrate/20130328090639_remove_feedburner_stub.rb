@@ -1,4 +1,4 @@
-class RemoveFeedburnerStub < ActiveRecord::Migration
+class RemoveFeedburnerStub < ActiveRecord::Migration[6.1]
   def up
     setting = Setting.application.where(:key => 'feedburner_stub').first
     if setting

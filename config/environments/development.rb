@@ -4,7 +4,7 @@ Remark::Application.configure do
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
-  config.cache_classes = false
+  config.enable_reloading = true
 
   # Show full error reports and disable caching
   config.consider_all_requests_local       = true
@@ -25,7 +25,7 @@ Remark::Application.configure do
   config.eager_load = false
 
   # Use an evented file watcher
-  config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+  config.file_watcher = ActiveSupport::FileUpdateChecker
 
   # For Bullet
   config.after_initialize do

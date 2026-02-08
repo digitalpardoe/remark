@@ -1,4 +1,4 @@
-class AddSortOrderToPage < ActiveRecord::Migration
+class AddSortOrderToPage < ActiveRecord::Migration[6.1]
   def self.up
     add_column :pages, :sort_order, :integer, :default => 0
   end

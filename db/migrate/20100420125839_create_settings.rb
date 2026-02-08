@@ -1,4 +1,4 @@
-class CreateSettings < ActiveRecord::Migration
+class CreateSettings < ActiveRecord::Migration[6.1]
   def self.up
     create_table :settings do |t|
       t.string :resource

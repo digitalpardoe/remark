@@ -1,4 +1,4 @@
-class AddTextFilterToArticleAndPage < ActiveRecord::Migration
+class AddTextFilterToArticleAndPage < ActiveRecord::Migration[6.1]
   def self.up
     add_column :articles, :text_filter_id, :integer
     add_column :pages, :text_filter_id, :integer

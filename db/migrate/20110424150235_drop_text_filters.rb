@@ -1,4 +1,4 @@
-class DropTextFilters < ActiveRecord::Migration
+class DropTextFilters < ActiveRecord::Migration[6.1]
   def self.up
     drop_table :text_filters
   end

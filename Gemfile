@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Rails version
-gem 'rails', '6.1.7.8'
+gem 'rails', '7.2.3'
 
 # Required libraries
 gem 'kramdown', '~> 2.4'
@@ -23,13 +23,10 @@ gem 'bootstrap-sass', '~> 3.4'
 # Asset libraries
 gem 'sass-rails', '~> 6.0'
 gem 'sprockets-rails', '~> 3.4'
-gem 'coffee-rails', '~> 4.2'
-gem 'uglifier', '~> 4.2'
+gem 'terser', '~> 1.2'
 
 # Boot speed
 gem 'bootsnap', require: false
-gem 'logger', '~> 1.5.0'
-gem 'listen'
 
 # Environment specific libraries
 group :production do
@@ -38,19 +35,19 @@ group :production do
 end
 
 group :development do
-  gem 'puma', '~> 5.6'
+  gem 'puma', '~> 6.0'
   gem 'bullet', '~> 7.0'
   gem 'better_errors', '~> 2.10'
   gem 'binding_of_caller'
 end
 
 group :development, :test do
-  gem 'sqlite3', '~> 1.4'
+  gem 'sqlite3', '~> 2.0'
 end
 
 group :test do
   gem 'rails-controller-testing'
-  gem 'rspec-rails', '~> 5.1'
+  gem 'rspec-rails', '~> 6.1'
   gem 'factory_bot_rails', '~> 6.2'
   gem 'simplecov', '~> 0.22'
 end

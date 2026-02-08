@@ -4,10 +4,9 @@ A Rails blogging engine.
 
 ## Stack
 
-- Ruby 3.1.7, Rails 6.1.7.8
+- Ruby 3.4.8, Rails 7.2.3
 - SQLite3 (dev/test), asset pipeline via Sprockets
-- CoffeeScript, SCSS, Bootstrap 3, jQuery UI
-- `logger` gem pinned to `~> 1.5.0` (1.6+ breaks Rails 6.1's `ActiveSupport::LoggerThreadSafeLevel`)
+- JavaScript, SCSS, Bootstrap 3, jQuery UI
 
 ## Setup
 
@@ -39,7 +38,7 @@ Article, Page, Document, User, Role, Tag, Setting, Ability (CanCanCan)
 - `Setting` has a `default_scope` filtering `hidden: false`; use `Setting.application` for app settings, `Setting.unscoped` to bypass
 - `IDENTIFIER` constant (`com.github.digitalpardoe.remark`) defined in `config/initializers/registry.rb` — used as the Setting resource namespace
 - Articles/Pages use text filters (Markdown via Kramdown, Textile via RedCloth, HTML)
-- Time handling: `lib/extensions/time_zoned.rb` monkey-patches `Time` with `zoned`/`unzoned` methods that read the `time_zone` setting
+- Time handling: `config/initializers/time_extensions.rb` monkey-patches `Time` with `zoned`/`unzoned` methods; `lib/extensions/time_zoned.rb` defines the `TimeZoned` module
 
 ### Assets
 

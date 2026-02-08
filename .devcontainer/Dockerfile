@@ -18,7 +18,7 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive && \
 
 RUN curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-installer | bash
 
-RUN /root/.rbenv/bin/rbenv install 3.1.7 && /root/.rbenv/bin/rbenv global 3.1.7
+RUN /root/.rbenv/bin/rbenv install 3.4.8 && /root/.rbenv/bin/rbenv global 3.4.8
 
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 RUN export NVM_DIR="$HOME/.nvm" && \
@@ -26,4 +26,4 @@ RUN export NVM_DIR="$HOME/.nvm" && \
     nvm install 14 && \
     nvm alias default 14
 
-RUN /root/.rbenv/shims/gem install bundler -v 2.3.27
+RUN /root/.rbenv/shims/gem install bundler -v 2.6.2

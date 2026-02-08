@@ -1,4 +1,4 @@
-class FixArticlesTagsWtf < ActiveRecord::Migration
+class FixArticlesTagsWtf < ActiveRecord::Migration[6.1]
   def self.up
     drop_table :articles_tags
     

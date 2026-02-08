@@ -1,4 +1,4 @@
-class RemoveTextFilterIdFromAndTextFilterToArticleAndPage < ActiveRecord::Migration
+class RemoveTextFilterIdFromAndTextFilterToArticleAndPage < ActiveRecord::Migration[6.1]
   def self.up
     remove_column :articles, :text_filter_id
     remove_column :pages, :text_filter_id

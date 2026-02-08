@@ -1,4 +1,4 @@
-class AddPaperclipToDocuments < ActiveRecord::Migration
+class AddPaperclipToDocuments < ActiveRecord::Migration[6.1]
   class Document < ActiveRecord::Base
   end
   

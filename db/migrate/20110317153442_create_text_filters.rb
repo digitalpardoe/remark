@@ -1,4 +1,4 @@
-class CreateTextFilters < ActiveRecord::Migration
+class CreateTextFilters < ActiveRecord::Migration[6.1]
   def self.up
     create_table :text_filters do |t|
       t.string :name

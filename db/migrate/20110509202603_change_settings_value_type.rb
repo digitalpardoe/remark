@@ -1,4 +1,4 @@
-class ChangeSettingsValueType < ActiveRecord::Migration
+class ChangeSettingsValueType < ActiveRecord::Migration[6.1]
   def self.up
     change_column :settings, :value, :text
   end

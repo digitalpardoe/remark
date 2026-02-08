@@ -1,4 +1,4 @@
-class CreateArticlesTags < ActiveRecord::Migration
+class CreateArticlesTags < ActiveRecord::Migration[6.1]
   def self.up
     create_table :articles_tags, :id => false do |t|
       t.string :article_id
