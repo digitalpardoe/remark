@@ -9,18 +9,21 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive && \
     libmagickwand-dev \
     imagemagick \
     libsqlite3-dev \
+    libssl-dev \
+    libyaml-dev \
+    libreadline-dev \
     zlib1g-dev \
     build-essential && \
     rm -rf /var/lib/apt/lists/*
 
 RUN curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-installer | bash
 
-RUN /root/.rbenv/bin/rbenv install 2.1.0 && /root/.rbenv/bin/rbenv global 2.1.0
+RUN /root/.rbenv/bin/rbenv install 3.1.7 && /root/.rbenv/bin/rbenv global 3.1.7
 
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 RUN export NVM_DIR="$HOME/.nvm" && \
     . "$NVM_DIR/nvm.sh" && \
-    nvm install 4 && \
-    nvm alias default 4
+    nvm install 14 && \
+    nvm alias default 14
 
-RUN /root/.rbenv/shims/gem install bundler -v 1.6.2
+RUN /root/.rbenv/shims/gem install bundler -v 2.3.27

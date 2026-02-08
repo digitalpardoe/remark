@@ -32,4 +32,9 @@ class Admin::DocumentsController < AdminController
   def human_name
     "files"
   end
+
+  private
+  def document_params
+    params.require(:document).permit(:paperclip)
+  end
 end

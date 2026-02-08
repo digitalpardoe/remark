@@ -62,7 +62,7 @@ module AdminHelper
 
   def iconify(icon, text=nil)
     "".tap do |tag|
-      tag << "<i class=\"#{icon.to_s.gsub('_','-')}\"></i>"
+      tag << "<i class=\"glyphicon #{icon.to_s.gsub('icon_', 'glyphicon-')}\"></i>"
       if (text)
         tag << " #{text}"
       end

@@ -2,9 +2,9 @@ require 'spec_helper'
 
 describe Article do
   before(:each) do
-    FactoryGirl.create(:time_zone)
+    FactoryBot.create(:time_zone)
 
-    @user = FactoryGirl.create(:user)
+    @user = FactoryBot.create(:user)
     
     @article = Article.new
     @article.title = 'This Is A Test Title'

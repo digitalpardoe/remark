@@ -13,7 +13,7 @@ require 'spec_helper'
 
 describe "tracking code" do
   before(:each) do
-    @setting = FactoryGirl.create(:tracking)
+    @setting = FactoryBot.create(:tracking)
   end
   
   describe "in production environment" do
@@ -38,7 +38,7 @@ end
 
 describe "application name" do
   before(:each) do
-    @setting = FactoryGirl.create(:application_name)
+    @setting = FactoryBot.create(:application_name)
   end
   
   it "should be retrieved from the settings" do

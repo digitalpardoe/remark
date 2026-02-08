@@ -17,7 +17,7 @@ Download or clone (always from the most recent tag if you don't intend to do any
 
 	bundle install --without production
 	bundle exec rake db:migrate
-	bundle exec rails s thin
+	bundle exec rails s
 
 Navigate to _http://localhost:3000/admin_ and login using the default credentials:
 

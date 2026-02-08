@@ -1,19 +1,19 @@
 require File.expand_path("../../support/constants", __FILE__)
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :password, :class => User do
-    password PASSWORD
-    password_confirmation PASSWORD
+    password { PASSWORD }
+    password_confirmation { PASSWORD }
   end
-  
+
   factory :user, :parent => :password do
-    username 'user'
+    username { 'user' }
     email { "#{username}@example.com" }
     association :role, :factory => :user_role
   end
-  
+
   factory :admin, :parent => :password do
-    username 'admin'
+    username { 'admin' }
     email { "#{username}@example.com" }
     association :role, :factory => :user_role
     after(:create) do |admin|
@@ -21,7 +21,7 @@ FactoryGirl.define do
       admin.save!
     end
     after(:build) do |admin|
-      admin.role = FactoryGirl.create(:admin_role)
+      admin.role = FactoryBot.create(:admin_role)
     end
   end
 end

@@ -11,3 +11,4 @@ public/files
 .idea/workspace.xml
 .idea/tasks.xml
 public/assets
+settings.local.json

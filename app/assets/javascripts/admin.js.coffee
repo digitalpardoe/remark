@@ -1,8 +1,8 @@
 #= require jquery
 #= require jquery_ujs
-#= require jquery.ui.datepicker
-#= require jquery.ui.slider
-#= require jquery.ui.draggable
+#= require jquery-ui/widgets/datepicker
+#= require jquery-ui/widgets/slider
+#= require jquery-ui/widgets/draggable
 #= require jquery-ui-timepicker-addon
 #= require bootstrap
 

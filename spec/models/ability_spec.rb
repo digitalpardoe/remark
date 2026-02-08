@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Ability do
   before(:each) do
-    FactoryGirl.create(:time_zone)
+    FactoryBot.create(:time_zone)
 
     @normal_role = Role.new
     @normal_role.name = 'user'

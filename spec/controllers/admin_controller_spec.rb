@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe AdminController do
   before(:each) do
-    @admin = FactoryGirl.create(:admin)
+    @admin = FactoryBot.create(:admin)
   end
   
   describe "GET index" do

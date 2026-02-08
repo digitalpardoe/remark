@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe Admin::SettingsController do
   before(:each) do
-    @setting = FactoryGirl.create(:setting)
-    @user = FactoryGirl.create(:admin)
+    @setting = FactoryBot.create(:setting)
+    @user = FactoryBot.create(:admin)
     session[:user_id] = @user.id
   end
   
@@ -18,13 +18,13 @@ describe Admin::SettingsController do
   describe "GET 'show'" do
     it "should be successful" do
       get 'show'
-      response.should be_success
+      response.should be_successful
     end
   end
 
   describe "POST 'update'" do
     it "should be successful" do
-      post 'update', :setting => { @setting.id => "some new value" }
+      post 'update', params: { :setting => { @setting.id => "some new value" } }
       response.should redirect_to(:action => 'show')
     end
   end

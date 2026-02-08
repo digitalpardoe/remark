@@ -2,25 +2,25 @@ require 'spec_helper'
 
 describe UserSessionsController do
   before(:each) do
-    @user = FactoryGirl.create(:admin)
+    @user = FactoryBot.create(:admin)
   end
 
   describe "GET 'new'" do
     it "should be successful" do
       get 'new'
-      response.should be_success
+      response.should be_successful
     end
   end
 
   describe "PUT 'create'" do
     it "should be successful" do
-      put 'create', :user => { :username => @user.username, :password => PASSWORD }
+      put 'create', params: { :user => { :username => @user.username, :password => PASSWORD } }
       response.should redirect_to('/admin')
       flash[:success].should == "Logged in successfully."
     end
-    
+
     it "shouldn't be successful" do
-      put 'create', :user => { :username => @user.username, :password => PASSWORD[0..4] }
+      put 'create', params: { :user => { :username => @user.username, :password => PASSWORD[0..4] } }
       response.should redirect_to(:action => 'new')
       flash[:error].should == "Login unsuccessful."
     end

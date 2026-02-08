@@ -1,41 +1,35 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
 # Rails version
-gem 'rails', '4.0.3'
-gem 'rake', '10.1.1'
-
-# Additional Rails 4 gems
-gem 'protected_attributes', '1.0.5'
+gem 'rails', '6.1.7.8'
 
 # Required libraries
-gem 'bluecloth', '2.2.0'
+gem 'kramdown', '~> 2.4'
 gem 'RedCloth', '4.2.9'
-gem 'cancan', '1.6.10'
+gem 'cancancan', '~> 3.5'
 gem 'uuidtools', '2.1.4'
 gem 'gravtastic', '3.2.6'
-gem 'will_paginate', '3.0.4'
+gem 'will_paginate', '~> 4.0'
 
 # File uploading
-gem 'paperclip', '3.4.2'
-gem 'rmagick', '2.15.4'
+gem 'kt-paperclip', '~> 7.2'
+gem 'rmagick', '~> 5.3'
 
 # Other libraries
-gem 'jquery-rails', '2.2.1'
-gem 'jquery-ui-rails', '4.0.3'
-gem 'bootstrap-sass', '2.3.2.2'
+gem 'jquery-rails', '~> 4.3'
+gem 'jquery-ui-rails', '~> 6.0'
+gem 'bootstrap-sass', '~> 3.4'
 
 # Asset libraries
-gem 'sass-rails', '4.0.5'
-gem 'coffee-rails', '4.0.0'
-gem 'uglifier', '1.2.7'
+gem 'sass-rails', '~> 6.0'
+gem 'sprockets-rails', '~> 3.4'
+gem 'coffee-rails', '~> 4.2'
+gem 'uglifier', '~> 4.2'
 
-# Specific versions
-gem 'concurrent-ruby', '0.4.1'
-gem 'ffi', '1.9.25'
-gem 'rb-inotify', '0.9.3'
-gem 'uniform_notifier', '1.4.0'
-gem 'execjs', '2.0.2'
-gem 'thor', '0.18.1'
+# Boot speed
+gem 'bootsnap', require: false
+gem 'logger', '~> 1.5.0'
+gem 'listen'
 
 # Environment specific libraries
 group :production do
@@ -44,21 +38,19 @@ group :production do
 end
 
 group :development do
-  gem 'thin', '1.5.1'
-  gem 'bullet', '4.6.0'
-  gem 'better_errors', '0.9.0'
-  gem 'quiet_assets', '1.0.2'
+  gem 'puma', '~> 5.6'
+  gem 'bullet', '~> 7.0'
+  gem 'better_errors', '~> 2.10'
+  gem 'binding_of_caller'
 end
 
 group :development, :test do
-  gem 'sqlite3', '1.3.7'
+  gem 'sqlite3', '~> 1.4'
 end
 
 group :test do
-  gem 'rspec-rails', '2.13.1'
-  gem 'factory_girl_rails', '4.2.1'
-  gem 'simplecov', '0.7.1'
-  gem 'multi_json', '1.7.3'
-  gem 'json', '1.7.7'
-  gem 'ZenTest', '4.11.2'
+  gem 'rails-controller-testing'
+  gem 'rspec-rails', '~> 5.1'
+  gem 'factory_bot_rails', '~> 6.2'
+  gem 'simplecov', '~> 0.22'
 end

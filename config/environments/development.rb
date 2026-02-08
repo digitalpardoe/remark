@@ -16,22 +16,20 @@ Remark::Application.configure do
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
 
-  # Only use best-standards-support built into browsers
-  config.action_dispatch.best_standards_support = :builtin
-
-  # Do not compress assets
-  config.assets.compress = false
-
   # Expands the lines which load the assets
   config.assets.debug = true
-  
-  # For Rails 4
+
+  # Suppress asset pipeline log output
+  config.assets.quiet = true
+
   config.eager_load = false
-  
+
+  # Use an evented file watcher
+  config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
   # For Bullet
   config.after_initialize do
     Bullet.enable = true
     Bullet.bullet_logger = true
   end
 end
-

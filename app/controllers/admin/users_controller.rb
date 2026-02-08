@@ -1,9 +1,9 @@
 class Admin::UsersController < AdminController
   load_and_authorize_resource
-  
+
   def index
     @users = User.all
-    
+
     respond_to do |format|
       format.html
     end
@@ -33,7 +33,7 @@ class Admin::UsersController < AdminController
 
   def update
     respond_to do |format|
-      if @user.update_attributes(params[:user])
+      if @user.update(user_params)
         format.html { redirect_to(admin_users_path, :flash => { :info => "User updated." }) }
       else
         format.html { render :action => "edit" }
@@ -43,9 +43,14 @@ class Admin::UsersController < AdminController
 
   def destroy
     @user.destroy
-    
+
     respond_to do |format|
       format.html { redirect_to(admin_users_path, :flash => { :error => "User removed." }) }
     end
+  end
+
+  private
+  def user_params
+    params.require(:user).permit(:username, :email, :password, :password_confirmation, :website, :role_id)
   end
 end
