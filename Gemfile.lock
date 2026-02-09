@@ -191,8 +191,6 @@ GEM
       racc (~> 1.4)
     nokogiri (1.19.0-x86_64-linux-musl)
       racc (~> 1.4)
-    observer (0.1.2)
-    pkg-config (1.6.5)
     pp (0.6.3)
       prettyprint
     prettyprint (0.2.0)
@@ -254,9 +252,6 @@ GEM
     reline (0.6.3)
       io-console (~> 0.5)
     rexml (3.4.4)
-    rmagick (5.5.0)
-      observer (~> 0.1)
-      pkg-config (~> 1.4)
     rouge (4.7.0)
     rspec-core (3.13.6)
       rspec-support (~> 3.13.0)
@@ -356,7 +351,6 @@ DEPENDENCIES
   puma (~> 6.0)
   rails (= 7.2.3)
   rails-controller-testing
-  rmagick (~> 5.3)
   rspec-rails (~> 6.1)
   sass-rails (~> 6.0)
   simplecov (~> 0.22)
@@ -367,4 +361,4 @@ DEPENDENCIES
   will_paginate (~> 4.0)
 
 BUNDLED WITH
-   2.6.9
+   4.0.6

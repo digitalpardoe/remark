@@ -13,7 +13,7 @@ gem 'will_paginate', '~> 4.0'
 
 # File uploading
 gem 'kt-paperclip', '~> 7.2'
-gem 'rmagick', '~> 5.3'
+# gem 'rmagick', '~> 5.3'  # Requires ImageMagick development libraries
 
 # Other libraries
 gem 'jquery-rails', '~> 4.3'
