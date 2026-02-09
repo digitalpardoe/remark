@@ -18,10 +18,10 @@ gem 'kt-paperclip', '~> 7.2'
 # Other libraries
 gem 'jquery-rails', '~> 4.3'
 gem 'jquery-ui-rails', '~> 6.0'
-gem 'bootstrap-sass', '~> 3.4'
+gem 'bootstrap', '~> 5.3'
 
 # Asset libraries
-gem 'sass-rails', '~> 6.0'
+gem 'dartsass-sprockets', '~> 3.1'
 gem 'sprockets-rails', '~> 3.4'
 gem 'terser', '~> 1.2'
 

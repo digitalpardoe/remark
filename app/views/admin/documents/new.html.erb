@@ -1,18 +1,14 @@
 <% title("New File") %>
 
-<%= form_for(@document, :url => admin_documents_path, :html => {:multipart => true, :class => "form-horizontal" }) do |f| %>
+<%= form_for(@document, :url => admin_documents_path, :html => {:multipart => true}) do |f| %>
     <%= error_messages_for(@document) %>
 
-    <fieldset>
-      <div class="control-group">
-        <%= f.label :paperclip, "File", :class => "control-label" %>
-        <div class="controls">
-          <%= f.file_field :paperclip %>
-        </div>
-      </div>
+    <div class="mb-3">
+      <%= f.label :paperclip, "File", :class => "form-label" %>
+      <%= f.file_field :paperclip, :class => "form-control" %>
+    </div>
 
-      <div class="form-actions">
-        <%= f.submit "Upload", :class => ["btn", "btn-primary"] %>
-      </div>
-    </fieldset>
+    <div class="mt-3">
+      <%= f.submit "Upload", :class => ["btn", "btn-primary"] %>
+    </div>
 <% end %>

@@ -1,10 +1,12 @@
+@use "sass:math";
+
 // Start Vars
 
 $background-color: #FFFFFF;
 $dark-border-style: 1px #333 solid;
 $light-border-style: 1px #999 solid;
 $border-radius: 10px;
-$smaller-border: $border-radius / 2;
+$smaller-border: math.div($border-radius, 2);
 
 // Start Mixins
 

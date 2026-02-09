@@ -4,10 +4,7 @@
 	<meta charset="utf-8" />
   <title><%= setting(:name) %></title>
   <%= stylesheet_link_tag "session" %>
-	<!--[if lt IE 9]>
-		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
-  <%= csrf_meta_tags %>
+	<%= csrf_meta_tags %>
 </head>
 <body>
 	<% flash.each do |key, msg| %>

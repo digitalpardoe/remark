@@ -1,0 +1,26 @@
+@import "jquery-ui/datepicker";
+@import "jquery-ui/slider";
+@import "bootstrap";
+
+body {
+  margin-top: 20px;
+}
+
+// Style button_to forms inline within tables and nav
+.btn-link-inline {
+  display: inline;
+  padding: 0;
+  border: none;
+  background: none;
+
+  .btn-link {
+    padding: 0;
+    border: none;
+    vertical-align: baseline;
+  }
+}
+
+// EasyMDE editor fills its container
+.EasyMDEContainer {
+  width: 100%;
+}

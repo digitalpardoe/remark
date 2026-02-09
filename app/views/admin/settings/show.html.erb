@@ -1,17 +1,12 @@
-<%= form_for :setting, :url => {:action => "update"}, :html => {:method => :put, :class => "form-horizontal"} do |f| %>
-    <fieldset>
-      <% for setting in @settings %>
-          <div class="control-group">
-            <%= f.label setting.id, setting.human_readable, :class => "control-label" %>
-            <div class="controls">
-              <%= field_for(setting, f) %>
-            </div>
-          </div>
-
-      <% end %>
-
-      <div class="form-actions">
-        <%= f.submit "Save", :class => ["btn", "btn-primary"] %>
+<%= form_for :setting, :url => {:action => "update"}, :html => {:method => :put} do |f| %>
+    <% for setting in @settings %>
+      <div class="mb-3">
+        <%= f.label setting.id, setting.human_readable, :class => "form-label" %>
+        <%= field_for(setting, f) %>
       </div>
-    </fieldset>
+    <% end %>
+
+    <div class="mt-3">
+      <%= f.submit "Save", :class => ["btn", "btn-primary"] %>
+    </div>
 <% end %>

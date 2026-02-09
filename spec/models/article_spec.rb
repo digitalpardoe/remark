@@ -26,11 +26,8 @@ describe Article do
   
   it "doesn't allow resetting of uuid" do
     @article.save!
-    uuid = @article.uuid
     article = Article.find(@article.id)
-    article.uuid = 'random-string'
-    article.save!
-    Article.find(@article.id).uuid.should == uuid
+    lambda { article.uuid = 'random-string' }.should raise_error(ActiveRecord::ReadonlyAttributeError)
   end
   
   it "set the published date when the article is no longer a draft" do
