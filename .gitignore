@@ -12,3 +12,25 @@ public/files
 .idea/tasks.xml
 public/assets
 settings.local.json
+
+# Generated binstubs (keep only bin/rails, bin/rake, bin/rspec)
+bin/bootsnap
+bin/bundle
+bin/erb
+bin/htmldiff
+bin/irb
+bin/kramdown
+bin/ldiff
+bin/minitest
+bin/nokogiri
+bin/puma
+bin/pumactl
+bin/racc
+bin/rackup
+bin/rdoc
+bin/redcloth
+bin/ri
+bin/rougify
+bin/sprockets
+bin/thor
+bin/tilt
