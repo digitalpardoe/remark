@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2013_04_11_095908) do
-
+ActiveRecord::Schema[7.2].define(version: 2013_04_11_095908) do
   create_table "articles", force: :cascade do |t|
     t.string "title", limit: 255
     t.text "body"
@@ -97,5 +96,4 @@ ActiveRecord::Schema.define(version: 2013_04_11_095908) do
     t.string "website", limit: 255
     t.index ["username"], name: "index_users_on_username", unique: true
   end
-
 end

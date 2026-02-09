@@ -26,7 +26,7 @@ fi
 rbenv shell "$RUBY_VERSION"
 
 # Install bundler (matching lockfile version) and gems
-gem install bundler -v '~> 2.6' --no-document --conservative
+gem install bundler --no-document --conservative
 bundle config set --local without 'production'
 bundle install
 
